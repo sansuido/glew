@@ -1,0 +1,17 @@
+name: glew
+description: A Dart library for accessing common glew APIs using, FFI.
+homepage: https://github.com/sansuido/glew
+repository: https://github.com/sansuido/glew
+
+environment:
+  sdk: '>=2.13.4 <3.0.0'
+
+dependencies:
+  ffi: ^1.1.2
+
+dev_dependencies:
+  glfw3: ^1.0.0
+  image: ^3.0.2
+  sdl2: ^1.0.10
+  vector_math: ^2.1.0
+
