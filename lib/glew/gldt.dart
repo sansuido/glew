@@ -32,12 +32,27 @@ List<int> gldtGenTextures(int n) {
   return list;
 }
 
-// gl: 3030
-void gldtTexImage2D(int target, int level, int internalformat, int width, int height, int border, int format, Uint8List pixels) {
+Pointer<Uint8> _callocPixelsPointer(Uint8List pixels, int height, bool inverted) {
   var pixelsPointer = calloc<Uint8>(pixels.length);
-  for (var i = 0; i < pixels.length; i++) {
-    pixelsPointer.elementAt(i).value = pixels[i];
+  var radix = pixels.length ~/ height;
+  var index = 0;
+  for (var h = 0; h < height; h++) {
+    var pos = h;
+    if (inverted == true) {
+      pos = height - h - 1;
+    }
+    var values = pixels.getRange(pos * radix, (pos + 1) * radix);
+    for (var value in values) {
+      pixelsPointer.elementAt(index).value = value;
+      index++;
+    }
   }
+  return pixelsPointer;
+}
+
+// gl: 3030
+void gldtTexImage2D(int target, int level, int internalformat, int width, int height, int border, int format, Uint8List pixels, {bool inverted = true}) {
+  var pixelsPointer = _callocPixelsPointer(pixels, height, inverted);
   glTexImage2D(target, level, internalformat, width, height, border, format, GL_UNSIGNED_BYTE, pixelsPointer.cast<Void>());
   calloc.free(pixelsPointer);
 }
