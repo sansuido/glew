@@ -3,35 +3,40 @@ import 'dart:ffi';
 
 /// ------------------------ GL_EXT_win32_keyed_mutex -----------------------
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glAcquireKeyedMutexWin32EXT;
+late Pointer<NativeFunction<Void Function()>> _glAcquireKeyedMutexWin32Ext;
+
 /// ```c
 /// define glAcquireKeyedMutexWin32EXT GLEW_GET_FUN(__glewAcquireKeyedMutexWin32EXT)
 /// GLEW_FUN_EXPORT PFNGLACQUIREKEYEDMUTEXWIN32EXTPROC __glewAcquireKeyedMutexWin32EXT
 /// typedef GLboolean (GLAPIENTRY * PFNGLACQUIREKEYEDMUTEXWIN32EXTPROC) (GLuint memory, GLuint64 key, GLuint timeout)
 /// ```
-int glAcquireKeyedMutexWin32EXT(int memory, int key, int timeout) {
-  final _glAcquireKeyedMutexWin32EXT = glad__glAcquireKeyedMutexWin32EXT!
-      .cast<NativeFunction<Uint8 Function(Uint32 memory, Uint64 key, Uint32 timeout)>>()
+int glAcquireKeyedMutexWin32Ext(int memory, int key, int timeout) {
+  final glAcquireKeyedMutexWin32ExtAsFunction = _glAcquireKeyedMutexWin32Ext
+      .cast<
+          NativeFunction<
+              Uint8 Function(Uint32 memory, Uint64 key, Uint32 timeout)>>()
       .asFunction<int Function(int memory, int key, int timeout)>();
-  return _glAcquireKeyedMutexWin32EXT(memory, key, timeout);
+  return glAcquireKeyedMutexWin32ExtAsFunction(memory, key, timeout);
 }
 
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glReleaseKeyedMutexWin32EXT;
+late Pointer<NativeFunction<Void Function()>> _glReleaseKeyedMutexWin32Ext;
+
 /// ```c
 /// define glReleaseKeyedMutexWin32EXT GLEW_GET_FUN(__glewReleaseKeyedMutexWin32EXT)
 /// GLEW_FUN_EXPORT PFNGLRELEASEKEYEDMUTEXWIN32EXTPROC __glewReleaseKeyedMutexWin32EXT
 /// typedef GLboolean (GLAPIENTRY * PFNGLRELEASEKEYEDMUTEXWIN32EXTPROC) (GLuint memory, GLuint64 key)
 /// ```
-int glReleaseKeyedMutexWin32EXT(int memory, int key) {
-  final _glReleaseKeyedMutexWin32EXT = glad__glReleaseKeyedMutexWin32EXT!
+int glReleaseKeyedMutexWin32Ext(int memory, int key) {
+  final glReleaseKeyedMutexWin32ExtAsFunction = _glReleaseKeyedMutexWin32Ext
       .cast<NativeFunction<Uint8 Function(Uint32 memory, Uint64 key)>>()
       .asFunction<int Function(int memory, int key)>();
-  return _glReleaseKeyedMutexWin32EXT(memory, key);
+  return glReleaseKeyedMutexWin32ExtAsFunction(memory, key);
 }
 
 /// @nodoc
-void gladLoadGLLoader_ext_win32_keyed_mutex(Pointer<NativeFunction<Void Function()>> Function(String) load) {
-  glad__glAcquireKeyedMutexWin32EXT = load('glAcquireKeyedMutexWin32EXT');
-  glad__glReleaseKeyedMutexWin32EXT = load('glReleaseKeyedMutexWin32EXT');
+void gladLoadGlLoaderExtWin32KeyedMutex(
+    Pointer<NativeFunction<Void Function()>> Function(String) load) {
+  _glAcquireKeyedMutexWin32Ext = load('glAcquireKeyedMutexWin32EXT');
+  _glReleaseKeyedMutexWin32Ext = load('glReleaseKeyedMutexWin32EXT');
 }

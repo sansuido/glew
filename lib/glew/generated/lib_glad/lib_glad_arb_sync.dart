@@ -3,110 +3,129 @@ import 'dart:ffi';
 
 /// ------------------------------ GL_ARB_sync ------------------------------
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glClientWaitSync;
+late Pointer<NativeFunction<Void Function()>> _glClientWaitSync;
+
 /// ```c
 /// define glClientWaitSync GLEW_GET_FUN(__glewClientWaitSync)
 /// GLEW_FUN_EXPORT PFNGLCLIENTWAITSYNCPROC __glewClientWaitSync
 /// typedef GLenum (GLAPIENTRY * PFNGLCLIENTWAITSYNCPROC) (GLsync GLsync,GLbitfield flags,GLuint64 timeout)
 /// ```
-int glClientWaitSync(int GLsync, int flags, int timeout) {
-  final _glClientWaitSync = glad__glClientWaitSync!
-      .cast<NativeFunction<Uint32 Function(Uint64 GLsync, Uint32 flags, Uint64 timeout)>>()
-      .asFunction<int Function(int GLsync, int flags, int timeout)>();
-  return _glClientWaitSync(GLsync, flags, timeout);
+int glClientWaitSync(int gLsync, int flags, int timeout) {
+  final glClientWaitSyncAsFunction = _glClientWaitSync
+      .cast<
+          NativeFunction<
+              Uint32 Function(Uint64 gLsync, Uint32 flags, Uint64 timeout)>>()
+      .asFunction<int Function(int gLsync, int flags, int timeout)>();
+  return glClientWaitSyncAsFunction(gLsync, flags, timeout);
 }
 
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glDeleteSync;
+late Pointer<NativeFunction<Void Function()>> _glDeleteSync;
+
 /// ```c
 /// define glDeleteSync GLEW_GET_FUN(__glewDeleteSync)
 /// GLEW_FUN_EXPORT PFNGLDELETESYNCPROC __glewDeleteSync
 /// typedef void (GLAPIENTRY * PFNGLDELETESYNCPROC) (GLsync GLsync)
 /// ```
-void glDeleteSync(int GLsync) {
-  final _glDeleteSync = glad__glDeleteSync!
-      .cast<NativeFunction<Void Function(Uint64 GLsync)>>()
-      .asFunction<void Function(int GLsync)>();
-  return _glDeleteSync(GLsync);
+void glDeleteSync(int gLsync) {
+  final glDeleteSyncAsFunction = _glDeleteSync
+      .cast<NativeFunction<Void Function(Uint64 gLsync)>>()
+      .asFunction<void Function(int gLsync)>();
+  return glDeleteSyncAsFunction(gLsync);
 }
 
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glFenceSync;
+late Pointer<NativeFunction<Void Function()>> _glFenceSync;
+
 /// ```c
 /// define glFenceSync GLEW_GET_FUN(__glewFenceSync)
 /// GLEW_FUN_EXPORT PFNGLFENCESYNCPROC __glewFenceSync
 /// typedef GLsync (GLAPIENTRY * PFNGLFENCESYNCPROC) (GLenum condition,GLbitfield flags)
 /// ```
 int glFenceSync(int condition, int flags) {
-  final _glFenceSync = glad__glFenceSync!
+  final glFenceSyncAsFunction = _glFenceSync
       .cast<NativeFunction<Uint64 Function(Uint32 condition, Uint32 flags)>>()
       .asFunction<int Function(int condition, int flags)>();
-  return _glFenceSync(condition, flags);
+  return glFenceSyncAsFunction(condition, flags);
 }
 
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glGetInteger64v;
+late Pointer<NativeFunction<Void Function()>> _glGetInteger64v;
+
 /// ```c
 /// define glGetInteger64v GLEW_GET_FUN(__glewGetInteger64v)
 /// GLEW_FUN_EXPORT PFNGLGETINTEGER64VPROC __glewGetInteger64v
 /// typedef void (GLAPIENTRY * PFNGLGETINTEGER64VPROC) (GLenum pname, GLint64* params)
 /// ```
-void glGetInteger64v(int pname, Pointer<Int64>? params) {
-  final _glGetInteger64v = glad__glGetInteger64v!
-      .cast<NativeFunction<Void Function(Uint32 pname, Pointer<Int64>? params)>>()
-      .asFunction<void Function(int pname, Pointer<Int64>? params)>();
-  return _glGetInteger64v(pname, params);
+void glGetInteger64v(int pname, Pointer<Int64> params) {
+  final glGetInteger64vAsFunction = _glGetInteger64v
+      .cast<
+          NativeFunction<Void Function(Uint32 pname, Pointer<Int64> params)>>()
+      .asFunction<void Function(int pname, Pointer<Int64> params)>();
+  return glGetInteger64vAsFunction(pname, params);
 }
 
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glGetSynciv;
+late Pointer<NativeFunction<Void Function()>> _glGetSynciv;
+
 /// ```c
 /// define glGetSynciv GLEW_GET_FUN(__glewGetSynciv)
 /// GLEW_FUN_EXPORT PFNGLGETSYNCIVPROC __glewGetSynciv
 /// typedef void (GLAPIENTRY * PFNGLGETSYNCIVPROC) (GLsync GLsync,GLenum pname,GLsizei bufSize,GLsizei* length, GLint *values)
 /// ```
-void glGetSynciv(int GLsync, int pname, int bufSize, Pointer<Uint32>? length, Pointer<Int32>? values) {
-  final _glGetSynciv = glad__glGetSynciv!
-      .cast<NativeFunction<Void Function(Uint64 GLsync, Uint32 pname, Uint32 bufSize, Pointer<Uint32>? length, Pointer<Int32>? values)>>()
-      .asFunction<void Function(int GLsync, int pname, int bufSize, Pointer<Uint32>? length, Pointer<Int32>? values)>();
-  return _glGetSynciv(GLsync, pname, bufSize, length, values);
+void glGetSynciv(int gLsync, int pname, int bufSize, Pointer<Uint32> length,
+    Pointer<Int32> values) {
+  final glGetSyncivAsFunction = _glGetSynciv
+      .cast<
+          NativeFunction<
+              Void Function(Uint64 gLsync, Uint32 pname, Uint32 bufSize,
+                  Pointer<Uint32> length, Pointer<Int32> values)>>()
+      .asFunction<
+          void Function(int gLsync, int pname, int bufSize,
+              Pointer<Uint32> length, Pointer<Int32> values)>();
+  return glGetSyncivAsFunction(gLsync, pname, bufSize, length, values);
 }
 
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glIsSync;
+late Pointer<NativeFunction<Void Function()>> _glIsSync;
+
 /// ```c
 /// define glIsSync GLEW_GET_FUN(__glewIsSync)
 /// GLEW_FUN_EXPORT PFNGLISSYNCPROC __glewIsSync
 /// typedef GLboolean (GLAPIENTRY * PFNGLISSYNCPROC) (GLsync GLsync)
 /// ```
-int glIsSync(int GLsync) {
-  final _glIsSync = glad__glIsSync!
-      .cast<NativeFunction<Uint8 Function(Uint64 GLsync)>>()
-      .asFunction<int Function(int GLsync)>();
-  return _glIsSync(GLsync);
+int glIsSync(int gLsync) {
+  final glIsSyncAsFunction = _glIsSync
+      .cast<NativeFunction<Uint8 Function(Uint64 gLsync)>>()
+      .asFunction<int Function(int gLsync)>();
+  return glIsSyncAsFunction(gLsync);
 }
 
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glWaitSync;
+late Pointer<NativeFunction<Void Function()>> _glWaitSync;
+
 /// ```c
 /// define glWaitSync GLEW_GET_FUN(__glewWaitSync)
 /// GLEW_FUN_EXPORT PFNGLWAITSYNCPROC __glewWaitSync
 /// typedef void (GLAPIENTRY * PFNGLWAITSYNCPROC) (GLsync GLsync,GLbitfield flags,GLuint64 timeout)
 /// ```
-void glWaitSync(int GLsync, int flags, int timeout) {
-  final _glWaitSync = glad__glWaitSync!
-      .cast<NativeFunction<Void Function(Uint64 GLsync, Uint32 flags, Uint64 timeout)>>()
-      .asFunction<void Function(int GLsync, int flags, int timeout)>();
-  return _glWaitSync(GLsync, flags, timeout);
+void glWaitSync(int gLsync, int flags, int timeout) {
+  final glWaitSyncAsFunction = _glWaitSync
+      .cast<
+          NativeFunction<
+              Void Function(Uint64 gLsync, Uint32 flags, Uint64 timeout)>>()
+      .asFunction<void Function(int gLsync, int flags, int timeout)>();
+  return glWaitSyncAsFunction(gLsync, flags, timeout);
 }
 
 /// @nodoc
-void gladLoadGLLoader_arb_sync(Pointer<NativeFunction<Void Function()>> Function(String) load) {
-  glad__glClientWaitSync = load('glClientWaitSync');
-  glad__glDeleteSync = load('glDeleteSync');
-  glad__glFenceSync = load('glFenceSync');
-  glad__glGetInteger64v = load('glGetInteger64v');
-  glad__glGetSynciv = load('glGetSynciv');
-  glad__glIsSync = load('glIsSync');
-  glad__glWaitSync = load('glWaitSync');
+void gladLoadGlLoaderArbSync(
+    Pointer<NativeFunction<Void Function()>> Function(String) load) {
+  _glClientWaitSync = load('glClientWaitSync');
+  _glDeleteSync = load('glDeleteSync');
+  _glFenceSync = load('glFenceSync');
+  _glGetInteger64v = load('glGetInteger64v');
+  _glGetSynciv = load('glGetSynciv');
+  _glIsSync = load('glIsSync');
+  _glWaitSync = load('glWaitSync');
 }

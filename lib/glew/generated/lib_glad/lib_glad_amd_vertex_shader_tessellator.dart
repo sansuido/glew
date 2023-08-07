@@ -3,35 +3,38 @@ import 'dart:ffi';
 
 /// -------------------- GL_AMD_vertex_shader_tessellator -------------------
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glTessellationFactorAMD;
+late Pointer<NativeFunction<Void Function()>> _glTessellationFactorAmd;
+
 /// ```c
 /// define glTessellationFactorAMD GLEW_GET_FUN(__glewTessellationFactorAMD)
 /// GLEW_FUN_EXPORT PFNGLTESSELLATIONFACTORAMDPROC __glewTessellationFactorAMD
 /// typedef void (GLAPIENTRY * PFNGLTESSELLATIONFACTORAMDPROC) (GLfloat factor)
 /// ```
-void glTessellationFactorAMD(double factor) {
-  final _glTessellationFactorAMD = glad__glTessellationFactorAMD!
+void glTessellationFactorAmd(double factor) {
+  final glTessellationFactorAmdAsFunction = _glTessellationFactorAmd
       .cast<NativeFunction<Void Function(Float factor)>>()
       .asFunction<void Function(double factor)>();
-  return _glTessellationFactorAMD(factor);
+  return glTessellationFactorAmdAsFunction(factor);
 }
 
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glTessellationModeAMD;
+late Pointer<NativeFunction<Void Function()>> _glTessellationModeAmd;
+
 /// ```c
 /// define glTessellationModeAMD GLEW_GET_FUN(__glewTessellationModeAMD)
 /// GLEW_FUN_EXPORT PFNGLTESSELLATIONMODEAMDPROC __glewTessellationModeAMD
 /// typedef void (GLAPIENTRY * PFNGLTESSELLATIONMODEAMDPROC) (GLenum mode)
 /// ```
-void glTessellationModeAMD(int mode) {
-  final _glTessellationModeAMD = glad__glTessellationModeAMD!
+void glTessellationModeAmd(int mode) {
+  final glTessellationModeAmdAsFunction = _glTessellationModeAmd
       .cast<NativeFunction<Void Function(Uint32 mode)>>()
       .asFunction<void Function(int mode)>();
-  return _glTessellationModeAMD(mode);
+  return glTessellationModeAmdAsFunction(mode);
 }
 
 /// @nodoc
-void gladLoadGLLoader_amd_vertex_shader_tessellator(Pointer<NativeFunction<Void Function()>> Function(String) load) {
-  glad__glTessellationFactorAMD = load('glTessellationFactorAMD');
-  glad__glTessellationModeAMD = load('glTessellationModeAMD');
+void gladLoadGlLoaderAmdVertexShaderTessellator(
+    Pointer<NativeFunction<Void Function()>> Function(String) load) {
+  _glTessellationFactorAmd = load('glTessellationFactorAMD');
+  _glTessellationModeAmd = load('glTessellationModeAMD');
 }

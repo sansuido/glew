@@ -3,20 +3,22 @@ import 'dart:ffi';
 
 /// --------------------- GL_KHR_blend_equation_advanced --------------------
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glBlendBarrierKHR;
+late Pointer<NativeFunction<Void Function()>> _glBlendBarrierKhr;
+
 /// ```c
 /// define glBlendBarrierKHR GLEW_GET_FUN(__glewBlendBarrierKHR)
 /// GLEW_FUN_EXPORT PFNGLBLENDBARRIERKHRPROC __glewBlendBarrierKHR
 /// typedef void (GLAPIENTRY * PFNGLBLENDBARRIERKHRPROC) (void)
 /// ```
-void glBlendBarrierKHR() {
-  final _glBlendBarrierKHR = glad__glBlendBarrierKHR!
+void glBlendBarrierKhr() {
+  final glBlendBarrierKhrAsFunction = _glBlendBarrierKhr
       .cast<NativeFunction<Void Function()>>()
       .asFunction<void Function()>();
-  return _glBlendBarrierKHR();
+  return glBlendBarrierKhrAsFunction();
 }
 
 /// @nodoc
-void gladLoadGLLoader_khr_blend_equation_advanced(Pointer<NativeFunction<Void Function()>> Function(String) load) {
-  glad__glBlendBarrierKHR = load('glBlendBarrierKHR');
+void gladLoadGlLoaderKhrBlendEquationAdvanced(
+    Pointer<NativeFunction<Void Function()>> Function(String) load) {
+  _glBlendBarrierKhr = load('glBlendBarrierKHR');
 }

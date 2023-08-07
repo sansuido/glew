@@ -3,110 +3,121 @@ import 'dart:ffi';
 
 /// ------------------------------ GL_NV_fence ------------------------------
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glDeleteFencesNV;
+late Pointer<NativeFunction<Void Function()>> _glDeleteFencesNv;
+
 /// ```c
 /// define glDeleteFencesNV GLEW_GET_FUN(__glewDeleteFencesNV)
 /// GLEW_FUN_EXPORT PFNGLDELETEFENCESNVPROC __glewDeleteFencesNV
 /// typedef void (GLAPIENTRY * PFNGLDELETEFENCESNVPROC) (GLsizei n, const GLuint* fences)
 /// ```
-void glDeleteFencesNV(int n, Pointer<Uint32>? fences) {
-  final _glDeleteFencesNV = glad__glDeleteFencesNV!
-      .cast<NativeFunction<Void Function(Uint32 n, Pointer<Uint32>? fences)>>()
-      .asFunction<void Function(int n, Pointer<Uint32>? fences)>();
-  return _glDeleteFencesNV(n, fences);
+void glDeleteFencesNv(int n, Pointer<Uint32> fences) {
+  final glDeleteFencesNvAsFunction = _glDeleteFencesNv
+      .cast<NativeFunction<Void Function(Uint32 n, Pointer<Uint32> fences)>>()
+      .asFunction<void Function(int n, Pointer<Uint32> fences)>();
+  return glDeleteFencesNvAsFunction(n, fences);
 }
 
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glFinishFenceNV;
+late Pointer<NativeFunction<Void Function()>> _glFinishFenceNv;
+
 /// ```c
 /// define glFinishFenceNV GLEW_GET_FUN(__glewFinishFenceNV)
 /// GLEW_FUN_EXPORT PFNGLFINISHFENCENVPROC __glewFinishFenceNV
 /// typedef void (GLAPIENTRY * PFNGLFINISHFENCENVPROC) (GLuint fence)
 /// ```
-void glFinishFenceNV(int fence) {
-  final _glFinishFenceNV = glad__glFinishFenceNV!
+void glFinishFenceNv(int fence) {
+  final glFinishFenceNvAsFunction = _glFinishFenceNv
       .cast<NativeFunction<Void Function(Uint32 fence)>>()
       .asFunction<void Function(int fence)>();
-  return _glFinishFenceNV(fence);
+  return glFinishFenceNvAsFunction(fence);
 }
 
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glGenFencesNV;
+late Pointer<NativeFunction<Void Function()>> _glGenFencesNv;
+
 /// ```c
 /// define glGenFencesNV GLEW_GET_FUN(__glewGenFencesNV)
 /// GLEW_FUN_EXPORT PFNGLGENFENCESNVPROC __glewGenFencesNV
 /// typedef void (GLAPIENTRY * PFNGLGENFENCESNVPROC) (GLsizei n, GLuint* fences)
 /// ```
-void glGenFencesNV(int n, Pointer<Uint32>? fences) {
-  final _glGenFencesNV = glad__glGenFencesNV!
-      .cast<NativeFunction<Void Function(Uint32 n, Pointer<Uint32>? fences)>>()
-      .asFunction<void Function(int n, Pointer<Uint32>? fences)>();
-  return _glGenFencesNV(n, fences);
+void glGenFencesNv(int n, Pointer<Uint32> fences) {
+  final glGenFencesNvAsFunction = _glGenFencesNv
+      .cast<NativeFunction<Void Function(Uint32 n, Pointer<Uint32> fences)>>()
+      .asFunction<void Function(int n, Pointer<Uint32> fences)>();
+  return glGenFencesNvAsFunction(n, fences);
 }
 
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glGetFenceivNV;
+late Pointer<NativeFunction<Void Function()>> _glGetFenceivNv;
+
 /// ```c
 /// define glGetFenceivNV GLEW_GET_FUN(__glewGetFenceivNV)
 /// GLEW_FUN_EXPORT PFNGLGETFENCEIVNVPROC __glewGetFenceivNV
 /// typedef void (GLAPIENTRY * PFNGLGETFENCEIVNVPROC) (GLuint fence, GLenum pname, GLint* params)
 /// ```
-void glGetFenceivNV(int fence, int pname, Pointer<Int32>? params) {
-  final _glGetFenceivNV = glad__glGetFenceivNV!
-      .cast<NativeFunction<Void Function(Uint32 fence, Uint32 pname, Pointer<Int32>? params)>>()
-      .asFunction<void Function(int fence, int pname, Pointer<Int32>? params)>();
-  return _glGetFenceivNV(fence, pname, params);
+void glGetFenceivNv(int fence, int pname, Pointer<Int32> params) {
+  final glGetFenceivNvAsFunction = _glGetFenceivNv
+      .cast<
+          NativeFunction<
+              Void Function(
+                  Uint32 fence, Uint32 pname, Pointer<Int32> params)>>()
+      .asFunction<void Function(int fence, int pname, Pointer<Int32> params)>();
+  return glGetFenceivNvAsFunction(fence, pname, params);
 }
 
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glIsFenceNV;
+late Pointer<NativeFunction<Void Function()>> _glIsFenceNv;
+
 /// ```c
 /// define glIsFenceNV GLEW_GET_FUN(__glewIsFenceNV)
 /// GLEW_FUN_EXPORT PFNGLISFENCENVPROC __glewIsFenceNV
 /// typedef GLboolean (GLAPIENTRY * PFNGLISFENCENVPROC) (GLuint fence)
 /// ```
-int glIsFenceNV(int fence) {
-  final _glIsFenceNV = glad__glIsFenceNV!
+int glIsFenceNv(int fence) {
+  final glIsFenceNvAsFunction = _glIsFenceNv
       .cast<NativeFunction<Uint8 Function(Uint32 fence)>>()
       .asFunction<int Function(int fence)>();
-  return _glIsFenceNV(fence);
+  return glIsFenceNvAsFunction(fence);
 }
 
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glSetFenceNV;
+late Pointer<NativeFunction<Void Function()>> _glSetFenceNv;
+
 /// ```c
 /// define glSetFenceNV GLEW_GET_FUN(__glewSetFenceNV)
 /// GLEW_FUN_EXPORT PFNGLSETFENCENVPROC __glewSetFenceNV
 /// typedef void (GLAPIENTRY * PFNGLSETFENCENVPROC) (GLuint fence, GLenum condition)
 /// ```
-void glSetFenceNV(int fence, int condition) {
-  final _glSetFenceNV = glad__glSetFenceNV!
+void glSetFenceNv(int fence, int condition) {
+  final glSetFenceNvAsFunction = _glSetFenceNv
       .cast<NativeFunction<Void Function(Uint32 fence, Uint32 condition)>>()
       .asFunction<void Function(int fence, int condition)>();
-  return _glSetFenceNV(fence, condition);
+  return glSetFenceNvAsFunction(fence, condition);
 }
 
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glTestFenceNV;
+late Pointer<NativeFunction<Void Function()>> _glTestFenceNv;
+
 /// ```c
 /// define glTestFenceNV GLEW_GET_FUN(__glewTestFenceNV)
 /// GLEW_FUN_EXPORT PFNGLTESTFENCENVPROC __glewTestFenceNV
 /// typedef GLboolean (GLAPIENTRY * PFNGLTESTFENCENVPROC) (GLuint fence)
 /// ```
-int glTestFenceNV(int fence) {
-  final _glTestFenceNV = glad__glTestFenceNV!
+int glTestFenceNv(int fence) {
+  final glTestFenceNvAsFunction = _glTestFenceNv
       .cast<NativeFunction<Uint8 Function(Uint32 fence)>>()
       .asFunction<int Function(int fence)>();
-  return _glTestFenceNV(fence);
+  return glTestFenceNvAsFunction(fence);
 }
 
 /// @nodoc
-void gladLoadGLLoader_nv_fence(Pointer<NativeFunction<Void Function()>> Function(String) load) {
-  glad__glDeleteFencesNV = load('glDeleteFencesNV');
-  glad__glFinishFenceNV = load('glFinishFenceNV');
-  glad__glGenFencesNV = load('glGenFencesNV');
-  glad__glGetFenceivNV = load('glGetFenceivNV');
-  glad__glIsFenceNV = load('glIsFenceNV');
-  glad__glSetFenceNV = load('glSetFenceNV');
-  glad__glTestFenceNV = load('glTestFenceNV');
+void gladLoadGlLoaderNvFence(
+    Pointer<NativeFunction<Void Function()>> Function(String) load) {
+  _glDeleteFencesNv = load('glDeleteFencesNV');
+  _glFinishFenceNv = load('glFinishFenceNV');
+  _glGenFencesNv = load('glGenFencesNV');
+  _glGetFenceivNv = load('glGetFenceivNV');
+  _glIsFenceNv = load('glIsFenceNV');
+  _glSetFenceNv = load('glSetFenceNV');
+  _glTestFenceNv = load('glTestFenceNV');
 }

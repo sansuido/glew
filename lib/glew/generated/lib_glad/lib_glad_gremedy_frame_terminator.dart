@@ -3,20 +3,22 @@ import 'dart:ffi';
 
 /// ---------------------- GL_GREMEDY_frame_terminator ----------------------
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glFrameTerminatorGREMEDY;
+late Pointer<NativeFunction<Void Function()>> _glFrameTerminatorGremedy;
+
 /// ```c
 /// define glFrameTerminatorGREMEDY GLEW_GET_FUN(__glewFrameTerminatorGREMEDY)
 /// GLEW_FUN_EXPORT PFNGLFRAMETERMINATORGREMEDYPROC __glewFrameTerminatorGREMEDY
 /// typedef void (GLAPIENTRY * PFNGLFRAMETERMINATORGREMEDYPROC) (void)
 /// ```
-void glFrameTerminatorGREMEDY() {
-  final _glFrameTerminatorGREMEDY = glad__glFrameTerminatorGREMEDY!
+void glFrameTerminatorGremedy() {
+  final glFrameTerminatorGremedyAsFunction = _glFrameTerminatorGremedy
       .cast<NativeFunction<Void Function()>>()
       .asFunction<void Function()>();
-  return _glFrameTerminatorGREMEDY();
+  return glFrameTerminatorGremedyAsFunction();
 }
 
 /// @nodoc
-void gladLoadGLLoader_gremedy_frame_terminator(Pointer<NativeFunction<Void Function()>> Function(String) load) {
-  glad__glFrameTerminatorGREMEDY = load('glFrameTerminatorGREMEDY');
+void gladLoadGlLoaderGremedyFrameTerminator(
+    Pointer<NativeFunction<Void Function()>> Function(String) load) {
+  _glFrameTerminatorGremedy = load('glFrameTerminatorGREMEDY');
 }

@@ -3,20 +3,22 @@ import 'dart:ffi';
 
 /// ------------------------- GL_NV_texture_barrier -------------------------
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glTextureBarrierNV;
+late Pointer<NativeFunction<Void Function()>> _glTextureBarrierNv;
+
 /// ```c
 /// define glTextureBarrierNV GLEW_GET_FUN(__glewTextureBarrierNV)
 /// GLEW_FUN_EXPORT PFNGLTEXTUREBARRIERNVPROC __glewTextureBarrierNV
 /// typedef void (GLAPIENTRY * PFNGLTEXTUREBARRIERNVPROC) (void)
 /// ```
-void glTextureBarrierNV() {
-  final _glTextureBarrierNV = glad__glTextureBarrierNV!
+void glTextureBarrierNv() {
+  final glTextureBarrierNvAsFunction = _glTextureBarrierNv
       .cast<NativeFunction<Void Function()>>()
       .asFunction<void Function()>();
-  return _glTextureBarrierNV();
+  return glTextureBarrierNvAsFunction();
 }
 
 /// @nodoc
-void gladLoadGLLoader_nv_texture_barrier(Pointer<NativeFunction<Void Function()>> Function(String) load) {
-  glad__glTextureBarrierNV = load('glTextureBarrierNV');
+void gladLoadGlLoaderNvTextureBarrier(
+    Pointer<NativeFunction<Void Function()>> Function(String) load) {
+  _glTextureBarrierNv = load('glTextureBarrierNV');
 }

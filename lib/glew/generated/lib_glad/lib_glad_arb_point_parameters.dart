@@ -3,35 +3,39 @@ import 'dart:ffi';
 
 /// ------------------------ GL_ARB_point_parameters ------------------------
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glPointParameterfARB;
+late Pointer<NativeFunction<Void Function()>> _glPointParameterfArb;
+
 /// ```c
 /// define glPointParameterfARB GLEW_GET_FUN(__glewPointParameterfARB)
 /// GLEW_FUN_EXPORT PFNGLPOINTPARAMETERFARBPROC __glewPointParameterfARB
 /// typedef void (GLAPIENTRY * PFNGLPOINTPARAMETERFARBPROC) (GLenum pname, GLfloat param)
 /// ```
-void glPointParameterfARB(int pname, double param) {
-  final _glPointParameterfARB = glad__glPointParameterfARB!
+void glPointParameterfArb(int pname, double param) {
+  final glPointParameterfArbAsFunction = _glPointParameterfArb
       .cast<NativeFunction<Void Function(Uint32 pname, Float param)>>()
       .asFunction<void Function(int pname, double param)>();
-  return _glPointParameterfARB(pname, param);
+  return glPointParameterfArbAsFunction(pname, param);
 }
 
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glPointParameterfvARB;
+late Pointer<NativeFunction<Void Function()>> _glPointParameterfvArb;
+
 /// ```c
 /// define glPointParameterfvARB GLEW_GET_FUN(__glewPointParameterfvARB)
 /// GLEW_FUN_EXPORT PFNGLPOINTPARAMETERFVARBPROC __glewPointParameterfvARB
 /// typedef void (GLAPIENTRY * PFNGLPOINTPARAMETERFVARBPROC) (GLenum pname, const GLfloat* params)
 /// ```
-void glPointParameterfvARB(int pname, Pointer<Float>? params) {
-  final _glPointParameterfvARB = glad__glPointParameterfvARB!
-      .cast<NativeFunction<Void Function(Uint32 pname, Pointer<Float>? params)>>()
-      .asFunction<void Function(int pname, Pointer<Float>? params)>();
-  return _glPointParameterfvARB(pname, params);
+void glPointParameterfvArb(int pname, Pointer<Float> params) {
+  final glPointParameterfvArbAsFunction = _glPointParameterfvArb
+      .cast<
+          NativeFunction<Void Function(Uint32 pname, Pointer<Float> params)>>()
+      .asFunction<void Function(int pname, Pointer<Float> params)>();
+  return glPointParameterfvArbAsFunction(pname, params);
 }
 
 /// @nodoc
-void gladLoadGLLoader_arb_point_parameters(Pointer<NativeFunction<Void Function()>> Function(String) load) {
-  glad__glPointParameterfARB = load('glPointParameterfARB');
-  glad__glPointParameterfvARB = load('glPointParameterfvARB');
+void gladLoadGlLoaderArbPointParameters(
+    Pointer<NativeFunction<Void Function()>> Function(String) load) {
+  _glPointParameterfArb = load('glPointParameterfARB');
+  _glPointParameterfvArb = load('glPointParameterfvARB');
 }

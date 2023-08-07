@@ -3,20 +3,22 @@ import 'dart:ffi';
 
 /// ------------------------- GL_ARB_sample_shading -------------------------
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glMinSampleShadingARB;
+late Pointer<NativeFunction<Void Function()>> _glMinSampleShadingArb;
+
 /// ```c
 /// define glMinSampleShadingARB GLEW_GET_FUN(__glewMinSampleShadingARB)
 /// GLEW_FUN_EXPORT PFNGLMINSAMPLESHADINGARBPROC __glewMinSampleShadingARB
 /// typedef void (GLAPIENTRY * PFNGLMINSAMPLESHADINGARBPROC) (GLclampf value)
 /// ```
-void glMinSampleShadingARB(double value) {
-  final _glMinSampleShadingARB = glad__glMinSampleShadingARB!
+void glMinSampleShadingArb(double value) {
+  final glMinSampleShadingArbAsFunction = _glMinSampleShadingArb
       .cast<NativeFunction<Void Function(Float value)>>()
       .asFunction<void Function(double value)>();
-  return _glMinSampleShadingARB(value);
+  return glMinSampleShadingArbAsFunction(value);
 }
 
 /// @nodoc
-void gladLoadGLLoader_arb_sample_shading(Pointer<NativeFunction<Void Function()>> Function(String) load) {
-  glad__glMinSampleShadingARB = load('glMinSampleShadingARB');
+void gladLoadGlLoaderArbSampleShading(
+    Pointer<NativeFunction<Void Function()>> Function(String) load) {
+  _glMinSampleShadingArb = load('glMinSampleShadingARB');
 }

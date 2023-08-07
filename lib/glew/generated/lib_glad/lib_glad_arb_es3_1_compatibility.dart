@@ -3,20 +3,22 @@ import 'dart:ffi';
 
 /// ----------------------- GL_ARB_ES3_1_compatibility ----------------------
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glMemoryBarrierByRegion;
+late Pointer<NativeFunction<Void Function()>> _glMemoryBarrierByRegion;
+
 /// ```c
 /// define glMemoryBarrierByRegion GLEW_GET_FUN(__glewMemoryBarrierByRegion)
 /// GLEW_FUN_EXPORT PFNGLMEMORYBARRIERBYREGIONPROC __glewMemoryBarrierByRegion
 /// typedef void (GLAPIENTRY * PFNGLMEMORYBARRIERBYREGIONPROC) (GLbitfield barriers)
 /// ```
 void glMemoryBarrierByRegion(int barriers) {
-  final _glMemoryBarrierByRegion = glad__glMemoryBarrierByRegion!
+  final glMemoryBarrierByRegionAsFunction = _glMemoryBarrierByRegion
       .cast<NativeFunction<Void Function(Uint32 barriers)>>()
       .asFunction<void Function(int barriers)>();
-  return _glMemoryBarrierByRegion(barriers);
+  return glMemoryBarrierByRegionAsFunction(barriers);
 }
 
 /// @nodoc
-void gladLoadGLLoader_arb_es3_1_compatibility(Pointer<NativeFunction<Void Function()>> Function(String) load) {
-  glad__glMemoryBarrierByRegion = load('glMemoryBarrierByRegion');
+void gladLoadGlLoaderArbEs31Compatibility(
+    Pointer<NativeFunction<Void Function()>> Function(String) load) {
+  _glMemoryBarrierByRegion = load('glMemoryBarrierByRegion');
 }

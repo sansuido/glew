@@ -3,50 +3,62 @@ import 'dart:ffi';
 
 /// ------------------------- GL_AMD_name_gen_delete ------------------------
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glDeleteNamesAMD;
+late Pointer<NativeFunction<Void Function()>> _glDeleteNamesAmd;
+
 /// ```c
 /// define glDeleteNamesAMD GLEW_GET_FUN(__glewDeleteNamesAMD)
 /// GLEW_FUN_EXPORT PFNGLDELETENAMESAMDPROC __glewDeleteNamesAMD
 /// typedef void (GLAPIENTRY * PFNGLDELETENAMESAMDPROC) (GLenum identifier, GLuint num, const GLuint* names)
 /// ```
-void glDeleteNamesAMD(int identifier, int num, Pointer<Uint32>? names) {
-  final _glDeleteNamesAMD = glad__glDeleteNamesAMD!
-      .cast<NativeFunction<Void Function(Uint32 identifier, Uint32 num, Pointer<Uint32>? names)>>()
-      .asFunction<void Function(int identifier, int num, Pointer<Uint32>? names)>();
-  return _glDeleteNamesAMD(identifier, num, names);
+void glDeleteNamesAmd(int identifier, int num, Pointer<Uint32> names) {
+  final glDeleteNamesAmdAsFunction = _glDeleteNamesAmd
+      .cast<
+          NativeFunction<
+              Void Function(
+                  Uint32 identifier, Uint32 num, Pointer<Uint32> names)>>()
+      .asFunction<
+          void Function(int identifier, int num, Pointer<Uint32> names)>();
+  return glDeleteNamesAmdAsFunction(identifier, num, names);
 }
 
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glGenNamesAMD;
+late Pointer<NativeFunction<Void Function()>> _glGenNamesAmd;
+
 /// ```c
 /// define glGenNamesAMD GLEW_GET_FUN(__glewGenNamesAMD)
 /// GLEW_FUN_EXPORT PFNGLGENNAMESAMDPROC __glewGenNamesAMD
 /// typedef void (GLAPIENTRY * PFNGLGENNAMESAMDPROC) (GLenum identifier, GLuint num, GLuint* names)
 /// ```
-void glGenNamesAMD(int identifier, int num, Pointer<Uint32>? names) {
-  final _glGenNamesAMD = glad__glGenNamesAMD!
-      .cast<NativeFunction<Void Function(Uint32 identifier, Uint32 num, Pointer<Uint32>? names)>>()
-      .asFunction<void Function(int identifier, int num, Pointer<Uint32>? names)>();
-  return _glGenNamesAMD(identifier, num, names);
+void glGenNamesAmd(int identifier, int num, Pointer<Uint32> names) {
+  final glGenNamesAmdAsFunction = _glGenNamesAmd
+      .cast<
+          NativeFunction<
+              Void Function(
+                  Uint32 identifier, Uint32 num, Pointer<Uint32> names)>>()
+      .asFunction<
+          void Function(int identifier, int num, Pointer<Uint32> names)>();
+  return glGenNamesAmdAsFunction(identifier, num, names);
 }
 
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glIsNameAMD;
+late Pointer<NativeFunction<Void Function()>> _glIsNameAmd;
+
 /// ```c
 /// define glIsNameAMD GLEW_GET_FUN(__glewIsNameAMD)
 /// GLEW_FUN_EXPORT PFNGLISNAMEAMDPROC __glewIsNameAMD
 /// typedef GLboolean (GLAPIENTRY * PFNGLISNAMEAMDPROC) (GLenum identifier, GLuint name)
 /// ```
-int glIsNameAMD(int identifier, int name) {
-  final _glIsNameAMD = glad__glIsNameAMD!
+int glIsNameAmd(int identifier, int name) {
+  final glIsNameAmdAsFunction = _glIsNameAmd
       .cast<NativeFunction<Uint8 Function(Uint32 identifier, Uint32 name)>>()
       .asFunction<int Function(int identifier, int name)>();
-  return _glIsNameAMD(identifier, name);
+  return glIsNameAmdAsFunction(identifier, name);
 }
 
 /// @nodoc
-void gladLoadGLLoader_amd_name_gen_delete(Pointer<NativeFunction<Void Function()>> Function(String) load) {
-  glad__glDeleteNamesAMD = load('glDeleteNamesAMD');
-  glad__glGenNamesAMD = load('glGenNamesAMD');
-  glad__glIsNameAMD = load('glIsNameAMD');
+void gladLoadGlLoaderAmdNameGenDelete(
+    Pointer<NativeFunction<Void Function()>> Function(String) load) {
+  _glDeleteNamesAmd = load('glDeleteNamesAMD');
+  _glGenNamesAmd = load('glGenNamesAMD');
+  _glIsNameAmd = load('glIsNameAMD');
 }

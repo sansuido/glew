@@ -3,65 +3,70 @@ import 'dart:ffi';
 
 /// ---------------------- GL_APPLE_vertex_array_object ---------------------
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glBindVertexArrayAPPLE;
+late Pointer<NativeFunction<Void Function()>> _glBindVertexArrayApple;
+
 /// ```c
 /// define glBindVertexArrayAPPLE GLEW_GET_FUN(__glewBindVertexArrayAPPLE)
 /// GLEW_FUN_EXPORT PFNGLBINDVERTEXARRAYAPPLEPROC __glewBindVertexArrayAPPLE
 /// typedef void (GLAPIENTRY * PFNGLBINDVERTEXARRAYAPPLEPROC) (GLuint array)
 /// ```
-void glBindVertexArrayAPPLE(int array) {
-  final _glBindVertexArrayAPPLE = glad__glBindVertexArrayAPPLE!
+void glBindVertexArrayApple(int array) {
+  final glBindVertexArrayAppleAsFunction = _glBindVertexArrayApple
       .cast<NativeFunction<Void Function(Uint32 array)>>()
       .asFunction<void Function(int array)>();
-  return _glBindVertexArrayAPPLE(array);
+  return glBindVertexArrayAppleAsFunction(array);
 }
 
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glDeleteVertexArraysAPPLE;
+late Pointer<NativeFunction<Void Function()>> _glDeleteVertexArraysApple;
+
 /// ```c
 /// define glDeleteVertexArraysAPPLE GLEW_GET_FUN(__glewDeleteVertexArraysAPPLE)
 /// GLEW_FUN_EXPORT PFNGLDELETEVERTEXARRAYSAPPLEPROC __glewDeleteVertexArraysAPPLE
 /// typedef void (GLAPIENTRY * PFNGLDELETEVERTEXARRAYSAPPLEPROC) (GLsizei n, const GLuint* arrays)
 /// ```
-void glDeleteVertexArraysAPPLE(int n, Pointer<Uint32>? arrays) {
-  final _glDeleteVertexArraysAPPLE = glad__glDeleteVertexArraysAPPLE!
-      .cast<NativeFunction<Void Function(Uint32 n, Pointer<Uint32>? arrays)>>()
-      .asFunction<void Function(int n, Pointer<Uint32>? arrays)>();
-  return _glDeleteVertexArraysAPPLE(n, arrays);
+void glDeleteVertexArraysApple(int n, Pointer<Uint32> arrays) {
+  final glDeleteVertexArraysAppleAsFunction = _glDeleteVertexArraysApple
+      .cast<NativeFunction<Void Function(Uint32 n, Pointer<Uint32> arrays)>>()
+      .asFunction<void Function(int n, Pointer<Uint32> arrays)>();
+  return glDeleteVertexArraysAppleAsFunction(n, arrays);
 }
 
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glGenVertexArraysAPPLE;
+late Pointer<NativeFunction<Void Function()>> _glGenVertexArraysApple;
+
 /// ```c
 /// define glGenVertexArraysAPPLE GLEW_GET_FUN(__glewGenVertexArraysAPPLE)
 /// GLEW_FUN_EXPORT PFNGLGENVERTEXARRAYSAPPLEPROC __glewGenVertexArraysAPPLE
 /// typedef void (GLAPIENTRY * PFNGLGENVERTEXARRAYSAPPLEPROC) (GLsizei n, const GLuint* arrays)
 /// ```
-void glGenVertexArraysAPPLE(int n, Pointer<Uint32>? arrays) {
-  final _glGenVertexArraysAPPLE = glad__glGenVertexArraysAPPLE!
-      .cast<NativeFunction<Void Function(Uint32 n, Pointer<Uint32>? arrays)>>()
-      .asFunction<void Function(int n, Pointer<Uint32>? arrays)>();
-  return _glGenVertexArraysAPPLE(n, arrays);
+void glGenVertexArraysApple(int n, Pointer<Uint32> arrays) {
+  final glGenVertexArraysAppleAsFunction = _glGenVertexArraysApple
+      .cast<NativeFunction<Void Function(Uint32 n, Pointer<Uint32> arrays)>>()
+      .asFunction<void Function(int n, Pointer<Uint32> arrays)>();
+  return glGenVertexArraysAppleAsFunction(n, arrays);
 }
 
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glIsVertexArrayAPPLE;
+late Pointer<NativeFunction<Void Function()>> _glIsVertexArrayApple;
+
 /// ```c
 /// define glIsVertexArrayAPPLE GLEW_GET_FUN(__glewIsVertexArrayAPPLE)
 /// GLEW_FUN_EXPORT PFNGLISVERTEXARRAYAPPLEPROC __glewIsVertexArrayAPPLE
 /// typedef GLboolean (GLAPIENTRY * PFNGLISVERTEXARRAYAPPLEPROC) (GLuint array)
 /// ```
-int glIsVertexArrayAPPLE(int array) {
-  final _glIsVertexArrayAPPLE = glad__glIsVertexArrayAPPLE!
+int glIsVertexArrayApple(int array) {
+  final glIsVertexArrayAppleAsFunction = _glIsVertexArrayApple
       .cast<NativeFunction<Uint8 Function(Uint32 array)>>()
       .asFunction<int Function(int array)>();
-  return _glIsVertexArrayAPPLE(array);
+  return glIsVertexArrayAppleAsFunction(array);
 }
 
 /// @nodoc
-void gladLoadGLLoader_apple_vertex_array_object(Pointer<NativeFunction<Void Function()>> Function(String) load) {
-  glad__glBindVertexArrayAPPLE = load('glBindVertexArrayAPPLE');
-  glad__glDeleteVertexArraysAPPLE = load('glDeleteVertexArraysAPPLE');
-  glad__glGenVertexArraysAPPLE = load('glGenVertexArraysAPPLE');
-  glad__glIsVertexArrayAPPLE = load('glIsVertexArrayAPPLE');
+void gladLoadGlLoaderAppleVertexArrayObject(
+    Pointer<NativeFunction<Void Function()>> Function(String) load) {
+  _glBindVertexArrayApple = load('glBindVertexArrayAPPLE');
+  _glDeleteVertexArraysApple = load('glDeleteVertexArraysAPPLE');
+  _glGenVertexArraysApple = load('glGenVertexArraysAPPLE');
+  _glIsVertexArrayApple = load('glIsVertexArrayAPPLE');
 }

@@ -3,20 +3,22 @@ import 'dart:ffi';
 
 /// ------------------------- GL_MESA_resize_buffers ------------------------
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glResizeBuffersMESA;
+late Pointer<NativeFunction<Void Function()>> _glResizeBuffersMesa;
+
 /// ```c
 /// define glResizeBuffersMESA GLEW_GET_FUN(__glewResizeBuffersMESA)
 /// GLEW_FUN_EXPORT PFNGLRESIZEBUFFERSMESAPROC __glewResizeBuffersMESA
 /// typedef void (GLAPIENTRY * PFNGLRESIZEBUFFERSMESAPROC) (void)
 /// ```
-void glResizeBuffersMESA() {
-  final _glResizeBuffersMESA = glad__glResizeBuffersMESA!
+void glResizeBuffersMesa() {
+  final glResizeBuffersMesaAsFunction = _glResizeBuffersMesa
       .cast<NativeFunction<Void Function()>>()
       .asFunction<void Function()>();
-  return _glResizeBuffersMESA();
+  return glResizeBuffersMesaAsFunction();
 }
 
 /// @nodoc
-void gladLoadGLLoader_mesa_resize_buffers(Pointer<NativeFunction<Void Function()>> Function(String) load) {
-  glad__glResizeBuffersMESA = load('glResizeBuffersMESA');
+void gladLoadGlLoaderMesaResizeBuffers(
+    Pointer<NativeFunction<Void Function()>> Function(String) load) {
+  _glResizeBuffersMesa = load('glResizeBuffersMESA');
 }

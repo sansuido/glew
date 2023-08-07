@@ -3,35 +3,42 @@ import 'dart:ffi';
 
 /// ------------------------ GL_INTEL_texture_scissor -----------------------
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glTexScissorFuncINTEL;
+late Pointer<NativeFunction<Void Function()>> _glTexScissorFuncIntel;
+
 /// ```c
 /// define glTexScissorFuncINTEL GLEW_GET_FUN(__glewTexScissorFuncINTEL)
 /// GLEW_FUN_EXPORT PFNGLTEXSCISSORFUNCINTELPROC __glewTexScissorFuncINTEL
 /// typedef void (GLAPIENTRY * PFNGLTEXSCISSORFUNCINTELPROC) (GLenum target, GLenum lfunc, GLenum hfunc)
 /// ```
-void glTexScissorFuncINTEL(int target, int lfunc, int hfunc) {
-  final _glTexScissorFuncINTEL = glad__glTexScissorFuncINTEL!
-      .cast<NativeFunction<Void Function(Uint32 target, Uint32 lfunc, Uint32 hfunc)>>()
+void glTexScissorFuncIntel(int target, int lfunc, int hfunc) {
+  final glTexScissorFuncIntelAsFunction = _glTexScissorFuncIntel
+      .cast<
+          NativeFunction<
+              Void Function(Uint32 target, Uint32 lfunc, Uint32 hfunc)>>()
       .asFunction<void Function(int target, int lfunc, int hfunc)>();
-  return _glTexScissorFuncINTEL(target, lfunc, hfunc);
+  return glTexScissorFuncIntelAsFunction(target, lfunc, hfunc);
 }
 
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glTexScissorINTEL;
+late Pointer<NativeFunction<Void Function()>> _glTexScissorIntel;
+
 /// ```c
 /// define glTexScissorINTEL GLEW_GET_FUN(__glewTexScissorINTEL)
 /// GLEW_FUN_EXPORT PFNGLTEXSCISSORINTELPROC __glewTexScissorINTEL
 /// typedef void (GLAPIENTRY * PFNGLTEXSCISSORINTELPROC) (GLenum target, GLclampf tlow, GLclampf thigh)
 /// ```
-void glTexScissorINTEL(int target, double tlow, double thigh) {
-  final _glTexScissorINTEL = glad__glTexScissorINTEL!
-      .cast<NativeFunction<Void Function(Uint32 target, Float tlow, Float thigh)>>()
+void glTexScissorIntel(int target, double tlow, double thigh) {
+  final glTexScissorIntelAsFunction = _glTexScissorIntel
+      .cast<
+          NativeFunction<
+              Void Function(Uint32 target, Float tlow, Float thigh)>>()
       .asFunction<void Function(int target, double tlow, double thigh)>();
-  return _glTexScissorINTEL(target, tlow, thigh);
+  return glTexScissorIntelAsFunction(target, tlow, thigh);
 }
 
 /// @nodoc
-void gladLoadGLLoader_intel_texture_scissor(Pointer<NativeFunction<Void Function()>> Function(String) load) {
-  glad__glTexScissorFuncINTEL = load('glTexScissorFuncINTEL');
-  glad__glTexScissorINTEL = load('glTexScissorINTEL');
+void gladLoadGlLoaderIntelTextureScissor(
+    Pointer<NativeFunction<Void Function()>> Function(String) load) {
+  _glTexScissorFuncIntel = load('glTexScissorFuncINTEL');
+  _glTexScissorIntel = load('glTexScissorINTEL');
 }

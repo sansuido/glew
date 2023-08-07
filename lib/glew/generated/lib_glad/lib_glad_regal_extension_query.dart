@@ -4,56 +4,60 @@ import 'package:ffi/ffi.dart';
 
 /// ------------------------ GL_REGAL_extension_query -----------------------
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glGetExtensionREGAL;
+late Pointer<NativeFunction<Void Function()>> _glGetExtensionRegal;
+
 /// ```c
 /// define glGetExtensionREGAL GLEW_GET_FUN(__glewGetExtensionREGAL)
 /// GLEW_FUN_EXPORT PFNGLGETEXTENSIONREGALPROC __glewGetExtensionREGAL
 /// typedef GLboolean (GLAPIENTRY * PFNGLGETEXTENSIONREGALPROC) (const GLchar* ext)
 /// ```
-int glGetExtensionREGAL(String ext) {
-  final _glGetExtensionREGAL = glad__glGetExtensionREGAL!
-      .cast<NativeFunction<Uint8 Function(Pointer<Utf8>? ext)>>()
-      .asFunction<int Function(Pointer<Utf8>? ext)>();
-  final _extPointer = ext.toNativeUtf8();
-  final _result = _glGetExtensionREGAL(_extPointer);
-  calloc.free(_extPointer);
-  return _result;
+int glGetExtensionRegal(String ext) {
+  final glGetExtensionRegalAsFunction = _glGetExtensionRegal
+      .cast<NativeFunction<Uint8 Function(Pointer<Utf8> ext)>>()
+      .asFunction<int Function(Pointer<Utf8> ext)>();
+  final extPointer = ext.toNativeUtf8();
+  final result = glGetExtensionRegalAsFunction(extPointer);
+  calloc.free(extPointer);
+  return result;
 }
 
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glIsSupportedREGAL;
+late Pointer<NativeFunction<Void Function()>> _glIsSupportedRegal;
+
 /// ```c
 /// define glIsSupportedREGAL GLEW_GET_FUN(__glewIsSupportedREGAL)
 /// GLEW_FUN_EXPORT PFNGLISSUPPORTEDREGALPROC __glewIsSupportedREGAL
 /// typedef GLboolean (GLAPIENTRY * PFNGLISSUPPORTEDREGALPROC) (const GLchar* ext)
 /// ```
-int glIsSupportedREGAL(String ext) {
-  final _glIsSupportedREGAL = glad__glIsSupportedREGAL!
-      .cast<NativeFunction<Uint8 Function(Pointer<Utf8>? ext)>>()
-      .asFunction<int Function(Pointer<Utf8>? ext)>();
-  final _extPointer = ext.toNativeUtf8();
-  final _result = _glIsSupportedREGAL(_extPointer);
-  calloc.free(_extPointer);
-  return _result;
+int glIsSupportedRegal(String ext) {
+  final glIsSupportedRegalAsFunction = _glIsSupportedRegal
+      .cast<NativeFunction<Uint8 Function(Pointer<Utf8> ext)>>()
+      .asFunction<int Function(Pointer<Utf8> ext)>();
+  final extPointer = ext.toNativeUtf8();
+  final result = glIsSupportedRegalAsFunction(extPointer);
+  calloc.free(extPointer);
+  return result;
 }
 
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glLogMessageCallbackREGAL;
+late Pointer<NativeFunction<Void Function()>> _glLogMessageCallbackRegal;
+
 /// ```c
 /// define glLogMessageCallbackREGAL GLEW_GET_FUN(__glewLogMessageCallbackREGAL)
 /// GLEW_FUN_EXPORT PFNGLLOGMESSAGECALLBACKREGALPROC __glewLogMessageCallbackREGAL
 /// typedef void (GLAPIENTRY * PFNGLLOGMESSAGECALLBACKREGALPROC) (GLLOGPROCREGAL callback)
 /// ```
-void glLogMessageCallbackREGAL(Pointer<Void>? callback) {
-  final _glLogMessageCallbackREGAL = glad__glLogMessageCallbackREGAL!
-      .cast<NativeFunction<Void Function(Pointer<Void>? callback)>>()
-      .asFunction<void Function(Pointer<Void>? callback)>();
-  return _glLogMessageCallbackREGAL(callback);
+void glLogMessageCallbackRegal(Pointer<Void> callback) {
+  final glLogMessageCallbackRegalAsFunction = _glLogMessageCallbackRegal
+      .cast<NativeFunction<Void Function(Pointer<Void> callback)>>()
+      .asFunction<void Function(Pointer<Void> callback)>();
+  return glLogMessageCallbackRegalAsFunction(callback);
 }
 
 /// @nodoc
-void gladLoadGLLoader_regal_extension_query(Pointer<NativeFunction<Void Function()>> Function(String) load) {
-  glad__glGetExtensionREGAL = load('glGetExtensionREGAL');
-  glad__glIsSupportedREGAL = load('glIsSupportedREGAL');
-  glad__glLogMessageCallbackREGAL = load('glLogMessageCallbackREGAL');
+void gladLoadGlLoaderRegalExtensionQuery(
+    Pointer<NativeFunction<Void Function()>> Function(String) load) {
+  _glGetExtensionRegal = load('glGetExtensionREGAL');
+  _glIsSupportedRegal = load('glIsSupportedREGAL');
+  _glLogMessageCallbackRegal = load('glLogMessageCallbackREGAL');
 }

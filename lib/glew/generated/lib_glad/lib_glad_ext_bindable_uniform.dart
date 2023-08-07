@@ -3,50 +3,56 @@ import 'dart:ffi';
 
 /// ------------------------ GL_EXT_bindable_uniform ------------------------
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glGetUniformBufferSizeEXT;
+late Pointer<NativeFunction<Void Function()>> _glGetUniformBufferSizeExt;
+
 /// ```c
 /// define glGetUniformBufferSizeEXT GLEW_GET_FUN(__glewGetUniformBufferSizeEXT)
 /// GLEW_FUN_EXPORT PFNGLGETUNIFORMBUFFERSIZEEXTPROC __glewGetUniformBufferSizeEXT
 /// typedef GLint (GLAPIENTRY * PFNGLGETUNIFORMBUFFERSIZEEXTPROC) (GLuint program, GLint location)
 /// ```
-int glGetUniformBufferSizeEXT(int program, int location) {
-  final _glGetUniformBufferSizeEXT = glad__glGetUniformBufferSizeEXT!
+int glGetUniformBufferSizeExt(int program, int location) {
+  final glGetUniformBufferSizeExtAsFunction = _glGetUniformBufferSizeExt
       .cast<NativeFunction<Int32 Function(Uint32 program, Int32 location)>>()
       .asFunction<int Function(int program, int location)>();
-  return _glGetUniformBufferSizeEXT(program, location);
+  return glGetUniformBufferSizeExtAsFunction(program, location);
 }
 
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glGetUniformOffsetEXT;
+late Pointer<NativeFunction<Void Function()>> _glGetUniformOffsetExt;
+
 /// ```c
 /// define glGetUniformOffsetEXT GLEW_GET_FUN(__glewGetUniformOffsetEXT)
 /// GLEW_FUN_EXPORT PFNGLGETUNIFORMOFFSETEXTPROC __glewGetUniformOffsetEXT
 /// typedef GLintptr (GLAPIENTRY * PFNGLGETUNIFORMOFFSETEXTPROC) (GLuint program, GLint location)
 /// ```
-int glGetUniformOffsetEXT(int program, int location) {
-  final _glGetUniformOffsetEXT = glad__glGetUniformOffsetEXT!
+int glGetUniformOffsetExt(int program, int location) {
+  final glGetUniformOffsetExtAsFunction = _glGetUniformOffsetExt
       .cast<NativeFunction<Uint64 Function(Uint32 program, Int32 location)>>()
       .asFunction<int Function(int program, int location)>();
-  return _glGetUniformOffsetEXT(program, location);
+  return glGetUniformOffsetExtAsFunction(program, location);
 }
 
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glUniformBufferEXT;
+late Pointer<NativeFunction<Void Function()>> _glUniformBufferExt;
+
 /// ```c
 /// define glUniformBufferEXT GLEW_GET_FUN(__glewUniformBufferEXT)
 /// GLEW_FUN_EXPORT PFNGLUNIFORMBUFFEREXTPROC __glewUniformBufferEXT
 /// typedef void (GLAPIENTRY * PFNGLUNIFORMBUFFEREXTPROC) (GLuint program, GLint location, GLuint buffer)
 /// ```
-void glUniformBufferEXT(int program, int location, int buffer) {
-  final _glUniformBufferEXT = glad__glUniformBufferEXT!
-      .cast<NativeFunction<Void Function(Uint32 program, Int32 location, Uint32 buffer)>>()
+void glUniformBufferExt(int program, int location, int buffer) {
+  final glUniformBufferExtAsFunction = _glUniformBufferExt
+      .cast<
+          NativeFunction<
+              Void Function(Uint32 program, Int32 location, Uint32 buffer)>>()
       .asFunction<void Function(int program, int location, int buffer)>();
-  return _glUniformBufferEXT(program, location, buffer);
+  return glUniformBufferExtAsFunction(program, location, buffer);
 }
 
 /// @nodoc
-void gladLoadGLLoader_ext_bindable_uniform(Pointer<NativeFunction<Void Function()>> Function(String) load) {
-  glad__glGetUniformBufferSizeEXT = load('glGetUniformBufferSizeEXT');
-  glad__glGetUniformOffsetEXT = load('glGetUniformOffsetEXT');
-  glad__glUniformBufferEXT = load('glUniformBufferEXT');
+void gladLoadGlLoaderExtBindableUniform(
+    Pointer<NativeFunction<Void Function()>> Function(String) load) {
+  _glGetUniformBufferSizeExt = load('glGetUniformBufferSizeEXT');
+  _glGetUniformOffsetExt = load('glGetUniformOffsetEXT');
+  _glUniformBufferExt = load('glUniformBufferEXT');
 }

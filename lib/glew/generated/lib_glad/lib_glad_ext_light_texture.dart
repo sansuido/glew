@@ -3,50 +3,54 @@ import 'dart:ffi';
 
 /// -------------------------- GL_EXT_light_texture -------------------------
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glApplyTextureEXT;
+late Pointer<NativeFunction<Void Function()>> _glApplyTextureExt;
+
 /// ```c
 /// define glApplyTextureEXT GLEW_GET_FUN(__glewApplyTextureEXT)
 /// GLEW_FUN_EXPORT PFNGLAPPLYTEXTUREEXTPROC __glewApplyTextureEXT
 /// typedef void (GLAPIENTRY * PFNGLAPPLYTEXTUREEXTPROC) (GLenum mode)
 /// ```
-void glApplyTextureEXT(int mode) {
-  final _glApplyTextureEXT = glad__glApplyTextureEXT!
+void glApplyTextureExt(int mode) {
+  final glApplyTextureExtAsFunction = _glApplyTextureExt
       .cast<NativeFunction<Void Function(Uint32 mode)>>()
       .asFunction<void Function(int mode)>();
-  return _glApplyTextureEXT(mode);
+  return glApplyTextureExtAsFunction(mode);
 }
 
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glTextureLightEXT;
+late Pointer<NativeFunction<Void Function()>> _glTextureLightExt;
+
 /// ```c
 /// define glTextureLightEXT GLEW_GET_FUN(__glewTextureLightEXT)
 /// GLEW_FUN_EXPORT PFNGLTEXTURELIGHTEXTPROC __glewTextureLightEXT
 /// typedef void (GLAPIENTRY * PFNGLTEXTURELIGHTEXTPROC) (GLenum pname)
 /// ```
-void glTextureLightEXT(int pname) {
-  final _glTextureLightEXT = glad__glTextureLightEXT!
+void glTextureLightExt(int pname) {
+  final glTextureLightExtAsFunction = _glTextureLightExt
       .cast<NativeFunction<Void Function(Uint32 pname)>>()
       .asFunction<void Function(int pname)>();
-  return _glTextureLightEXT(pname);
+  return glTextureLightExtAsFunction(pname);
 }
 
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glTextureMaterialEXT;
+late Pointer<NativeFunction<Void Function()>> _glTextureMaterialExt;
+
 /// ```c
 /// define glTextureMaterialEXT GLEW_GET_FUN(__glewTextureMaterialEXT)
 /// GLEW_FUN_EXPORT PFNGLTEXTUREMATERIALEXTPROC __glewTextureMaterialEXT
 /// typedef void (GLAPIENTRY * PFNGLTEXTUREMATERIALEXTPROC) (GLenum face, GLenum mode)
 /// ```
-void glTextureMaterialEXT(int face, int mode) {
-  final _glTextureMaterialEXT = glad__glTextureMaterialEXT!
+void glTextureMaterialExt(int face, int mode) {
+  final glTextureMaterialExtAsFunction = _glTextureMaterialExt
       .cast<NativeFunction<Void Function(Uint32 face, Uint32 mode)>>()
       .asFunction<void Function(int face, int mode)>();
-  return _glTextureMaterialEXT(face, mode);
+  return glTextureMaterialExtAsFunction(face, mode);
 }
 
 /// @nodoc
-void gladLoadGLLoader_ext_light_texture(Pointer<NativeFunction<Void Function()>> Function(String) load) {
-  glad__glApplyTextureEXT = load('glApplyTextureEXT');
-  glad__glTextureLightEXT = load('glTextureLightEXT');
-  glad__glTextureMaterialEXT = load('glTextureMaterialEXT');
+void gladLoadGlLoaderExtLightTexture(
+    Pointer<NativeFunction<Void Function()>> Function(String) load) {
+  _glApplyTextureExt = load('glApplyTextureEXT');
+  _glTextureLightExt = load('glTextureLightEXT');
+  _glTextureMaterialExt = load('glTextureMaterialEXT');
 }

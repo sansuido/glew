@@ -3,155 +3,254 @@ import 'dart:ffi';
 
 /// ----------------------- GL_INTEL_performance_query ----------------------
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glBeginPerfQueryINTEL;
+late Pointer<NativeFunction<Void Function()>> _glBeginPerfQueryIntel;
+
 /// ```c
 /// define glBeginPerfQueryINTEL GLEW_GET_FUN(__glewBeginPerfQueryINTEL)
 /// GLEW_FUN_EXPORT PFNGLBEGINPERFQUERYINTELPROC __glewBeginPerfQueryINTEL
 /// typedef void (GLAPIENTRY * PFNGLBEGINPERFQUERYINTELPROC) (GLuint queryHandle)
 /// ```
-void glBeginPerfQueryINTEL(int queryHandle) {
-  final _glBeginPerfQueryINTEL = glad__glBeginPerfQueryINTEL!
+void glBeginPerfQueryIntel(int queryHandle) {
+  final glBeginPerfQueryIntelAsFunction = _glBeginPerfQueryIntel
       .cast<NativeFunction<Void Function(Uint32 queryHandle)>>()
       .asFunction<void Function(int queryHandle)>();
-  return _glBeginPerfQueryINTEL(queryHandle);
+  return glBeginPerfQueryIntelAsFunction(queryHandle);
 }
 
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glCreatePerfQueryINTEL;
+late Pointer<NativeFunction<Void Function()>> _glCreatePerfQueryIntel;
+
 /// ```c
 /// define glCreatePerfQueryINTEL GLEW_GET_FUN(__glewCreatePerfQueryINTEL)
 /// GLEW_FUN_EXPORT PFNGLCREATEPERFQUERYINTELPROC __glewCreatePerfQueryINTEL
 /// typedef void (GLAPIENTRY * PFNGLCREATEPERFQUERYINTELPROC) (GLuint queryId, GLuint* queryHandle)
 /// ```
-void glCreatePerfQueryINTEL(int queryId, Pointer<Uint32>? queryHandle) {
-  final _glCreatePerfQueryINTEL = glad__glCreatePerfQueryINTEL!
-      .cast<NativeFunction<Void Function(Uint32 queryId, Pointer<Uint32>? queryHandle)>>()
-      .asFunction<void Function(int queryId, Pointer<Uint32>? queryHandle)>();
-  return _glCreatePerfQueryINTEL(queryId, queryHandle);
+void glCreatePerfQueryIntel(int queryId, Pointer<Uint32> queryHandle) {
+  final glCreatePerfQueryIntelAsFunction = _glCreatePerfQueryIntel
+      .cast<
+          NativeFunction<
+              Void Function(Uint32 queryId, Pointer<Uint32> queryHandle)>>()
+      .asFunction<void Function(int queryId, Pointer<Uint32> queryHandle)>();
+  return glCreatePerfQueryIntelAsFunction(queryId, queryHandle);
 }
 
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glDeletePerfQueryINTEL;
+late Pointer<NativeFunction<Void Function()>> _glDeletePerfQueryIntel;
+
 /// ```c
 /// define glDeletePerfQueryINTEL GLEW_GET_FUN(__glewDeletePerfQueryINTEL)
 /// GLEW_FUN_EXPORT PFNGLDELETEPERFQUERYINTELPROC __glewDeletePerfQueryINTEL
 /// typedef void (GLAPIENTRY * PFNGLDELETEPERFQUERYINTELPROC) (GLuint queryHandle)
 /// ```
-void glDeletePerfQueryINTEL(int queryHandle) {
-  final _glDeletePerfQueryINTEL = glad__glDeletePerfQueryINTEL!
+void glDeletePerfQueryIntel(int queryHandle) {
+  final glDeletePerfQueryIntelAsFunction = _glDeletePerfQueryIntel
       .cast<NativeFunction<Void Function(Uint32 queryHandle)>>()
       .asFunction<void Function(int queryHandle)>();
-  return _glDeletePerfQueryINTEL(queryHandle);
+  return glDeletePerfQueryIntelAsFunction(queryHandle);
 }
 
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glEndPerfQueryINTEL;
+late Pointer<NativeFunction<Void Function()>> _glEndPerfQueryIntel;
+
 /// ```c
 /// define glEndPerfQueryINTEL GLEW_GET_FUN(__glewEndPerfQueryINTEL)
 /// GLEW_FUN_EXPORT PFNGLENDPERFQUERYINTELPROC __glewEndPerfQueryINTEL
 /// typedef void (GLAPIENTRY * PFNGLENDPERFQUERYINTELPROC) (GLuint queryHandle)
 /// ```
-void glEndPerfQueryINTEL(int queryHandle) {
-  final _glEndPerfQueryINTEL = glad__glEndPerfQueryINTEL!
+void glEndPerfQueryIntel(int queryHandle) {
+  final glEndPerfQueryIntelAsFunction = _glEndPerfQueryIntel
       .cast<NativeFunction<Void Function(Uint32 queryHandle)>>()
       .asFunction<void Function(int queryHandle)>();
-  return _glEndPerfQueryINTEL(queryHandle);
+  return glEndPerfQueryIntelAsFunction(queryHandle);
 }
 
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glGetFirstPerfQueryIdINTEL;
+late Pointer<NativeFunction<Void Function()>> _glGetFirstPerfQueryIdIntel;
+
 /// ```c
 /// define glGetFirstPerfQueryIdINTEL GLEW_GET_FUN(__glewGetFirstPerfQueryIdINTEL)
 /// GLEW_FUN_EXPORT PFNGLGETFIRSTPERFQUERYIDINTELPROC __glewGetFirstPerfQueryIdINTEL
 /// typedef void (GLAPIENTRY * PFNGLGETFIRSTPERFQUERYIDINTELPROC) (GLuint* queryId)
 /// ```
-void glGetFirstPerfQueryIdINTEL(Pointer<Uint32>? queryId) {
-  final _glGetFirstPerfQueryIdINTEL = glad__glGetFirstPerfQueryIdINTEL!
-      .cast<NativeFunction<Void Function(Pointer<Uint32>? queryId)>>()
-      .asFunction<void Function(Pointer<Uint32>? queryId)>();
-  return _glGetFirstPerfQueryIdINTEL(queryId);
+void glGetFirstPerfQueryIdIntel(Pointer<Uint32> queryId) {
+  final glGetFirstPerfQueryIdIntelAsFunction = _glGetFirstPerfQueryIdIntel
+      .cast<NativeFunction<Void Function(Pointer<Uint32> queryId)>>()
+      .asFunction<void Function(Pointer<Uint32> queryId)>();
+  return glGetFirstPerfQueryIdIntelAsFunction(queryId);
 }
 
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glGetNextPerfQueryIdINTEL;
+late Pointer<NativeFunction<Void Function()>> _glGetNextPerfQueryIdIntel;
+
 /// ```c
 /// define glGetNextPerfQueryIdINTEL GLEW_GET_FUN(__glewGetNextPerfQueryIdINTEL)
 /// GLEW_FUN_EXPORT PFNGLGETNEXTPERFQUERYIDINTELPROC __glewGetNextPerfQueryIdINTEL
 /// typedef void (GLAPIENTRY * PFNGLGETNEXTPERFQUERYIDINTELPROC) (GLuint queryId, GLuint* nextQueryId)
 /// ```
-void glGetNextPerfQueryIdINTEL(int queryId, Pointer<Uint32>? nextQueryId) {
-  final _glGetNextPerfQueryIdINTEL = glad__glGetNextPerfQueryIdINTEL!
-      .cast<NativeFunction<Void Function(Uint32 queryId, Pointer<Uint32>? nextQueryId)>>()
-      .asFunction<void Function(int queryId, Pointer<Uint32>? nextQueryId)>();
-  return _glGetNextPerfQueryIdINTEL(queryId, nextQueryId);
+void glGetNextPerfQueryIdIntel(int queryId, Pointer<Uint32> nextQueryId) {
+  final glGetNextPerfQueryIdIntelAsFunction = _glGetNextPerfQueryIdIntel
+      .cast<
+          NativeFunction<
+              Void Function(Uint32 queryId, Pointer<Uint32> nextQueryId)>>()
+      .asFunction<void Function(int queryId, Pointer<Uint32> nextQueryId)>();
+  return glGetNextPerfQueryIdIntelAsFunction(queryId, nextQueryId);
 }
 
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glGetPerfCounterInfoINTEL;
+late Pointer<NativeFunction<Void Function()>> _glGetPerfCounterInfoIntel;
+
 /// ```c
 /// define glGetPerfCounterInfoINTEL GLEW_GET_FUN(__glewGetPerfCounterInfoINTEL)
 /// GLEW_FUN_EXPORT PFNGLGETPERFCOUNTERINFOINTELPROC __glewGetPerfCounterInfoINTEL
 /// typedef void (GLAPIENTRY * PFNGLGETPERFCOUNTERINFOINTELPROC) (GLuint queryId, GLuint counterId, GLuint counterNameLength, GLchar* counterName, GLuint counterDescLength, GLchar *counterDesc, GLuint *counterOffset, GLuint *counterDataSize, GLuint *counterTypeEnum, GLuint *counterDataTypeEnum, GLuint64 *rawCounterMaxValue)
 /// ```
-void glGetPerfCounterInfoINTEL(int queryId, int counterId, int counterNameLength, Pointer<Int8>? counterName, int counterDescLength, Pointer<Int8>? counterDesc, Pointer<Uint32>? counterOffset, Pointer<Uint32>? counterDataSize, Pointer<Uint32>? counterTypeEnum, Pointer<Uint32>? counterDataTypeEnum, Pointer<Uint64>? rawCounterMaxValue) {
-  final _glGetPerfCounterInfoINTEL = glad__glGetPerfCounterInfoINTEL!
-      .cast<NativeFunction<Void Function(Uint32 queryId, Uint32 counterId, Uint32 counterNameLength, Pointer<Int8>? counterName, Uint32 counterDescLength, Pointer<Int8>? counterDesc, Pointer<Uint32>? counterOffset, Pointer<Uint32>? counterDataSize, Pointer<Uint32>? counterTypeEnum, Pointer<Uint32>? counterDataTypeEnum, Pointer<Uint64>? rawCounterMaxValue)>>()
-      .asFunction<void Function(int queryId, int counterId, int counterNameLength, Pointer<Int8>? counterName, int counterDescLength, Pointer<Int8>? counterDesc, Pointer<Uint32>? counterOffset, Pointer<Uint32>? counterDataSize, Pointer<Uint32>? counterTypeEnum, Pointer<Uint32>? counterDataTypeEnum, Pointer<Uint64>? rawCounterMaxValue)>();
-  return _glGetPerfCounterInfoINTEL(queryId, counterId, counterNameLength, counterName, counterDescLength, counterDesc, counterOffset, counterDataSize, counterTypeEnum, counterDataTypeEnum, rawCounterMaxValue);
+void glGetPerfCounterInfoIntel(
+    int queryId,
+    int counterId,
+    int counterNameLength,
+    Pointer<Int8> counterName,
+    int counterDescLength,
+    Pointer<Int8> counterDesc,
+    Pointer<Uint32> counterOffset,
+    Pointer<Uint32> counterDataSize,
+    Pointer<Uint32> counterTypeEnum,
+    Pointer<Uint32> counterDataTypeEnum,
+    Pointer<Uint64> rawCounterMaxValue) {
+  final glGetPerfCounterInfoIntelAsFunction = _glGetPerfCounterInfoIntel
+      .cast<
+          NativeFunction<
+              Void Function(
+                  Uint32 queryId,
+                  Uint32 counterId,
+                  Uint32 counterNameLength,
+                  Pointer<Int8> counterName,
+                  Uint32 counterDescLength,
+                  Pointer<Int8> counterDesc,
+                  Pointer<Uint32> counterOffset,
+                  Pointer<Uint32> counterDataSize,
+                  Pointer<Uint32> counterTypeEnum,
+                  Pointer<Uint32> counterDataTypeEnum,
+                  Pointer<Uint64> rawCounterMaxValue)>>()
+      .asFunction<
+          void Function(
+              int queryId,
+              int counterId,
+              int counterNameLength,
+              Pointer<Int8> counterName,
+              int counterDescLength,
+              Pointer<Int8> counterDesc,
+              Pointer<Uint32> counterOffset,
+              Pointer<Uint32> counterDataSize,
+              Pointer<Uint32> counterTypeEnum,
+              Pointer<Uint32> counterDataTypeEnum,
+              Pointer<Uint64> rawCounterMaxValue)>();
+  return glGetPerfCounterInfoIntelAsFunction(
+      queryId,
+      counterId,
+      counterNameLength,
+      counterName,
+      counterDescLength,
+      counterDesc,
+      counterOffset,
+      counterDataSize,
+      counterTypeEnum,
+      counterDataTypeEnum,
+      rawCounterMaxValue);
 }
 
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glGetPerfQueryDataINTEL;
+late Pointer<NativeFunction<Void Function()>> _glGetPerfQueryDataIntel;
+
 /// ```c
 /// define glGetPerfQueryDataINTEL GLEW_GET_FUN(__glewGetPerfQueryDataINTEL)
 /// GLEW_FUN_EXPORT PFNGLGETPERFQUERYDATAINTELPROC __glewGetPerfQueryDataINTEL
 /// typedef void (GLAPIENTRY * PFNGLGETPERFQUERYDATAINTELPROC) (GLuint queryHandle, GLuint flags, GLsizei dataSize, void *data, GLuint *bytesWritten)
 /// ```
-void glGetPerfQueryDataINTEL(int queryHandle, int flags, int dataSize, Pointer<Void>? data, Pointer<Uint32>? bytesWritten) {
-  final _glGetPerfQueryDataINTEL = glad__glGetPerfQueryDataINTEL!
-      .cast<NativeFunction<Void Function(Uint32 queryHandle, Uint32 flags, Uint32 dataSize, Pointer<Void>? data, Pointer<Uint32>? bytesWritten)>>()
-      .asFunction<void Function(int queryHandle, int flags, int dataSize, Pointer<Void>? data, Pointer<Uint32>? bytesWritten)>();
-  return _glGetPerfQueryDataINTEL(queryHandle, flags, dataSize, data, bytesWritten);
+void glGetPerfQueryDataIntel(int queryHandle, int flags, int dataSize,
+    Pointer<Void> data, Pointer<Uint32> bytesWritten) {
+  final glGetPerfQueryDataIntelAsFunction = _glGetPerfQueryDataIntel
+      .cast<
+          NativeFunction<
+              Void Function(Uint32 queryHandle, Uint32 flags, Uint32 dataSize,
+                  Pointer<Void> data, Pointer<Uint32> bytesWritten)>>()
+      .asFunction<
+          void Function(int queryHandle, int flags, int dataSize,
+              Pointer<Void> data, Pointer<Uint32> bytesWritten)>();
+  return glGetPerfQueryDataIntelAsFunction(
+      queryHandle, flags, dataSize, data, bytesWritten);
 }
 
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glGetPerfQueryIdByNameINTEL;
+late Pointer<NativeFunction<Void Function()>> _glGetPerfQueryIdByNameIntel;
+
 /// ```c
 /// define glGetPerfQueryIdByNameINTEL GLEW_GET_FUN(__glewGetPerfQueryIdByNameINTEL)
 /// GLEW_FUN_EXPORT PFNGLGETPERFQUERYIDBYNAMEINTELPROC __glewGetPerfQueryIdByNameINTEL
 /// typedef void (GLAPIENTRY * PFNGLGETPERFQUERYIDBYNAMEINTELPROC) (GLchar* queryName, GLuint *queryId)
 /// ```
-void glGetPerfQueryIdByNameINTEL(Pointer<Int8>? queryName, Pointer<Uint32>? queryId) {
-  final _glGetPerfQueryIdByNameINTEL = glad__glGetPerfQueryIdByNameINTEL!
-      .cast<NativeFunction<Void Function(Pointer<Int8>? queryName, Pointer<Uint32>? queryId)>>()
-      .asFunction<void Function(Pointer<Int8>? queryName, Pointer<Uint32>? queryId)>();
-  return _glGetPerfQueryIdByNameINTEL(queryName, queryId);
+void glGetPerfQueryIdByNameIntel(
+    Pointer<Int8> queryName, Pointer<Uint32> queryId) {
+  final glGetPerfQueryIdByNameIntelAsFunction = _glGetPerfQueryIdByNameIntel
+      .cast<
+          NativeFunction<
+              Void Function(
+                  Pointer<Int8> queryName, Pointer<Uint32> queryId)>>()
+      .asFunction<
+          void Function(Pointer<Int8> queryName, Pointer<Uint32> queryId)>();
+  return glGetPerfQueryIdByNameIntelAsFunction(queryName, queryId);
 }
 
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glGetPerfQueryInfoINTEL;
+late Pointer<NativeFunction<Void Function()>> _glGetPerfQueryInfoIntel;
+
 /// ```c
 /// define glGetPerfQueryInfoINTEL GLEW_GET_FUN(__glewGetPerfQueryInfoINTEL)
 /// GLEW_FUN_EXPORT PFNGLGETPERFQUERYINFOINTELPROC __glewGetPerfQueryInfoINTEL
 /// typedef void (GLAPIENTRY * PFNGLGETPERFQUERYINFOINTELPROC) (GLuint queryId, GLuint queryNameLength, GLchar* queryName, GLuint *dataSize, GLuint *noCounters, GLuint *noInstances, GLuint *capsMask)
 /// ```
-void glGetPerfQueryInfoINTEL(int queryId, int queryNameLength, Pointer<Int8>? queryName, Pointer<Uint32>? dataSize, Pointer<Uint32>? noCounters, Pointer<Uint32>? noInstances, Pointer<Uint32>? capsMask) {
-  final _glGetPerfQueryInfoINTEL = glad__glGetPerfQueryInfoINTEL!
-      .cast<NativeFunction<Void Function(Uint32 queryId, Uint32 queryNameLength, Pointer<Int8>? queryName, Pointer<Uint32>? dataSize, Pointer<Uint32>? noCounters, Pointer<Uint32>? noInstances, Pointer<Uint32>? capsMask)>>()
-      .asFunction<void Function(int queryId, int queryNameLength, Pointer<Int8>? queryName, Pointer<Uint32>? dataSize, Pointer<Uint32>? noCounters, Pointer<Uint32>? noInstances, Pointer<Uint32>? capsMask)>();
-  return _glGetPerfQueryInfoINTEL(queryId, queryNameLength, queryName, dataSize, noCounters, noInstances, capsMask);
+void glGetPerfQueryInfoIntel(
+    int queryId,
+    int queryNameLength,
+    Pointer<Int8> queryName,
+    Pointer<Uint32> dataSize,
+    Pointer<Uint32> noCounters,
+    Pointer<Uint32> noInstances,
+    Pointer<Uint32> capsMask) {
+  final glGetPerfQueryInfoIntelAsFunction = _glGetPerfQueryInfoIntel
+      .cast<
+          NativeFunction<
+              Void Function(
+                  Uint32 queryId,
+                  Uint32 queryNameLength,
+                  Pointer<Int8> queryName,
+                  Pointer<Uint32> dataSize,
+                  Pointer<Uint32> noCounters,
+                  Pointer<Uint32> noInstances,
+                  Pointer<Uint32> capsMask)>>()
+      .asFunction<
+          void Function(
+              int queryId,
+              int queryNameLength,
+              Pointer<Int8> queryName,
+              Pointer<Uint32> dataSize,
+              Pointer<Uint32> noCounters,
+              Pointer<Uint32> noInstances,
+              Pointer<Uint32> capsMask)>();
+  return glGetPerfQueryInfoIntelAsFunction(queryId, queryNameLength, queryName,
+      dataSize, noCounters, noInstances, capsMask);
 }
 
 /// @nodoc
-void gladLoadGLLoader_intel_performance_query(Pointer<NativeFunction<Void Function()>> Function(String) load) {
-  glad__glBeginPerfQueryINTEL = load('glBeginPerfQueryINTEL');
-  glad__glCreatePerfQueryINTEL = load('glCreatePerfQueryINTEL');
-  glad__glDeletePerfQueryINTEL = load('glDeletePerfQueryINTEL');
-  glad__glEndPerfQueryINTEL = load('glEndPerfQueryINTEL');
-  glad__glGetFirstPerfQueryIdINTEL = load('glGetFirstPerfQueryIdINTEL');
-  glad__glGetNextPerfQueryIdINTEL = load('glGetNextPerfQueryIdINTEL');
-  glad__glGetPerfCounterInfoINTEL = load('glGetPerfCounterInfoINTEL');
-  glad__glGetPerfQueryDataINTEL = load('glGetPerfQueryDataINTEL');
-  glad__glGetPerfQueryIdByNameINTEL = load('glGetPerfQueryIdByNameINTEL');
-  glad__glGetPerfQueryInfoINTEL = load('glGetPerfQueryInfoINTEL');
+void gladLoadGlLoaderIntelPerformanceQuery(
+    Pointer<NativeFunction<Void Function()>> Function(String) load) {
+  _glBeginPerfQueryIntel = load('glBeginPerfQueryINTEL');
+  _glCreatePerfQueryIntel = load('glCreatePerfQueryINTEL');
+  _glDeletePerfQueryIntel = load('glDeletePerfQueryINTEL');
+  _glEndPerfQueryIntel = load('glEndPerfQueryINTEL');
+  _glGetFirstPerfQueryIdIntel = load('glGetFirstPerfQueryIdINTEL');
+  _glGetNextPerfQueryIdIntel = load('glGetNextPerfQueryIdINTEL');
+  _glGetPerfCounterInfoIntel = load('glGetPerfCounterInfoINTEL');
+  _glGetPerfQueryDataIntel = load('glGetPerfQueryDataINTEL');
+  _glGetPerfQueryIdByNameIntel = load('glGetPerfQueryIdByNameINTEL');
+  _glGetPerfQueryInfoIntel = load('glGetPerfQueryInfoINTEL');
 }

@@ -3,35 +3,39 @@ import 'dart:ffi';
 
 /// ------------------------- GL_SGIX_polynomial_ffd ------------------------
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glDeformSGIX;
+late Pointer<NativeFunction<Void Function()>> _glDeformSgix;
+
 /// ```c
 /// define glDeformSGIX GLEW_GET_FUN(__glewDeformSGIX)
 /// GLEW_FUN_EXPORT PFNGLDEFORMSGIXPROC __glewDeformSGIX
 /// typedef void (GLAPIENTRY * PFNGLDEFORMSGIXPROC) (GLbitfield mask)
 /// ```
-void glDeformSGIX(int mask) {
-  final _glDeformSGIX = glad__glDeformSGIX!
+void glDeformSgix(int mask) {
+  final glDeformSgixAsFunction = _glDeformSgix
       .cast<NativeFunction<Void Function(Uint32 mask)>>()
       .asFunction<void Function(int mask)>();
-  return _glDeformSGIX(mask);
+  return glDeformSgixAsFunction(mask);
 }
 
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glLoadIdentityDeformationMapSGIX;
+late Pointer<NativeFunction<Void Function()>> _glLoadIdentityDeformationMapSgix;
+
 /// ```c
 /// define glLoadIdentityDeformationMapSGIX GLEW_GET_FUN(__glewLoadIdentityDeformationMapSGIX)
 /// GLEW_FUN_EXPORT PFNGLLOADIDENTITYDEFORMATIONMAPSGIXPROC __glewLoadIdentityDeformationMapSGIX
 /// typedef void (GLAPIENTRY * PFNGLLOADIDENTITYDEFORMATIONMAPSGIXPROC) (GLbitfield mask)
 /// ```
-void glLoadIdentityDeformationMapSGIX(int mask) {
-  final _glLoadIdentityDeformationMapSGIX = glad__glLoadIdentityDeformationMapSGIX!
-      .cast<NativeFunction<Void Function(Uint32 mask)>>()
-      .asFunction<void Function(int mask)>();
-  return _glLoadIdentityDeformationMapSGIX(mask);
+void glLoadIdentityDeformationMapSgix(int mask) {
+  final glLoadIdentityDeformationMapSgixAsFunction =
+      _glLoadIdentityDeformationMapSgix
+          .cast<NativeFunction<Void Function(Uint32 mask)>>()
+          .asFunction<void Function(int mask)>();
+  return glLoadIdentityDeformationMapSgixAsFunction(mask);
 }
 
 /// @nodoc
-void gladLoadGLLoader_sgix_polynomial_ffd(Pointer<NativeFunction<Void Function()>> Function(String) load) {
-  glad__glDeformSGIX = load('glDeformSGIX');
-  glad__glLoadIdentityDeformationMapSGIX = load('glLoadIdentityDeformationMapSGIX');
+void gladLoadGlLoaderSgixPolynomialFfd(
+    Pointer<NativeFunction<Void Function()>> Function(String) load) {
+  _glDeformSgix = load('glDeformSGIX');
+  _glLoadIdentityDeformationMapSgix = load('glLoadIdentityDeformationMapSGIX');
 }

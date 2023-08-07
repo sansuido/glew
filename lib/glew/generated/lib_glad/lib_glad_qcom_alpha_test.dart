@@ -3,20 +3,22 @@ import 'dart:ffi';
 
 /// --------------------------- GL_QCOM_alpha_test --------------------------
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glAlphaFuncQCOM;
+late Pointer<NativeFunction<Void Function()>> _glAlphaFuncQcom;
+
 /// ```c
 /// define glAlphaFuncQCOM GLEW_GET_FUN(__glewAlphaFuncQCOM)
 /// GLEW_FUN_EXPORT PFNGLALPHAFUNCQCOMPROC __glewAlphaFuncQCOM
 /// typedef void (GLAPIENTRY * PFNGLALPHAFUNCQCOMPROC) (GLenum func, GLclampf ref)
 /// ```
-void glAlphaFuncQCOM(int func, double ref) {
-  final _glAlphaFuncQCOM = glad__glAlphaFuncQCOM!
+void glAlphaFuncQcom(int func, double ref) {
+  final glAlphaFuncQcomAsFunction = _glAlphaFuncQcom
       .cast<NativeFunction<Void Function(Uint32 func, Float ref)>>()
       .asFunction<void Function(int func, double ref)>();
-  return _glAlphaFuncQCOM(func, ref);
+  return glAlphaFuncQcomAsFunction(func, ref);
 }
 
 /// @nodoc
-void gladLoadGLLoader_qcom_alpha_test(Pointer<NativeFunction<Void Function()>> Function(String) load) {
-  glad__glAlphaFuncQCOM = load('glAlphaFuncQCOM');
+void gladLoadGlLoaderQcomAlphaTest(
+    Pointer<NativeFunction<Void Function()>> Function(String) load) {
+  _glAlphaFuncQcom = load('glAlphaFuncQCOM');
 }

@@ -3,35 +3,38 @@ import 'dart:ffi';
 
 /// --------------------------- GL_SGIX_quad_mesh ---------------------------
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glMeshBreadthSGIX;
+late Pointer<NativeFunction<Void Function()>> _glMeshBreadthSgix;
+
 /// ```c
 /// define glMeshBreadthSGIX GLEW_GET_FUN(__glewMeshBreadthSGIX)
 /// GLEW_FUN_EXPORT PFNGLMESHBREADTHSGIXPROC __glewMeshBreadthSGIX
 /// typedef void (GLAPIENTRY * PFNGLMESHBREADTHSGIXPROC) (GLint breadth)
 /// ```
-void glMeshBreadthSGIX(int breadth) {
-  final _glMeshBreadthSGIX = glad__glMeshBreadthSGIX!
+void glMeshBreadthSgix(int breadth) {
+  final glMeshBreadthSgixAsFunction = _glMeshBreadthSgix
       .cast<NativeFunction<Void Function(Int32 breadth)>>()
       .asFunction<void Function(int breadth)>();
-  return _glMeshBreadthSGIX(breadth);
+  return glMeshBreadthSgixAsFunction(breadth);
 }
 
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glMeshStrideSGIX;
+late Pointer<NativeFunction<Void Function()>> _glMeshStrideSgix;
+
 /// ```c
 /// define glMeshStrideSGIX GLEW_GET_FUN(__glewMeshStrideSGIX)
 /// GLEW_FUN_EXPORT PFNGLMESHSTRIDESGIXPROC __glewMeshStrideSGIX
 /// typedef void (GLAPIENTRY * PFNGLMESHSTRIDESGIXPROC) (GLint stride)
 /// ```
-void glMeshStrideSGIX(int stride) {
-  final _glMeshStrideSGIX = glad__glMeshStrideSGIX!
+void glMeshStrideSgix(int stride) {
+  final glMeshStrideSgixAsFunction = _glMeshStrideSgix
       .cast<NativeFunction<Void Function(Int32 stride)>>()
       .asFunction<void Function(int stride)>();
-  return _glMeshStrideSGIX(stride);
+  return glMeshStrideSgixAsFunction(stride);
 }
 
 /// @nodoc
-void gladLoadGLLoader_sgix_quad_mesh(Pointer<NativeFunction<Void Function()>> Function(String) load) {
-  glad__glMeshBreadthSGIX = load('glMeshBreadthSGIX');
-  glad__glMeshStrideSGIX = load('glMeshStrideSGIX');
+void gladLoadGlLoaderSgixQuadMesh(
+    Pointer<NativeFunction<Void Function()>> Function(String) load) {
+  _glMeshBreadthSgix = load('glMeshBreadthSGIX');
+  _glMeshStrideSgix = load('glMeshStrideSGIX');
 }

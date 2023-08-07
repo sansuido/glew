@@ -3,35 +3,42 @@ import 'dart:ffi';
 
 /// ------------------------- GL_NV_pixel_data_range ------------------------
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glFlushPixelDataRangeNV;
+late Pointer<NativeFunction<Void Function()>> _glFlushPixelDataRangeNv;
+
 /// ```c
 /// define glFlushPixelDataRangeNV GLEW_GET_FUN(__glewFlushPixelDataRangeNV)
 /// GLEW_FUN_EXPORT PFNGLFLUSHPIXELDATARANGENVPROC __glewFlushPixelDataRangeNV
 /// typedef void (GLAPIENTRY * PFNGLFLUSHPIXELDATARANGENVPROC) (GLenum target)
 /// ```
-void glFlushPixelDataRangeNV(int target) {
-  final _glFlushPixelDataRangeNV = glad__glFlushPixelDataRangeNV!
+void glFlushPixelDataRangeNv(int target) {
+  final glFlushPixelDataRangeNvAsFunction = _glFlushPixelDataRangeNv
       .cast<NativeFunction<Void Function(Uint32 target)>>()
       .asFunction<void Function(int target)>();
-  return _glFlushPixelDataRangeNV(target);
+  return glFlushPixelDataRangeNvAsFunction(target);
 }
 
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glPixelDataRangeNV;
+late Pointer<NativeFunction<Void Function()>> _glPixelDataRangeNv;
+
 /// ```c
 /// define glPixelDataRangeNV GLEW_GET_FUN(__glewPixelDataRangeNV)
 /// GLEW_FUN_EXPORT PFNGLPIXELDATARANGENVPROC __glewPixelDataRangeNV
 /// typedef void (GLAPIENTRY * PFNGLPIXELDATARANGENVPROC) (GLenum target, GLsizei length, void *pointer)
 /// ```
-void glPixelDataRangeNV(int target, int length, Pointer<Void>? pointer) {
-  final _glPixelDataRangeNV = glad__glPixelDataRangeNV!
-      .cast<NativeFunction<Void Function(Uint32 target, Uint32 length, Pointer<Void>? pointer)>>()
-      .asFunction<void Function(int target, int length, Pointer<Void>? pointer)>();
-  return _glPixelDataRangeNV(target, length, pointer);
+void glPixelDataRangeNv(int target, int length, Pointer<Void> pointer) {
+  final glPixelDataRangeNvAsFunction = _glPixelDataRangeNv
+      .cast<
+          NativeFunction<
+              Void Function(
+                  Uint32 target, Uint32 length, Pointer<Void> pointer)>>()
+      .asFunction<
+          void Function(int target, int length, Pointer<Void> pointer)>();
+  return glPixelDataRangeNvAsFunction(target, length, pointer);
 }
 
 /// @nodoc
-void gladLoadGLLoader_nv_pixel_data_range(Pointer<NativeFunction<Void Function()>> Function(String) load) {
-  glad__glFlushPixelDataRangeNV = load('glFlushPixelDataRangeNV');
-  glad__glPixelDataRangeNV = load('glPixelDataRangeNV');
+void gladLoadGlLoaderNvPixelDataRange(
+    Pointer<NativeFunction<Void Function()>> Function(String) load) {
+  _glFlushPixelDataRangeNv = load('glFlushPixelDataRangeNV');
+  _glPixelDataRangeNv = load('glPixelDataRangeNV');
 }

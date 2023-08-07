@@ -3,50 +3,54 @@ import 'dart:ffi';
 
 /// ----------------------- GL_EXT_vertex_array_setXXX ----------------------
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glBindArraySetEXT;
+late Pointer<NativeFunction<Void Function()>> _glBindArraySetExt;
+
 /// ```c
 /// define glBindArraySetEXT GLEW_GET_FUN(__glewBindArraySetEXT)
 /// GLEW_FUN_EXPORT PFNGLBINDARRAYSETEXTPROC __glewBindArraySetEXT
 /// typedef void (GLAPIENTRY * PFNGLBINDARRAYSETEXTPROC) (const void *arrayset)
 /// ```
-void glBindArraySetEXT(Pointer<Void>? arrayset) {
-  final _glBindArraySetEXT = glad__glBindArraySetEXT!
-      .cast<NativeFunction<Void Function(Pointer<Void>? arrayset)>>()
-      .asFunction<void Function(Pointer<Void>? arrayset)>();
-  return _glBindArraySetEXT(arrayset);
+void glBindArraySetExt(Pointer<Void> arrayset) {
+  final glBindArraySetExtAsFunction = _glBindArraySetExt
+      .cast<NativeFunction<Void Function(Pointer<Void> arrayset)>>()
+      .asFunction<void Function(Pointer<Void> arrayset)>();
+  return glBindArraySetExtAsFunction(arrayset);
 }
 
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glCreateArraySetExt;
+late Pointer<NativeFunction<Void Function()>> _glCreateArraySetExt;
+
 /// ```c
 /// define glCreateArraySetExt GLEW_GET_FUN(__glewCreateArraySetExt)
 /// GLEW_FUN_EXPORT PFNGLCREATEARRAYSETEXTPROC __glewCreateArraySetExt
 /// typedef const void * (GLAPIENTRY * PFNGLCREATEARRAYSETEXTPROC) (void)
 /// ```
-Pointer<Void>? glCreateArraySetExt() {
-  final _glCreateArraySetExt = glad__glCreateArraySetExt!
-      .cast<NativeFunction<Pointer<Void>? Function()>>()
-      .asFunction<Pointer<Void>? Function()>();
-  return _glCreateArraySetExt();
+Pointer<Void> glCreateArraySetExt() {
+  final glCreateArraySetExtAsFunction = _glCreateArraySetExt
+      .cast<NativeFunction<Pointer<Void> Function()>>()
+      .asFunction<Pointer<Void> Function()>();
+  return glCreateArraySetExtAsFunction();
 }
 
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glDeleteArraySetsEXT;
+late Pointer<NativeFunction<Void Function()>> _glDeleteArraySetsExt;
+
 /// ```c
 /// define glDeleteArraySetsEXT GLEW_GET_FUN(__glewDeleteArraySetsEXT)
 /// GLEW_FUN_EXPORT PFNGLDELETEARRAYSETSEXTPROC __glewDeleteArraySetsEXT
 /// typedef void (GLAPIENTRY * PFNGLDELETEARRAYSETSEXTPROC) (GLsizei n, const void *arrayset[])
 /// ```
-void glDeleteArraySetsEXT(int n, Pointer<Void>? arrayset) {
-  final _glDeleteArraySetsEXT = glad__glDeleteArraySetsEXT!
-      .cast<NativeFunction<Void Function(Uint32 n, Pointer<Void>? arrayset)>>()
-      .asFunction<void Function(int n, Pointer<Void>? arrayset)>();
-  return _glDeleteArraySetsEXT(n, arrayset);
+void glDeleteArraySetsExt(int n, Pointer<Void> arrayset) {
+  final glDeleteArraySetsExtAsFunction = _glDeleteArraySetsExt
+      .cast<NativeFunction<Void Function(Uint32 n, Pointer<Void> arrayset)>>()
+      .asFunction<void Function(int n, Pointer<Void> arrayset)>();
+  return glDeleteArraySetsExtAsFunction(n, arrayset);
 }
 
 /// @nodoc
-void gladLoadGLLoader_ext_vertex_array_setxxx(Pointer<NativeFunction<Void Function()>> Function(String) load) {
-  glad__glBindArraySetEXT = load('glBindArraySetEXT');
-  glad__glCreateArraySetExt = load('glCreateArraySetExt');
-  glad__glDeleteArraySetsEXT = load('glDeleteArraySetsEXT');
+void gladLoadGlLoaderExtVertexArraySetxxx(
+    Pointer<NativeFunction<Void Function()>> Function(String) load) {
+  _glBindArraySetExt = load('glBindArraySetEXT');
+  _glCreateArraySetExt = load('glCreateArraySetExt');
+  _glDeleteArraySetsExt = load('glDeleteArraySetsEXT');
 }

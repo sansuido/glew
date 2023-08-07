@@ -3,20 +3,34 @@ import 'dart:ffi';
 
 /// ------------------- GL_ARB_compute_variable_group_size ------------------
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glDispatchComputeGroupSizeARB;
+late Pointer<NativeFunction<Void Function()>> _glDispatchComputeGroupSizeArb;
+
 /// ```c
 /// define glDispatchComputeGroupSizeARB GLEW_GET_FUN(__glewDispatchComputeGroupSizeARB)
 /// GLEW_FUN_EXPORT PFNGLDISPATCHCOMPUTEGROUPSIZEARBPROC __glewDispatchComputeGroupSizeARB
 /// typedef void (GLAPIENTRY * PFNGLDISPATCHCOMPUTEGROUPSIZEARBPROC) (GLuint num_groups_x, GLuint num_groups_y, GLuint num_groups_z, GLuint group_size_x, GLuint group_size_y, GLuint group_size_z)
 /// ```
-void glDispatchComputeGroupSizeARB(int num_groups_x, int num_groups_y, int num_groups_z, int group_size_x, int group_size_y, int group_size_z) {
-  final _glDispatchComputeGroupSizeARB = glad__glDispatchComputeGroupSizeARB!
-      .cast<NativeFunction<Void Function(Uint32 num_groups_x, Uint32 num_groups_y, Uint32 num_groups_z, Uint32 group_size_x, Uint32 group_size_y, Uint32 group_size_z)>>()
-      .asFunction<void Function(int num_groups_x, int num_groups_y, int num_groups_z, int group_size_x, int group_size_y, int group_size_z)>();
-  return _glDispatchComputeGroupSizeARB(num_groups_x, num_groups_y, num_groups_z, group_size_x, group_size_y, group_size_z);
+void glDispatchComputeGroupSizeArb(int numGroupsX, int numGroupsY,
+    int numGroupsZ, int groupSizeX, int groupSizeY, int groupSizeZ) {
+  final glDispatchComputeGroupSizeArbAsFunction = _glDispatchComputeGroupSizeArb
+      .cast<
+          NativeFunction<
+              Void Function(
+                  Uint32 numGroupsX,
+                  Uint32 numGroupsY,
+                  Uint32 numGroupsZ,
+                  Uint32 groupSizeX,
+                  Uint32 groupSizeY,
+                  Uint32 groupSizeZ)>>()
+      .asFunction<
+          void Function(int numGroupsX, int numGroupsY, int numGroupsZ,
+              int groupSizeX, int groupSizeY, int groupSizeZ)>();
+  return glDispatchComputeGroupSizeArbAsFunction(
+      numGroupsX, numGroupsY, numGroupsZ, groupSizeX, groupSizeY, groupSizeZ);
 }
 
 /// @nodoc
-void gladLoadGLLoader_arb_compute_variable_group_size(Pointer<NativeFunction<Void Function()>> Function(String) load) {
-  glad__glDispatchComputeGroupSizeARB = load('glDispatchComputeGroupSizeARB');
+void gladLoadGlLoaderArbComputeVariableGroupSize(
+    Pointer<NativeFunction<Void Function()>> Function(String) load) {
+  _glDispatchComputeGroupSizeArb = load('glDispatchComputeGroupSizeARB');
 }

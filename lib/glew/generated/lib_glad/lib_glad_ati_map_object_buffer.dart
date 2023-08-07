@@ -3,35 +3,38 @@ import 'dart:ffi';
 
 /// ------------------------ GL_ATI_map_object_buffer -----------------------
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glMapObjectBufferATI;
+late Pointer<NativeFunction<Void Function()>> _glMapObjectBufferAti;
+
 /// ```c
 /// define glMapObjectBufferATI GLEW_GET_FUN(__glewMapObjectBufferATI)
 /// GLEW_FUN_EXPORT PFNGLMAPOBJECTBUFFERATIPROC __glewMapObjectBufferATI
 /// typedef void * (GLAPIENTRY * PFNGLMAPOBJECTBUFFERATIPROC) (GLuint buffer)
 /// ```
-Pointer<Void>? glMapObjectBufferATI(int buffer) {
-  final _glMapObjectBufferATI = glad__glMapObjectBufferATI!
-      .cast<NativeFunction<Pointer<Void>? Function(Uint32 buffer)>>()
-      .asFunction<Pointer<Void>? Function(int buffer)>();
-  return _glMapObjectBufferATI(buffer);
+Pointer<Void> glMapObjectBufferAti(int buffer) {
+  final glMapObjectBufferAtiAsFunction = _glMapObjectBufferAti
+      .cast<NativeFunction<Pointer<Void> Function(Uint32 buffer)>>()
+      .asFunction<Pointer<Void> Function(int buffer)>();
+  return glMapObjectBufferAtiAsFunction(buffer);
 }
 
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glUnmapObjectBufferATI;
+late Pointer<NativeFunction<Void Function()>> _glUnmapObjectBufferAti;
+
 /// ```c
 /// define glUnmapObjectBufferATI GLEW_GET_FUN(__glewUnmapObjectBufferATI)
 /// GLEW_FUN_EXPORT PFNGLUNMAPOBJECTBUFFERATIPROC __glewUnmapObjectBufferATI
 /// typedef void (GLAPIENTRY * PFNGLUNMAPOBJECTBUFFERATIPROC) (GLuint buffer)
 /// ```
-void glUnmapObjectBufferATI(int buffer) {
-  final _glUnmapObjectBufferATI = glad__glUnmapObjectBufferATI!
+void glUnmapObjectBufferAti(int buffer) {
+  final glUnmapObjectBufferAtiAsFunction = _glUnmapObjectBufferAti
       .cast<NativeFunction<Void Function(Uint32 buffer)>>()
       .asFunction<void Function(int buffer)>();
-  return _glUnmapObjectBufferATI(buffer);
+  return glUnmapObjectBufferAtiAsFunction(buffer);
 }
 
 /// @nodoc
-void gladLoadGLLoader_ati_map_object_buffer(Pointer<NativeFunction<Void Function()>> Function(String) load) {
-  glad__glMapObjectBufferATI = load('glMapObjectBufferATI');
-  glad__glUnmapObjectBufferATI = load('glUnmapObjectBufferATI');
+void gladLoadGlLoaderAtiMapObjectBuffer(
+    Pointer<NativeFunction<Void Function()>> Function(String) load) {
+  _glMapObjectBufferAti = load('glMapObjectBufferATI');
+  _glUnmapObjectBufferAti = load('glUnmapObjectBufferATI');
 }

@@ -3,20 +3,22 @@ import 'dart:ffi';
 
 /// --------------------- GL_EXT_texture_perturb_normal ---------------------
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glTextureNormalEXT;
+late Pointer<NativeFunction<Void Function()>> _glTextureNormalExt;
+
 /// ```c
 /// define glTextureNormalEXT GLEW_GET_FUN(__glewTextureNormalEXT)
 /// GLEW_FUN_EXPORT PFNGLTEXTURENORMALEXTPROC __glewTextureNormalEXT
 /// typedef void (GLAPIENTRY * PFNGLTEXTURENORMALEXTPROC) (GLenum mode)
 /// ```
-void glTextureNormalEXT(int mode) {
-  final _glTextureNormalEXT = glad__glTextureNormalEXT!
+void glTextureNormalExt(int mode) {
+  final glTextureNormalExtAsFunction = _glTextureNormalExt
       .cast<NativeFunction<Void Function(Uint32 mode)>>()
       .asFunction<void Function(int mode)>();
-  return _glTextureNormalEXT(mode);
+  return glTextureNormalExtAsFunction(mode);
 }
 
 /// @nodoc
-void gladLoadGLLoader_ext_texture_perturb_normal(Pointer<NativeFunction<Void Function()>> Function(String) load) {
-  glad__glTextureNormalEXT = load('glTextureNormalEXT');
+void gladLoadGlLoaderExtTexturePerturbNormal(
+    Pointer<NativeFunction<Void Function()>> Function(String) load) {
+  _glTextureNormalExt = load('glTextureNormalEXT');
 }

@@ -3,65 +3,73 @@ import 'dart:ffi';
 
 /// -------------------------- GL_SGIS_multitexture -------------------------
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glInterleavedTextureCoordSetsSGIS;
+late Pointer<NativeFunction<Void Function()>>
+    _glInterleavedTextureCoordSetsSgis;
+
 /// ```c
 /// define glInterleavedTextureCoordSetsSGIS GLEW_GET_FUN(__glewInterleavedTextureCoordSetsSGIS)
 /// GLEW_FUN_EXPORT PFNGLINTERLEAVEDTEXTURECOORDSETSSGISPROC __glewInterleavedTextureCoordSetsSGIS
 /// typedef void (GLAPIENTRY * PFNGLINTERLEAVEDTEXTURECOORDSETSSGISPROC) (GLint factor)
 /// ```
-void glInterleavedTextureCoordSetsSGIS(int factor) {
-  final _glInterleavedTextureCoordSetsSGIS = glad__glInterleavedTextureCoordSetsSGIS!
-      .cast<NativeFunction<Void Function(Int32 factor)>>()
-      .asFunction<void Function(int factor)>();
-  return _glInterleavedTextureCoordSetsSGIS(factor);
+void glInterleavedTextureCoordSetsSgis(int factor) {
+  final glInterleavedTextureCoordSetsSgisAsFunction =
+      _glInterleavedTextureCoordSetsSgis
+          .cast<NativeFunction<Void Function(Int32 factor)>>()
+          .asFunction<void Function(int factor)>();
+  return glInterleavedTextureCoordSetsSgisAsFunction(factor);
 }
 
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glSelectTextureCoordSetSGIS;
+late Pointer<NativeFunction<Void Function()>> _glSelectTextureCoordSetSgis;
+
 /// ```c
 /// define glSelectTextureCoordSetSGIS GLEW_GET_FUN(__glewSelectTextureCoordSetSGIS)
 /// GLEW_FUN_EXPORT PFNGLSELECTTEXTURECOORDSETSGISPROC __glewSelectTextureCoordSetSGIS
 /// typedef void (GLAPIENTRY * PFNGLSELECTTEXTURECOORDSETSGISPROC) (GLenum target)
 /// ```
-void glSelectTextureCoordSetSGIS(int target) {
-  final _glSelectTextureCoordSetSGIS = glad__glSelectTextureCoordSetSGIS!
+void glSelectTextureCoordSetSgis(int target) {
+  final glSelectTextureCoordSetSgisAsFunction = _glSelectTextureCoordSetSgis
       .cast<NativeFunction<Void Function(Uint32 target)>>()
       .asFunction<void Function(int target)>();
-  return _glSelectTextureCoordSetSGIS(target);
+  return glSelectTextureCoordSetSgisAsFunction(target);
 }
 
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glSelectTextureSGIS;
+late Pointer<NativeFunction<Void Function()>> _glSelectTextureSgis;
+
 /// ```c
 /// define glSelectTextureSGIS GLEW_GET_FUN(__glewSelectTextureSGIS)
 /// GLEW_FUN_EXPORT PFNGLSELECTTEXTURESGISPROC __glewSelectTextureSGIS
 /// typedef void (GLAPIENTRY * PFNGLSELECTTEXTURESGISPROC) (GLenum target)
 /// ```
-void glSelectTextureSGIS(int target) {
-  final _glSelectTextureSGIS = glad__glSelectTextureSGIS!
+void glSelectTextureSgis(int target) {
+  final glSelectTextureSgisAsFunction = _glSelectTextureSgis
       .cast<NativeFunction<Void Function(Uint32 target)>>()
       .asFunction<void Function(int target)>();
-  return _glSelectTextureSGIS(target);
+  return glSelectTextureSgisAsFunction(target);
 }
 
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glSelectTextureTransformSGIS;
+late Pointer<NativeFunction<Void Function()>> _glSelectTextureTransformSgis;
+
 /// ```c
 /// define glSelectTextureTransformSGIS GLEW_GET_FUN(__glewSelectTextureTransformSGIS)
 /// GLEW_FUN_EXPORT PFNGLSELECTTEXTURETRANSFORMSGISPROC __glewSelectTextureTransformSGIS
 /// typedef void (GLAPIENTRY * PFNGLSELECTTEXTURETRANSFORMSGISPROC) (GLenum target)
 /// ```
-void glSelectTextureTransformSGIS(int target) {
-  final _glSelectTextureTransformSGIS = glad__glSelectTextureTransformSGIS!
+void glSelectTextureTransformSgis(int target) {
+  final glSelectTextureTransformSgisAsFunction = _glSelectTextureTransformSgis
       .cast<NativeFunction<Void Function(Uint32 target)>>()
       .asFunction<void Function(int target)>();
-  return _glSelectTextureTransformSGIS(target);
+  return glSelectTextureTransformSgisAsFunction(target);
 }
 
 /// @nodoc
-void gladLoadGLLoader_sgis_multitexture(Pointer<NativeFunction<Void Function()>> Function(String) load) {
-  glad__glInterleavedTextureCoordSetsSGIS = load('glInterleavedTextureCoordSetsSGIS');
-  glad__glSelectTextureCoordSetSGIS = load('glSelectTextureCoordSetSGIS');
-  glad__glSelectTextureSGIS = load('glSelectTextureSGIS');
-  glad__glSelectTextureTransformSGIS = load('glSelectTextureTransformSGIS');
+void gladLoadGlLoaderSgisMultitexture(
+    Pointer<NativeFunction<Void Function()>> Function(String) load) {
+  _glInterleavedTextureCoordSetsSgis =
+      load('glInterleavedTextureCoordSetsSGIS');
+  _glSelectTextureCoordSetSgis = load('glSelectTextureCoordSetSGIS');
+  _glSelectTextureSgis = load('glSelectTextureSGIS');
+  _glSelectTextureTransformSgis = load('glSelectTextureTransformSGIS');
 }

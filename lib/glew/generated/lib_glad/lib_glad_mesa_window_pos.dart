@@ -3,365 +3,392 @@ import 'dart:ffi';
 
 /// --------------------------- GL_MESA_window_pos --------------------------
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glWindowPos2dMESA;
+late Pointer<NativeFunction<Void Function()>> _glWindowPos2dMesa;
+
 /// ```c
 /// define glWindowPos2dMESA GLEW_GET_FUN(__glewWindowPos2dMESA)
 /// GLEW_FUN_EXPORT PFNGLWINDOWPOS2DMESAPROC __glewWindowPos2dMESA
 /// typedef void (GLAPIENTRY * PFNGLWINDOWPOS2DMESAPROC) (GLdouble x, GLdouble y)
 /// ```
-void glWindowPos2dMESA(double x, double y) {
-  final _glWindowPos2dMESA = glad__glWindowPos2dMESA!
+void glWindowPos2dMesa(double x, double y) {
+  final glWindowPos2dMesaAsFunction = _glWindowPos2dMesa
       .cast<NativeFunction<Void Function(Double x, Double y)>>()
       .asFunction<void Function(double x, double y)>();
-  return _glWindowPos2dMESA(x, y);
+  return glWindowPos2dMesaAsFunction(x, y);
 }
 
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glWindowPos2dvMESA;
+late Pointer<NativeFunction<Void Function()>> _glWindowPos2dvMesa;
+
 /// ```c
 /// define glWindowPos2dvMESA GLEW_GET_FUN(__glewWindowPos2dvMESA)
 /// GLEW_FUN_EXPORT PFNGLWINDOWPOS2DVMESAPROC __glewWindowPos2dvMESA
 /// typedef void (GLAPIENTRY * PFNGLWINDOWPOS2DVMESAPROC) (const GLdouble* p)
 /// ```
-void glWindowPos2dvMESA(Pointer<Double>? p) {
-  final _glWindowPos2dvMESA = glad__glWindowPos2dvMESA!
-      .cast<NativeFunction<Void Function(Pointer<Double>? p)>>()
-      .asFunction<void Function(Pointer<Double>? p)>();
-  return _glWindowPos2dvMESA(p);
+void glWindowPos2dvMesa(Pointer<Double> p) {
+  final glWindowPos2dvMesaAsFunction = _glWindowPos2dvMesa
+      .cast<NativeFunction<Void Function(Pointer<Double> p)>>()
+      .asFunction<void Function(Pointer<Double> p)>();
+  return glWindowPos2dvMesaAsFunction(p);
 }
 
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glWindowPos2fMESA;
+late Pointer<NativeFunction<Void Function()>> _glWindowPos2fMesa;
+
 /// ```c
 /// define glWindowPos2fMESA GLEW_GET_FUN(__glewWindowPos2fMESA)
 /// GLEW_FUN_EXPORT PFNGLWINDOWPOS2FMESAPROC __glewWindowPos2fMESA
 /// typedef void (GLAPIENTRY * PFNGLWINDOWPOS2FMESAPROC) (GLfloat x, GLfloat y)
 /// ```
-void glWindowPos2fMESA(double x, double y) {
-  final _glWindowPos2fMESA = glad__glWindowPos2fMESA!
+void glWindowPos2fMesa(double x, double y) {
+  final glWindowPos2fMesaAsFunction = _glWindowPos2fMesa
       .cast<NativeFunction<Void Function(Float x, Float y)>>()
       .asFunction<void Function(double x, double y)>();
-  return _glWindowPos2fMESA(x, y);
+  return glWindowPos2fMesaAsFunction(x, y);
 }
 
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glWindowPos2fvMESA;
+late Pointer<NativeFunction<Void Function()>> _glWindowPos2fvMesa;
+
 /// ```c
 /// define glWindowPos2fvMESA GLEW_GET_FUN(__glewWindowPos2fvMESA)
 /// GLEW_FUN_EXPORT PFNGLWINDOWPOS2FVMESAPROC __glewWindowPos2fvMESA
 /// typedef void (GLAPIENTRY * PFNGLWINDOWPOS2FVMESAPROC) (const GLfloat* p)
 /// ```
-void glWindowPos2fvMESA(Pointer<Float>? p) {
-  final _glWindowPos2fvMESA = glad__glWindowPos2fvMESA!
-      .cast<NativeFunction<Void Function(Pointer<Float>? p)>>()
-      .asFunction<void Function(Pointer<Float>? p)>();
-  return _glWindowPos2fvMESA(p);
+void glWindowPos2fvMesa(Pointer<Float> p) {
+  final glWindowPos2fvMesaAsFunction = _glWindowPos2fvMesa
+      .cast<NativeFunction<Void Function(Pointer<Float> p)>>()
+      .asFunction<void Function(Pointer<Float> p)>();
+  return glWindowPos2fvMesaAsFunction(p);
 }
 
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glWindowPos2iMESA;
+late Pointer<NativeFunction<Void Function()>> _glWindowPos2iMesa;
+
 /// ```c
 /// define glWindowPos2iMESA GLEW_GET_FUN(__glewWindowPos2iMESA)
 /// GLEW_FUN_EXPORT PFNGLWINDOWPOS2IMESAPROC __glewWindowPos2iMESA
 /// typedef void (GLAPIENTRY * PFNGLWINDOWPOS2IMESAPROC) (GLint x, GLint y)
 /// ```
-void glWindowPos2iMESA(int x, int y) {
-  final _glWindowPos2iMESA = glad__glWindowPos2iMESA!
+void glWindowPos2iMesa(int x, int y) {
+  final glWindowPos2iMesaAsFunction = _glWindowPos2iMesa
       .cast<NativeFunction<Void Function(Int32 x, Int32 y)>>()
       .asFunction<void Function(int x, int y)>();
-  return _glWindowPos2iMESA(x, y);
+  return glWindowPos2iMesaAsFunction(x, y);
 }
 
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glWindowPos2ivMESA;
+late Pointer<NativeFunction<Void Function()>> _glWindowPos2ivMesa;
+
 /// ```c
 /// define glWindowPos2ivMESA GLEW_GET_FUN(__glewWindowPos2ivMESA)
 /// GLEW_FUN_EXPORT PFNGLWINDOWPOS2IVMESAPROC __glewWindowPos2ivMESA
 /// typedef void (GLAPIENTRY * PFNGLWINDOWPOS2IVMESAPROC) (const GLint* p)
 /// ```
-void glWindowPos2ivMESA(Pointer<Int32>? p) {
-  final _glWindowPos2ivMESA = glad__glWindowPos2ivMESA!
-      .cast<NativeFunction<Void Function(Pointer<Int32>? p)>>()
-      .asFunction<void Function(Pointer<Int32>? p)>();
-  return _glWindowPos2ivMESA(p);
+void glWindowPos2ivMesa(Pointer<Int32> p) {
+  final glWindowPos2ivMesaAsFunction = _glWindowPos2ivMesa
+      .cast<NativeFunction<Void Function(Pointer<Int32> p)>>()
+      .asFunction<void Function(Pointer<Int32> p)>();
+  return glWindowPos2ivMesaAsFunction(p);
 }
 
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glWindowPos2sMESA;
+late Pointer<NativeFunction<Void Function()>> _glWindowPos2sMesa;
+
 /// ```c
 /// define glWindowPos2sMESA GLEW_GET_FUN(__glewWindowPos2sMESA)
 /// GLEW_FUN_EXPORT PFNGLWINDOWPOS2SMESAPROC __glewWindowPos2sMESA
 /// typedef void (GLAPIENTRY * PFNGLWINDOWPOS2SMESAPROC) (GLshort x, GLshort y)
 /// ```
-void glWindowPos2sMESA(int x, int y) {
-  final _glWindowPos2sMESA = glad__glWindowPos2sMESA!
+void glWindowPos2sMesa(int x, int y) {
+  final glWindowPos2sMesaAsFunction = _glWindowPos2sMesa
       .cast<NativeFunction<Void Function(Int16 x, Int16 y)>>()
       .asFunction<void Function(int x, int y)>();
-  return _glWindowPos2sMESA(x, y);
+  return glWindowPos2sMesaAsFunction(x, y);
 }
 
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glWindowPos2svMESA;
+late Pointer<NativeFunction<Void Function()>> _glWindowPos2svMesa;
+
 /// ```c
 /// define glWindowPos2svMESA GLEW_GET_FUN(__glewWindowPos2svMESA)
 /// GLEW_FUN_EXPORT PFNGLWINDOWPOS2SVMESAPROC __glewWindowPos2svMESA
 /// typedef void (GLAPIENTRY * PFNGLWINDOWPOS2SVMESAPROC) (const GLshort* p)
 /// ```
-void glWindowPos2svMESA(Pointer<Int16>? p) {
-  final _glWindowPos2svMESA = glad__glWindowPos2svMESA!
-      .cast<NativeFunction<Void Function(Pointer<Int16>? p)>>()
-      .asFunction<void Function(Pointer<Int16>? p)>();
-  return _glWindowPos2svMESA(p);
+void glWindowPos2svMesa(Pointer<Int16> p) {
+  final glWindowPos2svMesaAsFunction = _glWindowPos2svMesa
+      .cast<NativeFunction<Void Function(Pointer<Int16> p)>>()
+      .asFunction<void Function(Pointer<Int16> p)>();
+  return glWindowPos2svMesaAsFunction(p);
 }
 
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glWindowPos3dMESA;
+late Pointer<NativeFunction<Void Function()>> _glWindowPos3dMesa;
+
 /// ```c
 /// define glWindowPos3dMESA GLEW_GET_FUN(__glewWindowPos3dMESA)
 /// GLEW_FUN_EXPORT PFNGLWINDOWPOS3DMESAPROC __glewWindowPos3dMESA
 /// typedef void (GLAPIENTRY * PFNGLWINDOWPOS3DMESAPROC) (GLdouble x, GLdouble y, GLdouble z)
 /// ```
-void glWindowPos3dMESA(double x, double y, double z) {
-  final _glWindowPos3dMESA = glad__glWindowPos3dMESA!
+void glWindowPos3dMesa(double x, double y, double z) {
+  final glWindowPos3dMesaAsFunction = _glWindowPos3dMesa
       .cast<NativeFunction<Void Function(Double x, Double y, Double z)>>()
       .asFunction<void Function(double x, double y, double z)>();
-  return _glWindowPos3dMESA(x, y, z);
+  return glWindowPos3dMesaAsFunction(x, y, z);
 }
 
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glWindowPos3dvMESA;
+late Pointer<NativeFunction<Void Function()>> _glWindowPos3dvMesa;
+
 /// ```c
 /// define glWindowPos3dvMESA GLEW_GET_FUN(__glewWindowPos3dvMESA)
 /// GLEW_FUN_EXPORT PFNGLWINDOWPOS3DVMESAPROC __glewWindowPos3dvMESA
 /// typedef void (GLAPIENTRY * PFNGLWINDOWPOS3DVMESAPROC) (const GLdouble* p)
 /// ```
-void glWindowPos3dvMESA(Pointer<Double>? p) {
-  final _glWindowPos3dvMESA = glad__glWindowPos3dvMESA!
-      .cast<NativeFunction<Void Function(Pointer<Double>? p)>>()
-      .asFunction<void Function(Pointer<Double>? p)>();
-  return _glWindowPos3dvMESA(p);
+void glWindowPos3dvMesa(Pointer<Double> p) {
+  final glWindowPos3dvMesaAsFunction = _glWindowPos3dvMesa
+      .cast<NativeFunction<Void Function(Pointer<Double> p)>>()
+      .asFunction<void Function(Pointer<Double> p)>();
+  return glWindowPos3dvMesaAsFunction(p);
 }
 
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glWindowPos3fMESA;
+late Pointer<NativeFunction<Void Function()>> _glWindowPos3fMesa;
+
 /// ```c
 /// define glWindowPos3fMESA GLEW_GET_FUN(__glewWindowPos3fMESA)
 /// GLEW_FUN_EXPORT PFNGLWINDOWPOS3FMESAPROC __glewWindowPos3fMESA
 /// typedef void (GLAPIENTRY * PFNGLWINDOWPOS3FMESAPROC) (GLfloat x, GLfloat y, GLfloat z)
 /// ```
-void glWindowPos3fMESA(double x, double y, double z) {
-  final _glWindowPos3fMESA = glad__glWindowPos3fMESA!
+void glWindowPos3fMesa(double x, double y, double z) {
+  final glWindowPos3fMesaAsFunction = _glWindowPos3fMesa
       .cast<NativeFunction<Void Function(Float x, Float y, Float z)>>()
       .asFunction<void Function(double x, double y, double z)>();
-  return _glWindowPos3fMESA(x, y, z);
+  return glWindowPos3fMesaAsFunction(x, y, z);
 }
 
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glWindowPos3fvMESA;
+late Pointer<NativeFunction<Void Function()>> _glWindowPos3fvMesa;
+
 /// ```c
 /// define glWindowPos3fvMESA GLEW_GET_FUN(__glewWindowPos3fvMESA)
 /// GLEW_FUN_EXPORT PFNGLWINDOWPOS3FVMESAPROC __glewWindowPos3fvMESA
 /// typedef void (GLAPIENTRY * PFNGLWINDOWPOS3FVMESAPROC) (const GLfloat* p)
 /// ```
-void glWindowPos3fvMESA(Pointer<Float>? p) {
-  final _glWindowPos3fvMESA = glad__glWindowPos3fvMESA!
-      .cast<NativeFunction<Void Function(Pointer<Float>? p)>>()
-      .asFunction<void Function(Pointer<Float>? p)>();
-  return _glWindowPos3fvMESA(p);
+void glWindowPos3fvMesa(Pointer<Float> p) {
+  final glWindowPos3fvMesaAsFunction = _glWindowPos3fvMesa
+      .cast<NativeFunction<Void Function(Pointer<Float> p)>>()
+      .asFunction<void Function(Pointer<Float> p)>();
+  return glWindowPos3fvMesaAsFunction(p);
 }
 
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glWindowPos3iMESA;
+late Pointer<NativeFunction<Void Function()>> _glWindowPos3iMesa;
+
 /// ```c
 /// define glWindowPos3iMESA GLEW_GET_FUN(__glewWindowPos3iMESA)
 /// GLEW_FUN_EXPORT PFNGLWINDOWPOS3IMESAPROC __glewWindowPos3iMESA
 /// typedef void (GLAPIENTRY * PFNGLWINDOWPOS3IMESAPROC) (GLint x, GLint y, GLint z)
 /// ```
-void glWindowPos3iMESA(int x, int y, int z) {
-  final _glWindowPos3iMESA = glad__glWindowPos3iMESA!
+void glWindowPos3iMesa(int x, int y, int z) {
+  final glWindowPos3iMesaAsFunction = _glWindowPos3iMesa
       .cast<NativeFunction<Void Function(Int32 x, Int32 y, Int32 z)>>()
       .asFunction<void Function(int x, int y, int z)>();
-  return _glWindowPos3iMESA(x, y, z);
+  return glWindowPos3iMesaAsFunction(x, y, z);
 }
 
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glWindowPos3ivMESA;
+late Pointer<NativeFunction<Void Function()>> _glWindowPos3ivMesa;
+
 /// ```c
 /// define glWindowPos3ivMESA GLEW_GET_FUN(__glewWindowPos3ivMESA)
 /// GLEW_FUN_EXPORT PFNGLWINDOWPOS3IVMESAPROC __glewWindowPos3ivMESA
 /// typedef void (GLAPIENTRY * PFNGLWINDOWPOS3IVMESAPROC) (const GLint* p)
 /// ```
-void glWindowPos3ivMESA(Pointer<Int32>? p) {
-  final _glWindowPos3ivMESA = glad__glWindowPos3ivMESA!
-      .cast<NativeFunction<Void Function(Pointer<Int32>? p)>>()
-      .asFunction<void Function(Pointer<Int32>? p)>();
-  return _glWindowPos3ivMESA(p);
+void glWindowPos3ivMesa(Pointer<Int32> p) {
+  final glWindowPos3ivMesaAsFunction = _glWindowPos3ivMesa
+      .cast<NativeFunction<Void Function(Pointer<Int32> p)>>()
+      .asFunction<void Function(Pointer<Int32> p)>();
+  return glWindowPos3ivMesaAsFunction(p);
 }
 
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glWindowPos3sMESA;
+late Pointer<NativeFunction<Void Function()>> _glWindowPos3sMesa;
+
 /// ```c
 /// define glWindowPos3sMESA GLEW_GET_FUN(__glewWindowPos3sMESA)
 /// GLEW_FUN_EXPORT PFNGLWINDOWPOS3SMESAPROC __glewWindowPos3sMESA
 /// typedef void (GLAPIENTRY * PFNGLWINDOWPOS3SMESAPROC) (GLshort x, GLshort y, GLshort z)
 /// ```
-void glWindowPos3sMESA(int x, int y, int z) {
-  final _glWindowPos3sMESA = glad__glWindowPos3sMESA!
+void glWindowPos3sMesa(int x, int y, int z) {
+  final glWindowPos3sMesaAsFunction = _glWindowPos3sMesa
       .cast<NativeFunction<Void Function(Int16 x, Int16 y, Int16 z)>>()
       .asFunction<void Function(int x, int y, int z)>();
-  return _glWindowPos3sMESA(x, y, z);
+  return glWindowPos3sMesaAsFunction(x, y, z);
 }
 
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glWindowPos3svMESA;
+late Pointer<NativeFunction<Void Function()>> _glWindowPos3svMesa;
+
 /// ```c
 /// define glWindowPos3svMESA GLEW_GET_FUN(__glewWindowPos3svMESA)
 /// GLEW_FUN_EXPORT PFNGLWINDOWPOS3SVMESAPROC __glewWindowPos3svMESA
 /// typedef void (GLAPIENTRY * PFNGLWINDOWPOS3SVMESAPROC) (const GLshort* p)
 /// ```
-void glWindowPos3svMESA(Pointer<Int16>? p) {
-  final _glWindowPos3svMESA = glad__glWindowPos3svMESA!
-      .cast<NativeFunction<Void Function(Pointer<Int16>? p)>>()
-      .asFunction<void Function(Pointer<Int16>? p)>();
-  return _glWindowPos3svMESA(p);
+void glWindowPos3svMesa(Pointer<Int16> p) {
+  final glWindowPos3svMesaAsFunction = _glWindowPos3svMesa
+      .cast<NativeFunction<Void Function(Pointer<Int16> p)>>()
+      .asFunction<void Function(Pointer<Int16> p)>();
+  return glWindowPos3svMesaAsFunction(p);
 }
 
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glWindowPos4dMESA;
+late Pointer<NativeFunction<Void Function()>> _glWindowPos4dMesa;
+
 /// ```c
 /// define glWindowPos4dMESA GLEW_GET_FUN(__glewWindowPos4dMESA)
 /// GLEW_FUN_EXPORT PFNGLWINDOWPOS4DMESAPROC __glewWindowPos4dMESA
 /// typedef void (GLAPIENTRY * PFNGLWINDOWPOS4DMESAPROC) (GLdouble x, GLdouble y, GLdouble z, GLdouble)
 /// ```
-void glWindowPos4dMESA(double x, double y, double z, double arg3) {
-  final _glWindowPos4dMESA = glad__glWindowPos4dMESA!
-      .cast<NativeFunction<Void Function(Double x, Double y, Double z, Double arg3)>>()
+void glWindowPos4dMesa(double x, double y, double z, double arg3) {
+  final glWindowPos4dMesaAsFunction = _glWindowPos4dMesa
+      .cast<
+          NativeFunction<
+              Void Function(Double x, Double y, Double z, Double arg3)>>()
       .asFunction<void Function(double x, double y, double z, double arg3)>();
-  return _glWindowPos4dMESA(x, y, z, arg3);
+  return glWindowPos4dMesaAsFunction(x, y, z, arg3);
 }
 
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glWindowPos4dvMESA;
+late Pointer<NativeFunction<Void Function()>> _glWindowPos4dvMesa;
+
 /// ```c
 /// define glWindowPos4dvMESA GLEW_GET_FUN(__glewWindowPos4dvMESA)
 /// GLEW_FUN_EXPORT PFNGLWINDOWPOS4DVMESAPROC __glewWindowPos4dvMESA
 /// typedef void (GLAPIENTRY * PFNGLWINDOWPOS4DVMESAPROC) (const GLdouble* p)
 /// ```
-void glWindowPos4dvMESA(Pointer<Double>? p) {
-  final _glWindowPos4dvMESA = glad__glWindowPos4dvMESA!
-      .cast<NativeFunction<Void Function(Pointer<Double>? p)>>()
-      .asFunction<void Function(Pointer<Double>? p)>();
-  return _glWindowPos4dvMESA(p);
+void glWindowPos4dvMesa(Pointer<Double> p) {
+  final glWindowPos4dvMesaAsFunction = _glWindowPos4dvMesa
+      .cast<NativeFunction<Void Function(Pointer<Double> p)>>()
+      .asFunction<void Function(Pointer<Double> p)>();
+  return glWindowPos4dvMesaAsFunction(p);
 }
 
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glWindowPos4fMESA;
+late Pointer<NativeFunction<Void Function()>> _glWindowPos4fMesa;
+
 /// ```c
 /// define glWindowPos4fMESA GLEW_GET_FUN(__glewWindowPos4fMESA)
 /// GLEW_FUN_EXPORT PFNGLWINDOWPOS4FMESAPROC __glewWindowPos4fMESA
 /// typedef void (GLAPIENTRY * PFNGLWINDOWPOS4FMESAPROC) (GLfloat x, GLfloat y, GLfloat z, GLfloat w)
 /// ```
-void glWindowPos4fMESA(double x, double y, double z, double w) {
-  final _glWindowPos4fMESA = glad__glWindowPos4fMESA!
+void glWindowPos4fMesa(double x, double y, double z, double w) {
+  final glWindowPos4fMesaAsFunction = _glWindowPos4fMesa
       .cast<NativeFunction<Void Function(Float x, Float y, Float z, Float w)>>()
       .asFunction<void Function(double x, double y, double z, double w)>();
-  return _glWindowPos4fMESA(x, y, z, w);
+  return glWindowPos4fMesaAsFunction(x, y, z, w);
 }
 
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glWindowPos4fvMESA;
+late Pointer<NativeFunction<Void Function()>> _glWindowPos4fvMesa;
+
 /// ```c
 /// define glWindowPos4fvMESA GLEW_GET_FUN(__glewWindowPos4fvMESA)
 /// GLEW_FUN_EXPORT PFNGLWINDOWPOS4FVMESAPROC __glewWindowPos4fvMESA
 /// typedef void (GLAPIENTRY * PFNGLWINDOWPOS4FVMESAPROC) (const GLfloat* p)
 /// ```
-void glWindowPos4fvMESA(Pointer<Float>? p) {
-  final _glWindowPos4fvMESA = glad__glWindowPos4fvMESA!
-      .cast<NativeFunction<Void Function(Pointer<Float>? p)>>()
-      .asFunction<void Function(Pointer<Float>? p)>();
-  return _glWindowPos4fvMESA(p);
+void glWindowPos4fvMesa(Pointer<Float> p) {
+  final glWindowPos4fvMesaAsFunction = _glWindowPos4fvMesa
+      .cast<NativeFunction<Void Function(Pointer<Float> p)>>()
+      .asFunction<void Function(Pointer<Float> p)>();
+  return glWindowPos4fvMesaAsFunction(p);
 }
 
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glWindowPos4iMESA;
+late Pointer<NativeFunction<Void Function()>> _glWindowPos4iMesa;
+
 /// ```c
 /// define glWindowPos4iMESA GLEW_GET_FUN(__glewWindowPos4iMESA)
 /// GLEW_FUN_EXPORT PFNGLWINDOWPOS4IMESAPROC __glewWindowPos4iMESA
 /// typedef void (GLAPIENTRY * PFNGLWINDOWPOS4IMESAPROC) (GLint x, GLint y, GLint z, GLint w)
 /// ```
-void glWindowPos4iMESA(int x, int y, int z, int w) {
-  final _glWindowPos4iMESA = glad__glWindowPos4iMESA!
+void glWindowPos4iMesa(int x, int y, int z, int w) {
+  final glWindowPos4iMesaAsFunction = _glWindowPos4iMesa
       .cast<NativeFunction<Void Function(Int32 x, Int32 y, Int32 z, Int32 w)>>()
       .asFunction<void Function(int x, int y, int z, int w)>();
-  return _glWindowPos4iMESA(x, y, z, w);
+  return glWindowPos4iMesaAsFunction(x, y, z, w);
 }
 
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glWindowPos4ivMESA;
+late Pointer<NativeFunction<Void Function()>> _glWindowPos4ivMesa;
+
 /// ```c
 /// define glWindowPos4ivMESA GLEW_GET_FUN(__glewWindowPos4ivMESA)
 /// GLEW_FUN_EXPORT PFNGLWINDOWPOS4IVMESAPROC __glewWindowPos4ivMESA
 /// typedef void (GLAPIENTRY * PFNGLWINDOWPOS4IVMESAPROC) (const GLint* p)
 /// ```
-void glWindowPos4ivMESA(Pointer<Int32>? p) {
-  final _glWindowPos4ivMESA = glad__glWindowPos4ivMESA!
-      .cast<NativeFunction<Void Function(Pointer<Int32>? p)>>()
-      .asFunction<void Function(Pointer<Int32>? p)>();
-  return _glWindowPos4ivMESA(p);
+void glWindowPos4ivMesa(Pointer<Int32> p) {
+  final glWindowPos4ivMesaAsFunction = _glWindowPos4ivMesa
+      .cast<NativeFunction<Void Function(Pointer<Int32> p)>>()
+      .asFunction<void Function(Pointer<Int32> p)>();
+  return glWindowPos4ivMesaAsFunction(p);
 }
 
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glWindowPos4sMESA;
+late Pointer<NativeFunction<Void Function()>> _glWindowPos4sMesa;
+
 /// ```c
 /// define glWindowPos4sMESA GLEW_GET_FUN(__glewWindowPos4sMESA)
 /// GLEW_FUN_EXPORT PFNGLWINDOWPOS4SMESAPROC __glewWindowPos4sMESA
 /// typedef void (GLAPIENTRY * PFNGLWINDOWPOS4SMESAPROC) (GLshort x, GLshort y, GLshort z, GLshort w)
 /// ```
-void glWindowPos4sMESA(int x, int y, int z, int w) {
-  final _glWindowPos4sMESA = glad__glWindowPos4sMESA!
+void glWindowPos4sMesa(int x, int y, int z, int w) {
+  final glWindowPos4sMesaAsFunction = _glWindowPos4sMesa
       .cast<NativeFunction<Void Function(Int16 x, Int16 y, Int16 z, Int16 w)>>()
       .asFunction<void Function(int x, int y, int z, int w)>();
-  return _glWindowPos4sMESA(x, y, z, w);
+  return glWindowPos4sMesaAsFunction(x, y, z, w);
 }
 
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glWindowPos4svMESA;
+late Pointer<NativeFunction<Void Function()>> _glWindowPos4svMesa;
+
 /// ```c
 /// define glWindowPos4svMESA GLEW_GET_FUN(__glewWindowPos4svMESA)
 /// GLEW_FUN_EXPORT PFNGLWINDOWPOS4SVMESAPROC __glewWindowPos4svMESA
 /// typedef void (GLAPIENTRY * PFNGLWINDOWPOS4SVMESAPROC) (const GLshort* p)
 /// ```
-void glWindowPos4svMESA(Pointer<Int16>? p) {
-  final _glWindowPos4svMESA = glad__glWindowPos4svMESA!
-      .cast<NativeFunction<Void Function(Pointer<Int16>? p)>>()
-      .asFunction<void Function(Pointer<Int16>? p)>();
-  return _glWindowPos4svMESA(p);
+void glWindowPos4svMesa(Pointer<Int16> p) {
+  final glWindowPos4svMesaAsFunction = _glWindowPos4svMesa
+      .cast<NativeFunction<Void Function(Pointer<Int16> p)>>()
+      .asFunction<void Function(Pointer<Int16> p)>();
+  return glWindowPos4svMesaAsFunction(p);
 }
 
 /// @nodoc
-void gladLoadGLLoader_mesa_window_pos(Pointer<NativeFunction<Void Function()>> Function(String) load) {
-  glad__glWindowPos2dMESA = load('glWindowPos2dMESA');
-  glad__glWindowPos2dvMESA = load('glWindowPos2dvMESA');
-  glad__glWindowPos2fMESA = load('glWindowPos2fMESA');
-  glad__glWindowPos2fvMESA = load('glWindowPos2fvMESA');
-  glad__glWindowPos2iMESA = load('glWindowPos2iMESA');
-  glad__glWindowPos2ivMESA = load('glWindowPos2ivMESA');
-  glad__glWindowPos2sMESA = load('glWindowPos2sMESA');
-  glad__glWindowPos2svMESA = load('glWindowPos2svMESA');
-  glad__glWindowPos3dMESA = load('glWindowPos3dMESA');
-  glad__glWindowPos3dvMESA = load('glWindowPos3dvMESA');
-  glad__glWindowPos3fMESA = load('glWindowPos3fMESA');
-  glad__glWindowPos3fvMESA = load('glWindowPos3fvMESA');
-  glad__glWindowPos3iMESA = load('glWindowPos3iMESA');
-  glad__glWindowPos3ivMESA = load('glWindowPos3ivMESA');
-  glad__glWindowPos3sMESA = load('glWindowPos3sMESA');
-  glad__glWindowPos3svMESA = load('glWindowPos3svMESA');
-  glad__glWindowPos4dMESA = load('glWindowPos4dMESA');
-  glad__glWindowPos4dvMESA = load('glWindowPos4dvMESA');
-  glad__glWindowPos4fMESA = load('glWindowPos4fMESA');
-  glad__glWindowPos4fvMESA = load('glWindowPos4fvMESA');
-  glad__glWindowPos4iMESA = load('glWindowPos4iMESA');
-  glad__glWindowPos4ivMESA = load('glWindowPos4ivMESA');
-  glad__glWindowPos4sMESA = load('glWindowPos4sMESA');
-  glad__glWindowPos4svMESA = load('glWindowPos4svMESA');
+void gladLoadGlLoaderMesaWindowPos(
+    Pointer<NativeFunction<Void Function()>> Function(String) load) {
+  _glWindowPos2dMesa = load('glWindowPos2dMESA');
+  _glWindowPos2dvMesa = load('glWindowPos2dvMESA');
+  _glWindowPos2fMesa = load('glWindowPos2fMESA');
+  _glWindowPos2fvMesa = load('glWindowPos2fvMESA');
+  _glWindowPos2iMesa = load('glWindowPos2iMESA');
+  _glWindowPos2ivMesa = load('glWindowPos2ivMESA');
+  _glWindowPos2sMesa = load('glWindowPos2sMESA');
+  _glWindowPos2svMesa = load('glWindowPos2svMESA');
+  _glWindowPos3dMesa = load('glWindowPos3dMESA');
+  _glWindowPos3dvMesa = load('glWindowPos3dvMESA');
+  _glWindowPos3fMesa = load('glWindowPos3fMESA');
+  _glWindowPos3fvMesa = load('glWindowPos3fvMESA');
+  _glWindowPos3iMesa = load('glWindowPos3iMESA');
+  _glWindowPos3ivMesa = load('glWindowPos3ivMESA');
+  _glWindowPos3sMesa = load('glWindowPos3sMESA');
+  _glWindowPos3svMesa = load('glWindowPos3svMESA');
+  _glWindowPos4dMesa = load('glWindowPos4dMESA');
+  _glWindowPos4dvMesa = load('glWindowPos4dvMESA');
+  _glWindowPos4fMesa = load('glWindowPos4fMESA');
+  _glWindowPos4fvMesa = load('glWindowPos4fvMESA');
+  _glWindowPos4iMesa = load('glWindowPos4iMESA');
+  _glWindowPos4ivMesa = load('glWindowPos4ivMESA');
+  _glWindowPos4sMesa = load('glWindowPos4sMESA');
+  _glWindowPos4svMesa = load('glWindowPos4svMESA');
 }

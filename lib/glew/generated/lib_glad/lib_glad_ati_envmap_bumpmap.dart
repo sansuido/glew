@@ -3,65 +3,70 @@ import 'dart:ffi';
 
 /// ------------------------- GL_ATI_envmap_bumpmap -------------------------
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glGetTexBumpParameterfvATI;
+late Pointer<NativeFunction<Void Function()>> _glGetTexBumpParameterfvAti;
+
 /// ```c
 /// define glGetTexBumpParameterfvATI GLEW_GET_FUN(__glewGetTexBumpParameterfvATI)
 /// GLEW_FUN_EXPORT PFNGLGETTEXBUMPPARAMETERFVATIPROC __glewGetTexBumpParameterfvATI
 /// typedef void (GLAPIENTRY * PFNGLGETTEXBUMPPARAMETERFVATIPROC) (GLenum pname, GLfloat *param)
 /// ```
-void glGetTexBumpParameterfvATI(int pname, Pointer<Float>? param) {
-  final _glGetTexBumpParameterfvATI = glad__glGetTexBumpParameterfvATI!
-      .cast<NativeFunction<Void Function(Uint32 pname, Pointer<Float>? param)>>()
-      .asFunction<void Function(int pname, Pointer<Float>? param)>();
-  return _glGetTexBumpParameterfvATI(pname, param);
+void glGetTexBumpParameterfvAti(int pname, Pointer<Float> param) {
+  final glGetTexBumpParameterfvAtiAsFunction = _glGetTexBumpParameterfvAti
+      .cast<NativeFunction<Void Function(Uint32 pname, Pointer<Float> param)>>()
+      .asFunction<void Function(int pname, Pointer<Float> param)>();
+  return glGetTexBumpParameterfvAtiAsFunction(pname, param);
 }
 
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glGetTexBumpParameterivATI;
+late Pointer<NativeFunction<Void Function()>> _glGetTexBumpParameterivAti;
+
 /// ```c
 /// define glGetTexBumpParameterivATI GLEW_GET_FUN(__glewGetTexBumpParameterivATI)
 /// GLEW_FUN_EXPORT PFNGLGETTEXBUMPPARAMETERIVATIPROC __glewGetTexBumpParameterivATI
 /// typedef void (GLAPIENTRY * PFNGLGETTEXBUMPPARAMETERIVATIPROC) (GLenum pname, GLint *param)
 /// ```
-void glGetTexBumpParameterivATI(int pname, Pointer<Int32>? param) {
-  final _glGetTexBumpParameterivATI = glad__glGetTexBumpParameterivATI!
-      .cast<NativeFunction<Void Function(Uint32 pname, Pointer<Int32>? param)>>()
-      .asFunction<void Function(int pname, Pointer<Int32>? param)>();
-  return _glGetTexBumpParameterivATI(pname, param);
+void glGetTexBumpParameterivAti(int pname, Pointer<Int32> param) {
+  final glGetTexBumpParameterivAtiAsFunction = _glGetTexBumpParameterivAti
+      .cast<NativeFunction<Void Function(Uint32 pname, Pointer<Int32> param)>>()
+      .asFunction<void Function(int pname, Pointer<Int32> param)>();
+  return glGetTexBumpParameterivAtiAsFunction(pname, param);
 }
 
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glTexBumpParameterfvATI;
+late Pointer<NativeFunction<Void Function()>> _glTexBumpParameterfvAti;
+
 /// ```c
 /// define glTexBumpParameterfvATI GLEW_GET_FUN(__glewTexBumpParameterfvATI)
 /// GLEW_FUN_EXPORT PFNGLTEXBUMPPARAMETERFVATIPROC __glewTexBumpParameterfvATI
 /// typedef void (GLAPIENTRY * PFNGLTEXBUMPPARAMETERFVATIPROC) (GLenum pname, GLfloat *param)
 /// ```
-void glTexBumpParameterfvATI(int pname, Pointer<Float>? param) {
-  final _glTexBumpParameterfvATI = glad__glTexBumpParameterfvATI!
-      .cast<NativeFunction<Void Function(Uint32 pname, Pointer<Float>? param)>>()
-      .asFunction<void Function(int pname, Pointer<Float>? param)>();
-  return _glTexBumpParameterfvATI(pname, param);
+void glTexBumpParameterfvAti(int pname, Pointer<Float> param) {
+  final glTexBumpParameterfvAtiAsFunction = _glTexBumpParameterfvAti
+      .cast<NativeFunction<Void Function(Uint32 pname, Pointer<Float> param)>>()
+      .asFunction<void Function(int pname, Pointer<Float> param)>();
+  return glTexBumpParameterfvAtiAsFunction(pname, param);
 }
 
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glTexBumpParameterivATI;
+late Pointer<NativeFunction<Void Function()>> _glTexBumpParameterivAti;
+
 /// ```c
 /// define glTexBumpParameterivATI GLEW_GET_FUN(__glewTexBumpParameterivATI)
 /// GLEW_FUN_EXPORT PFNGLTEXBUMPPARAMETERIVATIPROC __glewTexBumpParameterivATI
 /// typedef void (GLAPIENTRY * PFNGLTEXBUMPPARAMETERIVATIPROC) (GLenum pname, GLint *param)
 /// ```
-void glTexBumpParameterivATI(int pname, Pointer<Int32>? param) {
-  final _glTexBumpParameterivATI = glad__glTexBumpParameterivATI!
-      .cast<NativeFunction<Void Function(Uint32 pname, Pointer<Int32>? param)>>()
-      .asFunction<void Function(int pname, Pointer<Int32>? param)>();
-  return _glTexBumpParameterivATI(pname, param);
+void glTexBumpParameterivAti(int pname, Pointer<Int32> param) {
+  final glTexBumpParameterivAtiAsFunction = _glTexBumpParameterivAti
+      .cast<NativeFunction<Void Function(Uint32 pname, Pointer<Int32> param)>>()
+      .asFunction<void Function(int pname, Pointer<Int32> param)>();
+  return glTexBumpParameterivAtiAsFunction(pname, param);
 }
 
 /// @nodoc
-void gladLoadGLLoader_ati_envmap_bumpmap(Pointer<NativeFunction<Void Function()>> Function(String) load) {
-  glad__glGetTexBumpParameterfvATI = load('glGetTexBumpParameterfvATI');
-  glad__glGetTexBumpParameterivATI = load('glGetTexBumpParameterivATI');
-  glad__glTexBumpParameterfvATI = load('glTexBumpParameterfvATI');
-  glad__glTexBumpParameterivATI = load('glTexBumpParameterivATI');
+void gladLoadGlLoaderAtiEnvmapBumpmap(
+    Pointer<NativeFunction<Void Function()>> Function(String) load) {
+  _glGetTexBumpParameterfvAti = load('glGetTexBumpParameterfvATI');
+  _glGetTexBumpParameterivAti = load('glGetTexBumpParameterivATI');
+  _glTexBumpParameterfvAti = load('glTexBumpParameterfvATI');
+  _glTexBumpParameterivAti = load('glTexBumpParameterivATI');
 }

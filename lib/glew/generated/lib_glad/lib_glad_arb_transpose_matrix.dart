@@ -3,65 +3,70 @@ import 'dart:ffi';
 
 /// ------------------------ GL_ARB_transpose_matrix ------------------------
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glLoadTransposeMatrixdARB;
+late Pointer<NativeFunction<Void Function()>> _glLoadTransposeMatrixdArb;
+
 /// ```c
 /// define glLoadTransposeMatrixdARB GLEW_GET_FUN(__glewLoadTransposeMatrixdARB)
 /// GLEW_FUN_EXPORT PFNGLLOADTRANSPOSEMATRIXDARBPROC __glewLoadTransposeMatrixdARB
 /// typedef void (GLAPIENTRY * PFNGLLOADTRANSPOSEMATRIXDARBPROC) (GLdouble m[16])
 /// ```
-void glLoadTransposeMatrixdARB(double m) {
-  final _glLoadTransposeMatrixdARB = glad__glLoadTransposeMatrixdARB!
+void glLoadTransposeMatrixdArb(double m) {
+  final glLoadTransposeMatrixdArbAsFunction = _glLoadTransposeMatrixdArb
       .cast<NativeFunction<Void Function(Double m)>>()
       .asFunction<void Function(double m)>();
-  return _glLoadTransposeMatrixdARB(m);
+  return glLoadTransposeMatrixdArbAsFunction(m);
 }
 
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glLoadTransposeMatrixfARB;
+late Pointer<NativeFunction<Void Function()>> _glLoadTransposeMatrixfArb;
+
 /// ```c
 /// define glLoadTransposeMatrixfARB GLEW_GET_FUN(__glewLoadTransposeMatrixfARB)
 /// GLEW_FUN_EXPORT PFNGLLOADTRANSPOSEMATRIXFARBPROC __glewLoadTransposeMatrixfARB
 /// typedef void (GLAPIENTRY * PFNGLLOADTRANSPOSEMATRIXFARBPROC) (GLfloat m[16])
 /// ```
-void glLoadTransposeMatrixfARB(double m) {
-  final _glLoadTransposeMatrixfARB = glad__glLoadTransposeMatrixfARB!
+void glLoadTransposeMatrixfArb(double m) {
+  final glLoadTransposeMatrixfArbAsFunction = _glLoadTransposeMatrixfArb
       .cast<NativeFunction<Void Function(Float m)>>()
       .asFunction<void Function(double m)>();
-  return _glLoadTransposeMatrixfARB(m);
+  return glLoadTransposeMatrixfArbAsFunction(m);
 }
 
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glMultTransposeMatrixdARB;
+late Pointer<NativeFunction<Void Function()>> _glMultTransposeMatrixdArb;
+
 /// ```c
 /// define glMultTransposeMatrixdARB GLEW_GET_FUN(__glewMultTransposeMatrixdARB)
 /// GLEW_FUN_EXPORT PFNGLMULTTRANSPOSEMATRIXDARBPROC __glewMultTransposeMatrixdARB
 /// typedef void (GLAPIENTRY * PFNGLMULTTRANSPOSEMATRIXDARBPROC) (GLdouble m[16])
 /// ```
-void glMultTransposeMatrixdARB(double m) {
-  final _glMultTransposeMatrixdARB = glad__glMultTransposeMatrixdARB!
+void glMultTransposeMatrixdArb(double m) {
+  final glMultTransposeMatrixdArbAsFunction = _glMultTransposeMatrixdArb
       .cast<NativeFunction<Void Function(Double m)>>()
       .asFunction<void Function(double m)>();
-  return _glMultTransposeMatrixdARB(m);
+  return glMultTransposeMatrixdArbAsFunction(m);
 }
 
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glMultTransposeMatrixfARB;
+late Pointer<NativeFunction<Void Function()>> _glMultTransposeMatrixfArb;
+
 /// ```c
 /// define glMultTransposeMatrixfARB GLEW_GET_FUN(__glewMultTransposeMatrixfARB)
 /// GLEW_FUN_EXPORT PFNGLMULTTRANSPOSEMATRIXFARBPROC __glewMultTransposeMatrixfARB
 /// typedef void (GLAPIENTRY * PFNGLMULTTRANSPOSEMATRIXFARBPROC) (GLfloat m[16])
 /// ```
-void glMultTransposeMatrixfARB(double m) {
-  final _glMultTransposeMatrixfARB = glad__glMultTransposeMatrixfARB!
+void glMultTransposeMatrixfArb(double m) {
+  final glMultTransposeMatrixfArbAsFunction = _glMultTransposeMatrixfArb
       .cast<NativeFunction<Void Function(Float m)>>()
       .asFunction<void Function(double m)>();
-  return _glMultTransposeMatrixfARB(m);
+  return glMultTransposeMatrixfArbAsFunction(m);
 }
 
 /// @nodoc
-void gladLoadGLLoader_arb_transpose_matrix(Pointer<NativeFunction<Void Function()>> Function(String) load) {
-  glad__glLoadTransposeMatrixdARB = load('glLoadTransposeMatrixdARB');
-  glad__glLoadTransposeMatrixfARB = load('glLoadTransposeMatrixfARB');
-  glad__glMultTransposeMatrixdARB = load('glMultTransposeMatrixdARB');
-  glad__glMultTransposeMatrixfARB = load('glMultTransposeMatrixfARB');
+void gladLoadGlLoaderArbTransposeMatrix(
+    Pointer<NativeFunction<Void Function()>> Function(String) load) {
+  _glLoadTransposeMatrixdArb = load('glLoadTransposeMatrixdARB');
+  _glLoadTransposeMatrixfArb = load('glLoadTransposeMatrixfARB');
+  _glMultTransposeMatrixdArb = load('glMultTransposeMatrixdARB');
+  _glMultTransposeMatrixfArb = load('glMultTransposeMatrixfARB');
 }

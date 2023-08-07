@@ -3,20 +3,22 @@ import 'dart:ffi';
 
 /// --------------------- GL_ARB_parallel_shader_compile --------------------
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glMaxShaderCompilerThreadsARB;
+late Pointer<NativeFunction<Void Function()>> _glMaxShaderCompilerThreadsArb;
+
 /// ```c
 /// define glMaxShaderCompilerThreadsARB GLEW_GET_FUN(__glewMaxShaderCompilerThreadsARB)
 /// GLEW_FUN_EXPORT PFNGLMAXSHADERCOMPILERTHREADSARBPROC __glewMaxShaderCompilerThreadsARB
 /// typedef void (GLAPIENTRY * PFNGLMAXSHADERCOMPILERTHREADSARBPROC) (GLuint count)
 /// ```
-void glMaxShaderCompilerThreadsARB(int count) {
-  final _glMaxShaderCompilerThreadsARB = glad__glMaxShaderCompilerThreadsARB!
+void glMaxShaderCompilerThreadsArb(int count) {
+  final glMaxShaderCompilerThreadsArbAsFunction = _glMaxShaderCompilerThreadsArb
       .cast<NativeFunction<Void Function(Uint32 count)>>()
       .asFunction<void Function(int count)>();
-  return _glMaxShaderCompilerThreadsARB(count);
+  return glMaxShaderCompilerThreadsArbAsFunction(count);
 }
 
 /// @nodoc
-void gladLoadGLLoader_arb_parallel_shader_compile(Pointer<NativeFunction<Void Function()>> Function(String) load) {
-  glad__glMaxShaderCompilerThreadsARB = load('glMaxShaderCompilerThreadsARB');
+void gladLoadGlLoaderArbParallelShaderCompile(
+    Pointer<NativeFunction<Void Function()>> Function(String) load) {
+  _glMaxShaderCompilerThreadsArb = load('glMaxShaderCompilerThreadsARB');
 }

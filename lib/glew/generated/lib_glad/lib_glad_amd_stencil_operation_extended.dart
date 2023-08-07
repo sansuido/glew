@@ -3,20 +3,22 @@ import 'dart:ffi';
 
 /// ------------------- GL_AMD_stencil_operation_extended -------------------
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glStencilOpValueAMD;
+late Pointer<NativeFunction<Void Function()>> _glStencilOpValueAmd;
+
 /// ```c
 /// define glStencilOpValueAMD GLEW_GET_FUN(__glewStencilOpValueAMD)
 /// GLEW_FUN_EXPORT PFNGLSTENCILOPVALUEAMDPROC __glewStencilOpValueAMD
 /// typedef void (GLAPIENTRY * PFNGLSTENCILOPVALUEAMDPROC) (GLenum face, GLuint value)
 /// ```
-void glStencilOpValueAMD(int face, int value) {
-  final _glStencilOpValueAMD = glad__glStencilOpValueAMD!
+void glStencilOpValueAmd(int face, int value) {
+  final glStencilOpValueAmdAsFunction = _glStencilOpValueAmd
       .cast<NativeFunction<Void Function(Uint32 face, Uint32 value)>>()
       .asFunction<void Function(int face, int value)>();
-  return _glStencilOpValueAMD(face, value);
+  return glStencilOpValueAmdAsFunction(face, value);
 }
 
 /// @nodoc
-void gladLoadGLLoader_amd_stencil_operation_extended(Pointer<NativeFunction<Void Function()>> Function(String) load) {
-  glad__glStencilOpValueAMD = load('glStencilOpValueAMD');
+void gladLoadGlLoaderAmdStencilOperationExtended(
+    Pointer<NativeFunction<Void Function()>> Function(String) load) {
+  _glStencilOpValueAmd = load('glStencilOpValueAMD');
 }

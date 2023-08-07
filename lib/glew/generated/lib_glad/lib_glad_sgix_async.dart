@@ -3,95 +3,102 @@ import 'dart:ffi';
 
 /// ----------------------------- GL_SGIX_async -----------------------------
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glAsyncMarkerSGIX;
+late Pointer<NativeFunction<Void Function()>> _glAsyncMarkerSgix;
+
 /// ```c
 /// define glAsyncMarkerSGIX GLEW_GET_FUN(__glewAsyncMarkerSGIX)
 /// GLEW_FUN_EXPORT PFNGLASYNCMARKERSGIXPROC __glewAsyncMarkerSGIX
 /// typedef void (GLAPIENTRY * PFNGLASYNCMARKERSGIXPROC) (GLuint marker)
 /// ```
-void glAsyncMarkerSGIX(int marker) {
-  final _glAsyncMarkerSGIX = glad__glAsyncMarkerSGIX!
+void glAsyncMarkerSgix(int marker) {
+  final glAsyncMarkerSgixAsFunction = _glAsyncMarkerSgix
       .cast<NativeFunction<Void Function(Uint32 marker)>>()
       .asFunction<void Function(int marker)>();
-  return _glAsyncMarkerSGIX(marker);
+  return glAsyncMarkerSgixAsFunction(marker);
 }
 
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glDeleteAsyncMarkersSGIX;
+late Pointer<NativeFunction<Void Function()>> _glDeleteAsyncMarkersSgix;
+
 /// ```c
 /// define glDeleteAsyncMarkersSGIX GLEW_GET_FUN(__glewDeleteAsyncMarkersSGIX)
 /// GLEW_FUN_EXPORT PFNGLDELETEASYNCMARKERSSGIXPROC __glewDeleteAsyncMarkersSGIX
 /// typedef void (GLAPIENTRY * PFNGLDELETEASYNCMARKERSSGIXPROC) (GLuint marker, GLsizei range)
 /// ```
-void glDeleteAsyncMarkersSGIX(int marker, int range) {
-  final _glDeleteAsyncMarkersSGIX = glad__glDeleteAsyncMarkersSGIX!
+void glDeleteAsyncMarkersSgix(int marker, int range) {
+  final glDeleteAsyncMarkersSgixAsFunction = _glDeleteAsyncMarkersSgix
       .cast<NativeFunction<Void Function(Uint32 marker, Uint32 range)>>()
       .asFunction<void Function(int marker, int range)>();
-  return _glDeleteAsyncMarkersSGIX(marker, range);
+  return glDeleteAsyncMarkersSgixAsFunction(marker, range);
 }
 
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glFinishAsyncSGIX;
+late Pointer<NativeFunction<Void Function()>> _glFinishAsyncSgix;
+
 /// ```c
 /// define glFinishAsyncSGIX GLEW_GET_FUN(__glewFinishAsyncSGIX)
 /// GLEW_FUN_EXPORT PFNGLFINISHASYNCSGIXPROC __glewFinishAsyncSGIX
 /// typedef GLint (GLAPIENTRY * PFNGLFINISHASYNCSGIXPROC) (GLuint* markerp)
 /// ```
-int glFinishAsyncSGIX(Pointer<Uint32>? markerp) {
-  final _glFinishAsyncSGIX = glad__glFinishAsyncSGIX!
-      .cast<NativeFunction<Int32 Function(Pointer<Uint32>? markerp)>>()
-      .asFunction<int Function(Pointer<Uint32>? markerp)>();
-  return _glFinishAsyncSGIX(markerp);
+int glFinishAsyncSgix(Pointer<Uint32> markerp) {
+  final glFinishAsyncSgixAsFunction = _glFinishAsyncSgix
+      .cast<NativeFunction<Int32 Function(Pointer<Uint32> markerp)>>()
+      .asFunction<int Function(Pointer<Uint32> markerp)>();
+  return glFinishAsyncSgixAsFunction(markerp);
 }
 
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glGenAsyncMarkersSGIX;
+late Pointer<NativeFunction<Void Function()>> _glGenAsyncMarkersSgix;
+
 /// ```c
 /// define glGenAsyncMarkersSGIX GLEW_GET_FUN(__glewGenAsyncMarkersSGIX)
 /// GLEW_FUN_EXPORT PFNGLGENASYNCMARKERSSGIXPROC __glewGenAsyncMarkersSGIX
 /// typedef GLuint (GLAPIENTRY * PFNGLGENASYNCMARKERSSGIXPROC) (GLsizei range)
 /// ```
-int glGenAsyncMarkersSGIX(int range) {
-  final _glGenAsyncMarkersSGIX = glad__glGenAsyncMarkersSGIX!
+int glGenAsyncMarkersSgix(int range) {
+  final glGenAsyncMarkersSgixAsFunction = _glGenAsyncMarkersSgix
       .cast<NativeFunction<Uint32 Function(Uint32 range)>>()
       .asFunction<int Function(int range)>();
-  return _glGenAsyncMarkersSGIX(range);
+  return glGenAsyncMarkersSgixAsFunction(range);
 }
 
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glIsAsyncMarkerSGIX;
+late Pointer<NativeFunction<Void Function()>> _glIsAsyncMarkerSgix;
+
 /// ```c
 /// define glIsAsyncMarkerSGIX GLEW_GET_FUN(__glewIsAsyncMarkerSGIX)
 /// GLEW_FUN_EXPORT PFNGLISASYNCMARKERSGIXPROC __glewIsAsyncMarkerSGIX
 /// typedef GLboolean (GLAPIENTRY * PFNGLISASYNCMARKERSGIXPROC) (GLuint marker)
 /// ```
-int glIsAsyncMarkerSGIX(int marker) {
-  final _glIsAsyncMarkerSGIX = glad__glIsAsyncMarkerSGIX!
+int glIsAsyncMarkerSgix(int marker) {
+  final glIsAsyncMarkerSgixAsFunction = _glIsAsyncMarkerSgix
       .cast<NativeFunction<Uint8 Function(Uint32 marker)>>()
       .asFunction<int Function(int marker)>();
-  return _glIsAsyncMarkerSGIX(marker);
+  return glIsAsyncMarkerSgixAsFunction(marker);
 }
 
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glPollAsyncSGIX;
+late Pointer<NativeFunction<Void Function()>> _glPollAsyncSgix;
+
 /// ```c
 /// define glPollAsyncSGIX GLEW_GET_FUN(__glewPollAsyncSGIX)
 /// GLEW_FUN_EXPORT PFNGLPOLLASYNCSGIXPROC __glewPollAsyncSGIX
 /// typedef GLint (GLAPIENTRY * PFNGLPOLLASYNCSGIXPROC) (GLuint* markerp)
 /// ```
-int glPollAsyncSGIX(Pointer<Uint32>? markerp) {
-  final _glPollAsyncSGIX = glad__glPollAsyncSGIX!
-      .cast<NativeFunction<Int32 Function(Pointer<Uint32>? markerp)>>()
-      .asFunction<int Function(Pointer<Uint32>? markerp)>();
-  return _glPollAsyncSGIX(markerp);
+int glPollAsyncSgix(Pointer<Uint32> markerp) {
+  final glPollAsyncSgixAsFunction = _glPollAsyncSgix
+      .cast<NativeFunction<Int32 Function(Pointer<Uint32> markerp)>>()
+      .asFunction<int Function(Pointer<Uint32> markerp)>();
+  return glPollAsyncSgixAsFunction(markerp);
 }
 
 /// @nodoc
-void gladLoadGLLoader_sgix_async(Pointer<NativeFunction<Void Function()>> Function(String) load) {
-  glad__glAsyncMarkerSGIX = load('glAsyncMarkerSGIX');
-  glad__glDeleteAsyncMarkersSGIX = load('glDeleteAsyncMarkersSGIX');
-  glad__glFinishAsyncSGIX = load('glFinishAsyncSGIX');
-  glad__glGenAsyncMarkersSGIX = load('glGenAsyncMarkersSGIX');
-  glad__glIsAsyncMarkerSGIX = load('glIsAsyncMarkerSGIX');
-  glad__glPollAsyncSGIX = load('glPollAsyncSGIX');
+void gladLoadGlLoaderSgixAsync(
+    Pointer<NativeFunction<Void Function()>> Function(String) load) {
+  _glAsyncMarkerSgix = load('glAsyncMarkerSGIX');
+  _glDeleteAsyncMarkersSgix = load('glDeleteAsyncMarkersSGIX');
+  _glFinishAsyncSgix = load('glFinishAsyncSGIX');
+  _glGenAsyncMarkersSgix = load('glGenAsyncMarkersSGIX');
+  _glIsAsyncMarkerSgix = load('glIsAsyncMarkerSGIX');
+  _glPollAsyncSgix = load('glPollAsyncSGIX');
 }

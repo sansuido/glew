@@ -3,20 +3,22 @@ import 'dart:ffi';
 
 /// --------------------------- GL_SGIX_framezoom ---------------------------
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glFrameZoomSGIX;
+late Pointer<NativeFunction<Void Function()>> _glFrameZoomSgix;
+
 /// ```c
 /// define glFrameZoomSGIX GLEW_GET_FUN(__glewFrameZoomSGIX)
 /// GLEW_FUN_EXPORT PFNGLFRAMEZOOMSGIXPROC __glewFrameZoomSGIX
 /// typedef void (GLAPIENTRY * PFNGLFRAMEZOOMSGIXPROC) (GLint factor)
 /// ```
-void glFrameZoomSGIX(int factor) {
-  final _glFrameZoomSGIX = glad__glFrameZoomSGIX!
+void glFrameZoomSgix(int factor) {
+  final glFrameZoomSgixAsFunction = _glFrameZoomSgix
       .cast<NativeFunction<Void Function(Int32 factor)>>()
       .asFunction<void Function(int factor)>();
-  return _glFrameZoomSGIX(factor);
+  return glFrameZoomSgixAsFunction(factor);
 }
 
 /// @nodoc
-void gladLoadGLLoader_sgix_framezoom(Pointer<NativeFunction<Void Function()>> Function(String) load) {
-  glad__glFrameZoomSGIX = load('glFrameZoomSGIX');
+void gladLoadGlLoaderSgixFramezoom(
+    Pointer<NativeFunction<Void Function()>> Function(String) load) {
+  _glFrameZoomSgix = load('glFrameZoomSGIX');
 }

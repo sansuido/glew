@@ -3,20 +3,22 @@ import 'dart:ffi';
 
 /// ------------------------ GL_ARB_provoking_vertex ------------------------
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glProvokingVertex;
+late Pointer<NativeFunction<Void Function()>> _glProvokingVertex;
+
 /// ```c
 /// define glProvokingVertex GLEW_GET_FUN(__glewProvokingVertex)
 /// GLEW_FUN_EXPORT PFNGLPROVOKINGVERTEXPROC __glewProvokingVertex
 /// typedef void (GLAPIENTRY * PFNGLPROVOKINGVERTEXPROC) (GLenum mode)
 /// ```
 void glProvokingVertex(int mode) {
-  final _glProvokingVertex = glad__glProvokingVertex!
+  final glProvokingVertexAsFunction = _glProvokingVertex
       .cast<NativeFunction<Void Function(Uint32 mode)>>()
       .asFunction<void Function(int mode)>();
-  return _glProvokingVertex(mode);
+  return glProvokingVertexAsFunction(mode);
 }
 
 /// @nodoc
-void gladLoadGLLoader_arb_provoking_vertex(Pointer<NativeFunction<Void Function()>> Function(String) load) {
-  glad__glProvokingVertex = load('glProvokingVertex');
+void gladLoadGlLoaderArbProvokingVertex(
+    Pointer<NativeFunction<Void Function()>> Function(String) load) {
+  _glProvokingVertex = load('glProvokingVertex');
 }

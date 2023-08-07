@@ -3,110 +3,121 @@ import 'dart:ffi';
 
 /// -------------------------- GL_SUN_triangle_list -------------------------
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glReplacementCodePointerSUN;
+late Pointer<NativeFunction<Void Function()>> _glReplacementCodePointerSun;
+
 /// ```c
 /// define glReplacementCodePointerSUN GLEW_GET_FUN(__glewReplacementCodePointerSUN)
 /// GLEW_FUN_EXPORT PFNGLREPLACEMENTCODEPOINTERSUNPROC __glewReplacementCodePointerSUN
 /// typedef void (GLAPIENTRY * PFNGLREPLACEMENTCODEPOINTERSUNPROC) (GLenum type, GLsizei stride, const void *pointer)
 /// ```
-void glReplacementCodePointerSUN(int type, int stride, Pointer<Void>? pointer) {
-  final _glReplacementCodePointerSUN = glad__glReplacementCodePointerSUN!
-      .cast<NativeFunction<Void Function(Uint32 type, Uint32 stride, Pointer<Void>? pointer)>>()
-      .asFunction<void Function(int type, int stride, Pointer<Void>? pointer)>();
-  return _glReplacementCodePointerSUN(type, stride, pointer);
+void glReplacementCodePointerSun(int type, int stride, Pointer<Void> pointer) {
+  final glReplacementCodePointerSunAsFunction = _glReplacementCodePointerSun
+      .cast<
+          NativeFunction<
+              Void Function(
+                  Uint32 type, Uint32 stride, Pointer<Void> pointer)>>()
+      .asFunction<void Function(int type, int stride, Pointer<Void> pointer)>();
+  return glReplacementCodePointerSunAsFunction(type, stride, pointer);
 }
 
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glReplacementCodeubSUN;
+late Pointer<NativeFunction<Void Function()>> _glReplacementCodeubSun;
+
 /// ```c
 /// define glReplacementCodeubSUN GLEW_GET_FUN(__glewReplacementCodeubSUN)
 /// GLEW_FUN_EXPORT PFNGLREPLACEMENTCODEUBSUNPROC __glewReplacementCodeubSUN
 /// typedef void (GLAPIENTRY * PFNGLREPLACEMENTCODEUBSUNPROC) (GLubyte code)
 /// ```
-void glReplacementCodeubSUN(int code) {
-  final _glReplacementCodeubSUN = glad__glReplacementCodeubSUN!
+void glReplacementCodeubSun(int code) {
+  final glReplacementCodeubSunAsFunction = _glReplacementCodeubSun
       .cast<NativeFunction<Void Function(Uint8 code)>>()
       .asFunction<void Function(int code)>();
-  return _glReplacementCodeubSUN(code);
+  return glReplacementCodeubSunAsFunction(code);
 }
 
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glReplacementCodeubvSUN;
+late Pointer<NativeFunction<Void Function()>> _glReplacementCodeubvSun;
+
 /// ```c
 /// define glReplacementCodeubvSUN GLEW_GET_FUN(__glewReplacementCodeubvSUN)
 /// GLEW_FUN_EXPORT PFNGLREPLACEMENTCODEUBVSUNPROC __glewReplacementCodeubvSUN
 /// typedef void (GLAPIENTRY * PFNGLREPLACEMENTCODEUBVSUNPROC) (const GLubyte* code)
 /// ```
-void glReplacementCodeubvSUN(Pointer<Uint8>? code) {
-  final _glReplacementCodeubvSUN = glad__glReplacementCodeubvSUN!
-      .cast<NativeFunction<Void Function(Pointer<Uint8>? code)>>()
-      .asFunction<void Function(Pointer<Uint8>? code)>();
-  return _glReplacementCodeubvSUN(code);
+void glReplacementCodeubvSun(Pointer<Uint8> code) {
+  final glReplacementCodeubvSunAsFunction = _glReplacementCodeubvSun
+      .cast<NativeFunction<Void Function(Pointer<Uint8> code)>>()
+      .asFunction<void Function(Pointer<Uint8> code)>();
+  return glReplacementCodeubvSunAsFunction(code);
 }
 
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glReplacementCodeuiSUN;
+late Pointer<NativeFunction<Void Function()>> _glReplacementCodeuiSun;
+
 /// ```c
 /// define glReplacementCodeuiSUN GLEW_GET_FUN(__glewReplacementCodeuiSUN)
 /// GLEW_FUN_EXPORT PFNGLREPLACEMENTCODEUISUNPROC __glewReplacementCodeuiSUN
 /// typedef void (GLAPIENTRY * PFNGLREPLACEMENTCODEUISUNPROC) (GLuint code)
 /// ```
-void glReplacementCodeuiSUN(int code) {
-  final _glReplacementCodeuiSUN = glad__glReplacementCodeuiSUN!
+void glReplacementCodeuiSun(int code) {
+  final glReplacementCodeuiSunAsFunction = _glReplacementCodeuiSun
       .cast<NativeFunction<Void Function(Uint32 code)>>()
       .asFunction<void Function(int code)>();
-  return _glReplacementCodeuiSUN(code);
+  return glReplacementCodeuiSunAsFunction(code);
 }
 
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glReplacementCodeuivSUN;
+late Pointer<NativeFunction<Void Function()>> _glReplacementCodeuivSun;
+
 /// ```c
 /// define glReplacementCodeuivSUN GLEW_GET_FUN(__glewReplacementCodeuivSUN)
 /// GLEW_FUN_EXPORT PFNGLREPLACEMENTCODEUIVSUNPROC __glewReplacementCodeuivSUN
 /// typedef void (GLAPIENTRY * PFNGLREPLACEMENTCODEUIVSUNPROC) (const GLuint* code)
 /// ```
-void glReplacementCodeuivSUN(Pointer<Uint32>? code) {
-  final _glReplacementCodeuivSUN = glad__glReplacementCodeuivSUN!
-      .cast<NativeFunction<Void Function(Pointer<Uint32>? code)>>()
-      .asFunction<void Function(Pointer<Uint32>? code)>();
-  return _glReplacementCodeuivSUN(code);
+void glReplacementCodeuivSun(Pointer<Uint32> code) {
+  final glReplacementCodeuivSunAsFunction = _glReplacementCodeuivSun
+      .cast<NativeFunction<Void Function(Pointer<Uint32> code)>>()
+      .asFunction<void Function(Pointer<Uint32> code)>();
+  return glReplacementCodeuivSunAsFunction(code);
 }
 
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glReplacementCodeusSUN;
+late Pointer<NativeFunction<Void Function()>> _glReplacementCodeusSun;
+
 /// ```c
 /// define glReplacementCodeusSUN GLEW_GET_FUN(__glewReplacementCodeusSUN)
 /// GLEW_FUN_EXPORT PFNGLREPLACEMENTCODEUSSUNPROC __glewReplacementCodeusSUN
 /// typedef void (GLAPIENTRY * PFNGLREPLACEMENTCODEUSSUNPROC) (GLushort code)
 /// ```
-void glReplacementCodeusSUN(int code) {
-  final _glReplacementCodeusSUN = glad__glReplacementCodeusSUN!
+void glReplacementCodeusSun(int code) {
+  final glReplacementCodeusSunAsFunction = _glReplacementCodeusSun
       .cast<NativeFunction<Void Function(Uint16 code)>>()
       .asFunction<void Function(int code)>();
-  return _glReplacementCodeusSUN(code);
+  return glReplacementCodeusSunAsFunction(code);
 }
 
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glReplacementCodeusvSUN;
+late Pointer<NativeFunction<Void Function()>> _glReplacementCodeusvSun;
+
 /// ```c
 /// define glReplacementCodeusvSUN GLEW_GET_FUN(__glewReplacementCodeusvSUN)
 /// GLEW_FUN_EXPORT PFNGLREPLACEMENTCODEUSVSUNPROC __glewReplacementCodeusvSUN
 /// typedef void (GLAPIENTRY * PFNGLREPLACEMENTCODEUSVSUNPROC) (const GLushort* code)
 /// ```
-void glReplacementCodeusvSUN(Pointer<Uint16>? code) {
-  final _glReplacementCodeusvSUN = glad__glReplacementCodeusvSUN!
-      .cast<NativeFunction<Void Function(Pointer<Uint16>? code)>>()
-      .asFunction<void Function(Pointer<Uint16>? code)>();
-  return _glReplacementCodeusvSUN(code);
+void glReplacementCodeusvSun(Pointer<Uint16> code) {
+  final glReplacementCodeusvSunAsFunction = _glReplacementCodeusvSun
+      .cast<NativeFunction<Void Function(Pointer<Uint16> code)>>()
+      .asFunction<void Function(Pointer<Uint16> code)>();
+  return glReplacementCodeusvSunAsFunction(code);
 }
 
 /// @nodoc
-void gladLoadGLLoader_sun_triangle_list(Pointer<NativeFunction<Void Function()>> Function(String) load) {
-  glad__glReplacementCodePointerSUN = load('glReplacementCodePointerSUN');
-  glad__glReplacementCodeubSUN = load('glReplacementCodeubSUN');
-  glad__glReplacementCodeubvSUN = load('glReplacementCodeubvSUN');
-  glad__glReplacementCodeuiSUN = load('glReplacementCodeuiSUN');
-  glad__glReplacementCodeuivSUN = load('glReplacementCodeuivSUN');
-  glad__glReplacementCodeusSUN = load('glReplacementCodeusSUN');
-  glad__glReplacementCodeusvSUN = load('glReplacementCodeusvSUN');
+void gladLoadGlLoaderSunTriangleList(
+    Pointer<NativeFunction<Void Function()>> Function(String) load) {
+  _glReplacementCodePointerSun = load('glReplacementCodePointerSUN');
+  _glReplacementCodeubSun = load('glReplacementCodeubSUN');
+  _glReplacementCodeubvSun = load('glReplacementCodeubvSUN');
+  _glReplacementCodeuiSun = load('glReplacementCodeuiSUN');
+  _glReplacementCodeuivSun = load('glReplacementCodeuivSUN');
+  _glReplacementCodeusSun = load('glReplacementCodeusSUN');
+  _glReplacementCodeusvSun = load('glReplacementCodeusvSUN');
 }

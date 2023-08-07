@@ -3,35 +3,38 @@ import 'dart:ffi';
 
 /// -------------------------- GL_EXT_scene_marker --------------------------
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glBeginSceneEXT;
+late Pointer<NativeFunction<Void Function()>> _glBeginSceneExt;
+
 /// ```c
 /// define glBeginSceneEXT GLEW_GET_FUN(__glewBeginSceneEXT)
 /// GLEW_FUN_EXPORT PFNGLBEGINSCENEEXTPROC __glewBeginSceneEXT
 /// typedef void (GLAPIENTRY * PFNGLBEGINSCENEEXTPROC) (void)
 /// ```
-void glBeginSceneEXT() {
-  final _glBeginSceneEXT = glad__glBeginSceneEXT!
+void glBeginSceneExt() {
+  final glBeginSceneExtAsFunction = _glBeginSceneExt
       .cast<NativeFunction<Void Function()>>()
       .asFunction<void Function()>();
-  return _glBeginSceneEXT();
+  return glBeginSceneExtAsFunction();
 }
 
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glEndSceneEXT;
+late Pointer<NativeFunction<Void Function()>> _glEndSceneExt;
+
 /// ```c
 /// define glEndSceneEXT GLEW_GET_FUN(__glewEndSceneEXT)
 /// GLEW_FUN_EXPORT PFNGLENDSCENEEXTPROC __glewEndSceneEXT
 /// typedef void (GLAPIENTRY * PFNGLENDSCENEEXTPROC) (void)
 /// ```
-void glEndSceneEXT() {
-  final _glEndSceneEXT = glad__glEndSceneEXT!
+void glEndSceneExt() {
+  final glEndSceneExtAsFunction = _glEndSceneExt
       .cast<NativeFunction<Void Function()>>()
       .asFunction<void Function()>();
-  return _glEndSceneEXT();
+  return glEndSceneExtAsFunction();
 }
 
 /// @nodoc
-void gladLoadGLLoader_ext_scene_marker(Pointer<NativeFunction<Void Function()>> Function(String) load) {
-  glad__glBeginSceneEXT = load('glBeginSceneEXT');
-  glad__glEndSceneEXT = load('glEndSceneEXT');
+void gladLoadGlLoaderExtSceneMarker(
+    Pointer<NativeFunction<Void Function()>> Function(String) load) {
+  _glBeginSceneExt = load('glBeginSceneEXT');
+  _glEndSceneExt = load('glEndSceneEXT');
 }

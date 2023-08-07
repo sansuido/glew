@@ -3,20 +3,24 @@ import 'dart:ffi';
 
 /// -------------------------- GL_EXT_semaphore_fd --------------------------
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glImportSemaphoreFdEXT;
+late Pointer<NativeFunction<Void Function()>> _glImportSemaphoreFdExt;
+
 /// ```c
 /// define glImportSemaphoreFdEXT GLEW_GET_FUN(__glewImportSemaphoreFdEXT)
 /// GLEW_FUN_EXPORT PFNGLIMPORTSEMAPHOREFDEXTPROC __glewImportSemaphoreFdEXT
 /// typedef void (GLAPIENTRY * PFNGLIMPORTSEMAPHOREFDEXTPROC) (GLuint semaphore, GLenum handleType, GLint fd)
 /// ```
-void glImportSemaphoreFdEXT(int semaphore, int handleType, int fd) {
-  final _glImportSemaphoreFdEXT = glad__glImportSemaphoreFdEXT!
-      .cast<NativeFunction<Void Function(Uint32 semaphore, Uint32 handleType, Int32 fd)>>()
+void glImportSemaphoreFdExt(int semaphore, int handleType, int fd) {
+  final glImportSemaphoreFdExtAsFunction = _glImportSemaphoreFdExt
+      .cast<
+          NativeFunction<
+              Void Function(Uint32 semaphore, Uint32 handleType, Int32 fd)>>()
       .asFunction<void Function(int semaphore, int handleType, int fd)>();
-  return _glImportSemaphoreFdEXT(semaphore, handleType, fd);
+  return glImportSemaphoreFdExtAsFunction(semaphore, handleType, fd);
 }
 
 /// @nodoc
-void gladLoadGLLoader_ext_semaphore_fd(Pointer<NativeFunction<Void Function()>> Function(String) load) {
-  glad__glImportSemaphoreFdEXT = load('glImportSemaphoreFdEXT');
+void gladLoadGlLoaderExtSemaphoreFd(
+    Pointer<NativeFunction<Void Function()>> Function(String) load) {
+  _glImportSemaphoreFdExt = load('glImportSemaphoreFdEXT');
 }

@@ -3,35 +3,46 @@ import 'dart:ffi';
 
 /// ------------------------ GL_EXT_map_buffer_range ------------------------
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glFlushMappedBufferRangeEXT;
+late Pointer<NativeFunction<Void Function()>> _glFlushMappedBufferRangeExt;
+
 /// ```c
 /// define glFlushMappedBufferRangeEXT GLEW_GET_FUN(__glewFlushMappedBufferRangeEXT)
 /// GLEW_FUN_EXPORT PFNGLFLUSHMAPPEDBUFFERRANGEEXTPROC __glewFlushMappedBufferRangeEXT
 /// typedef void (GLAPIENTRY * PFNGLFLUSHMAPPEDBUFFERRANGEEXTPROC) (GLenum target, GLintptr offset, GLsizeiptr length)
 /// ```
-void glFlushMappedBufferRangeEXT(int target, int offset, int length) {
-  final _glFlushMappedBufferRangeEXT = glad__glFlushMappedBufferRangeEXT!
-      .cast<NativeFunction<Void Function(Uint32 target, Uint64 offset, Uint64 length)>>()
+void glFlushMappedBufferRangeExt(int target, int offset, int length) {
+  final glFlushMappedBufferRangeExtAsFunction = _glFlushMappedBufferRangeExt
+      .cast<
+          NativeFunction<
+              Void Function(Uint32 target, Uint64 offset, Uint64 length)>>()
       .asFunction<void Function(int target, int offset, int length)>();
-  return _glFlushMappedBufferRangeEXT(target, offset, length);
+  return glFlushMappedBufferRangeExtAsFunction(target, offset, length);
 }
 
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glMapBufferRangeEXT;
+late Pointer<NativeFunction<Void Function()>> _glMapBufferRangeExt;
+
 /// ```c
 /// define glMapBufferRangeEXT GLEW_GET_FUN(__glewMapBufferRangeEXT)
 /// GLEW_FUN_EXPORT PFNGLMAPBUFFERRANGEEXTPROC __glewMapBufferRangeEXT
 /// typedef void * (GLAPIENTRY * PFNGLMAPBUFFERRANGEEXTPROC) (GLenum target, GLintptr offset, GLsizeiptr length, GLbitfield access)
 /// ```
-Pointer<Void>? glMapBufferRangeEXT(int target, int offset, int length, int access) {
-  final _glMapBufferRangeEXT = glad__glMapBufferRangeEXT!
-      .cast<NativeFunction<Pointer<Void>? Function(Uint32 target, Uint64 offset, Uint64 length, Uint32 access)>>()
-      .asFunction<Pointer<Void>? Function(int target, int offset, int length, int access)>();
-  return _glMapBufferRangeEXT(target, offset, length, access);
+Pointer<Void> glMapBufferRangeExt(
+    int target, int offset, int length, int access) {
+  final glMapBufferRangeExtAsFunction = _glMapBufferRangeExt
+      .cast<
+          NativeFunction<
+              Pointer<Void> Function(Uint32 target, Uint64 offset,
+                  Uint64 length, Uint32 access)>>()
+      .asFunction<
+          Pointer<Void> Function(
+              int target, int offset, int length, int access)>();
+  return glMapBufferRangeExtAsFunction(target, offset, length, access);
 }
 
 /// @nodoc
-void gladLoadGLLoader_ext_map_buffer_range(Pointer<NativeFunction<Void Function()>> Function(String) load) {
-  glad__glFlushMappedBufferRangeEXT = load('glFlushMappedBufferRangeEXT');
-  glad__glMapBufferRangeEXT = load('glMapBufferRangeEXT');
+void gladLoadGlLoaderExtMapBufferRange(
+    Pointer<NativeFunction<Void Function()>> Function(String) load) {
+  _glFlushMappedBufferRangeExt = load('glFlushMappedBufferRangeEXT');
+  _glMapBufferRangeExt = load('glMapBufferRangeEXT');
 }

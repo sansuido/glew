@@ -3,20 +3,22 @@ import 'dart:ffi';
 
 /// -------------------------- GL_SGIX_fog_texture --------------------------
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glTextureFogSGIX;
+late Pointer<NativeFunction<Void Function()>> _glTextureFogSgix;
+
 /// ```c
 /// define glTextureFogSGIX GLEW_GET_FUN(__glewTextureFogSGIX)
 /// GLEW_FUN_EXPORT PFNGLTEXTUREFOGSGIXPROC __glewTextureFogSGIX
 /// typedef void (GLAPIENTRY * PFNGLTEXTUREFOGSGIXPROC) (GLenum pname)
 /// ```
-void glTextureFogSGIX(int pname) {
-  final _glTextureFogSGIX = glad__glTextureFogSGIX!
+void glTextureFogSgix(int pname) {
+  final glTextureFogSgixAsFunction = _glTextureFogSgix
       .cast<NativeFunction<Void Function(Uint32 pname)>>()
       .asFunction<void Function(int pname)>();
-  return _glTextureFogSGIX(pname);
+  return glTextureFogSgixAsFunction(pname);
 }
 
 /// @nodoc
-void gladLoadGLLoader_sgix_fog_texture(Pointer<NativeFunction<Void Function()>> Function(String) load) {
-  glad__glTextureFogSGIX = load('glTextureFogSGIX');
+void gladLoadGlLoaderSgixFogTexture(
+    Pointer<NativeFunction<Void Function()>> Function(String) load) {
+  _glTextureFogSgix = load('glTextureFogSGIX');
 }

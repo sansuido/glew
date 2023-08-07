@@ -1,3 +1,8 @@
+## 1.1.0
+- [update] Rewrite a pointer to be non-nullable.
+- [update] Functions and structs follow lint rules.
+- [update] Support ffi 2.0.2.
+
 ## 1.0.2
 - [fix] Refactoring.
 

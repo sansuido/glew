@@ -3,275 +3,328 @@ import 'dart:ffi';
 
 /// ------------------------ GL_EXT_fragment_lighting -----------------------
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glFragmentColorMaterialEXT;
+late Pointer<NativeFunction<Void Function()>> _glFragmentColorMaterialExt;
+
 /// ```c
 /// define glFragmentColorMaterialEXT GLEW_GET_FUN(__glewFragmentColorMaterialEXT)
 /// GLEW_FUN_EXPORT PFNGLFRAGMENTCOLORMATERIALEXTPROC __glewFragmentColorMaterialEXT
 /// typedef void (GLAPIENTRY * PFNGLFRAGMENTCOLORMATERIALEXTPROC) (GLenum face, GLenum mode)
 /// ```
-void glFragmentColorMaterialEXT(int face, int mode) {
-  final _glFragmentColorMaterialEXT = glad__glFragmentColorMaterialEXT!
+void glFragmentColorMaterialExt(int face, int mode) {
+  final glFragmentColorMaterialExtAsFunction = _glFragmentColorMaterialExt
       .cast<NativeFunction<Void Function(Uint32 face, Uint32 mode)>>()
       .asFunction<void Function(int face, int mode)>();
-  return _glFragmentColorMaterialEXT(face, mode);
+  return glFragmentColorMaterialExtAsFunction(face, mode);
 }
 
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glFragmentLightModelfEXT;
+late Pointer<NativeFunction<Void Function()>> _glFragmentLightModelfExt;
+
 /// ```c
 /// define glFragmentLightModelfEXT GLEW_GET_FUN(__glewFragmentLightModelfEXT)
 /// GLEW_FUN_EXPORT PFNGLFRAGMENTLIGHTMODELFEXTPROC __glewFragmentLightModelfEXT
 /// typedef void (GLAPIENTRY * PFNGLFRAGMENTLIGHTMODELFEXTPROC) (GLenum pname, GLfloat param)
 /// ```
-void glFragmentLightModelfEXT(int pname, double param) {
-  final _glFragmentLightModelfEXT = glad__glFragmentLightModelfEXT!
+void glFragmentLightModelfExt(int pname, double param) {
+  final glFragmentLightModelfExtAsFunction = _glFragmentLightModelfExt
       .cast<NativeFunction<Void Function(Uint32 pname, Float param)>>()
       .asFunction<void Function(int pname, double param)>();
-  return _glFragmentLightModelfEXT(pname, param);
+  return glFragmentLightModelfExtAsFunction(pname, param);
 }
 
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glFragmentLightModelfvEXT;
+late Pointer<NativeFunction<Void Function()>> _glFragmentLightModelfvExt;
+
 /// ```c
 /// define glFragmentLightModelfvEXT GLEW_GET_FUN(__glewFragmentLightModelfvEXT)
 /// GLEW_FUN_EXPORT PFNGLFRAGMENTLIGHTMODELFVEXTPROC __glewFragmentLightModelfvEXT
 /// typedef void (GLAPIENTRY * PFNGLFRAGMENTLIGHTMODELFVEXTPROC) (GLenum pname, GLfloat* params)
 /// ```
-void glFragmentLightModelfvEXT(int pname, Pointer<Float>? params) {
-  final _glFragmentLightModelfvEXT = glad__glFragmentLightModelfvEXT!
-      .cast<NativeFunction<Void Function(Uint32 pname, Pointer<Float>? params)>>()
-      .asFunction<void Function(int pname, Pointer<Float>? params)>();
-  return _glFragmentLightModelfvEXT(pname, params);
+void glFragmentLightModelfvExt(int pname, Pointer<Float> params) {
+  final glFragmentLightModelfvExtAsFunction = _glFragmentLightModelfvExt
+      .cast<
+          NativeFunction<Void Function(Uint32 pname, Pointer<Float> params)>>()
+      .asFunction<void Function(int pname, Pointer<Float> params)>();
+  return glFragmentLightModelfvExtAsFunction(pname, params);
 }
 
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glFragmentLightModeliEXT;
+late Pointer<NativeFunction<Void Function()>> _glFragmentLightModeliExt;
+
 /// ```c
 /// define glFragmentLightModeliEXT GLEW_GET_FUN(__glewFragmentLightModeliEXT)
 /// GLEW_FUN_EXPORT PFNGLFRAGMENTLIGHTMODELIEXTPROC __glewFragmentLightModeliEXT
 /// typedef void (GLAPIENTRY * PFNGLFRAGMENTLIGHTMODELIEXTPROC) (GLenum pname, GLint param)
 /// ```
-void glFragmentLightModeliEXT(int pname, int param) {
-  final _glFragmentLightModeliEXT = glad__glFragmentLightModeliEXT!
+void glFragmentLightModeliExt(int pname, int param) {
+  final glFragmentLightModeliExtAsFunction = _glFragmentLightModeliExt
       .cast<NativeFunction<Void Function(Uint32 pname, Int32 param)>>()
       .asFunction<void Function(int pname, int param)>();
-  return _glFragmentLightModeliEXT(pname, param);
+  return glFragmentLightModeliExtAsFunction(pname, param);
 }
 
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glFragmentLightModelivEXT;
+late Pointer<NativeFunction<Void Function()>> _glFragmentLightModelivExt;
+
 /// ```c
 /// define glFragmentLightModelivEXT GLEW_GET_FUN(__glewFragmentLightModelivEXT)
 /// GLEW_FUN_EXPORT PFNGLFRAGMENTLIGHTMODELIVEXTPROC __glewFragmentLightModelivEXT
 /// typedef void (GLAPIENTRY * PFNGLFRAGMENTLIGHTMODELIVEXTPROC) (GLenum pname, GLint* params)
 /// ```
-void glFragmentLightModelivEXT(int pname, Pointer<Int32>? params) {
-  final _glFragmentLightModelivEXT = glad__glFragmentLightModelivEXT!
-      .cast<NativeFunction<Void Function(Uint32 pname, Pointer<Int32>? params)>>()
-      .asFunction<void Function(int pname, Pointer<Int32>? params)>();
-  return _glFragmentLightModelivEXT(pname, params);
+void glFragmentLightModelivExt(int pname, Pointer<Int32> params) {
+  final glFragmentLightModelivExtAsFunction = _glFragmentLightModelivExt
+      .cast<
+          NativeFunction<Void Function(Uint32 pname, Pointer<Int32> params)>>()
+      .asFunction<void Function(int pname, Pointer<Int32> params)>();
+  return glFragmentLightModelivExtAsFunction(pname, params);
 }
 
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glFragmentLightfEXT;
+late Pointer<NativeFunction<Void Function()>> _glFragmentLightfExt;
+
 /// ```c
 /// define glFragmentLightfEXT GLEW_GET_FUN(__glewFragmentLightfEXT)
 /// GLEW_FUN_EXPORT PFNGLFRAGMENTLIGHTFEXTPROC __glewFragmentLightfEXT
 /// typedef void (GLAPIENTRY * PFNGLFRAGMENTLIGHTFEXTPROC) (GLenum light, GLenum pname, GLfloat param)
 /// ```
-void glFragmentLightfEXT(int light, int pname, double param) {
-  final _glFragmentLightfEXT = glad__glFragmentLightfEXT!
-      .cast<NativeFunction<Void Function(Uint32 light, Uint32 pname, Float param)>>()
+void glFragmentLightfExt(int light, int pname, double param) {
+  final glFragmentLightfExtAsFunction = _glFragmentLightfExt
+      .cast<
+          NativeFunction<
+              Void Function(Uint32 light, Uint32 pname, Float param)>>()
       .asFunction<void Function(int light, int pname, double param)>();
-  return _glFragmentLightfEXT(light, pname, param);
+  return glFragmentLightfExtAsFunction(light, pname, param);
 }
 
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glFragmentLightfvEXT;
+late Pointer<NativeFunction<Void Function()>> _glFragmentLightfvExt;
+
 /// ```c
 /// define glFragmentLightfvEXT GLEW_GET_FUN(__glewFragmentLightfvEXT)
 /// GLEW_FUN_EXPORT PFNGLFRAGMENTLIGHTFVEXTPROC __glewFragmentLightfvEXT
 /// typedef void (GLAPIENTRY * PFNGLFRAGMENTLIGHTFVEXTPROC) (GLenum light, GLenum pname, GLfloat* params)
 /// ```
-void glFragmentLightfvEXT(int light, int pname, Pointer<Float>? params) {
-  final _glFragmentLightfvEXT = glad__glFragmentLightfvEXT!
-      .cast<NativeFunction<Void Function(Uint32 light, Uint32 pname, Pointer<Float>? params)>>()
-      .asFunction<void Function(int light, int pname, Pointer<Float>? params)>();
-  return _glFragmentLightfvEXT(light, pname, params);
+void glFragmentLightfvExt(int light, int pname, Pointer<Float> params) {
+  final glFragmentLightfvExtAsFunction = _glFragmentLightfvExt
+      .cast<
+          NativeFunction<
+              Void Function(
+                  Uint32 light, Uint32 pname, Pointer<Float> params)>>()
+      .asFunction<void Function(int light, int pname, Pointer<Float> params)>();
+  return glFragmentLightfvExtAsFunction(light, pname, params);
 }
 
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glFragmentLightiEXT;
+late Pointer<NativeFunction<Void Function()>> _glFragmentLightiExt;
+
 /// ```c
 /// define glFragmentLightiEXT GLEW_GET_FUN(__glewFragmentLightiEXT)
 /// GLEW_FUN_EXPORT PFNGLFRAGMENTLIGHTIEXTPROC __glewFragmentLightiEXT
 /// typedef void (GLAPIENTRY * PFNGLFRAGMENTLIGHTIEXTPROC) (GLenum light, GLenum pname, GLint param)
 /// ```
-void glFragmentLightiEXT(int light, int pname, int param) {
-  final _glFragmentLightiEXT = glad__glFragmentLightiEXT!
-      .cast<NativeFunction<Void Function(Uint32 light, Uint32 pname, Int32 param)>>()
+void glFragmentLightiExt(int light, int pname, int param) {
+  final glFragmentLightiExtAsFunction = _glFragmentLightiExt
+      .cast<
+          NativeFunction<
+              Void Function(Uint32 light, Uint32 pname, Int32 param)>>()
       .asFunction<void Function(int light, int pname, int param)>();
-  return _glFragmentLightiEXT(light, pname, param);
+  return glFragmentLightiExtAsFunction(light, pname, param);
 }
 
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glFragmentLightivEXT;
+late Pointer<NativeFunction<Void Function()>> _glFragmentLightivExt;
+
 /// ```c
 /// define glFragmentLightivEXT GLEW_GET_FUN(__glewFragmentLightivEXT)
 /// GLEW_FUN_EXPORT PFNGLFRAGMENTLIGHTIVEXTPROC __glewFragmentLightivEXT
 /// typedef void (GLAPIENTRY * PFNGLFRAGMENTLIGHTIVEXTPROC) (GLenum light, GLenum pname, GLint* params)
 /// ```
-void glFragmentLightivEXT(int light, int pname, Pointer<Int32>? params) {
-  final _glFragmentLightivEXT = glad__glFragmentLightivEXT!
-      .cast<NativeFunction<Void Function(Uint32 light, Uint32 pname, Pointer<Int32>? params)>>()
-      .asFunction<void Function(int light, int pname, Pointer<Int32>? params)>();
-  return _glFragmentLightivEXT(light, pname, params);
+void glFragmentLightivExt(int light, int pname, Pointer<Int32> params) {
+  final glFragmentLightivExtAsFunction = _glFragmentLightivExt
+      .cast<
+          NativeFunction<
+              Void Function(
+                  Uint32 light, Uint32 pname, Pointer<Int32> params)>>()
+      .asFunction<void Function(int light, int pname, Pointer<Int32> params)>();
+  return glFragmentLightivExtAsFunction(light, pname, params);
 }
 
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glFragmentMaterialfEXT;
+late Pointer<NativeFunction<Void Function()>> _glFragmentMaterialfExt;
+
 /// ```c
 /// define glFragmentMaterialfEXT GLEW_GET_FUN(__glewFragmentMaterialfEXT)
 /// GLEW_FUN_EXPORT PFNGLFRAGMENTMATERIALFEXTPROC __glewFragmentMaterialfEXT
 /// typedef void (GLAPIENTRY * PFNGLFRAGMENTMATERIALFEXTPROC) (GLenum face, GLenum pname, const GLfloat param)
 /// ```
-void glFragmentMaterialfEXT(int face, int pname, double param) {
-  final _glFragmentMaterialfEXT = glad__glFragmentMaterialfEXT!
-      .cast<NativeFunction<Void Function(Uint32 face, Uint32 pname, Float param)>>()
+void glFragmentMaterialfExt(int face, int pname, double param) {
+  final glFragmentMaterialfExtAsFunction = _glFragmentMaterialfExt
+      .cast<
+          NativeFunction<
+              Void Function(Uint32 face, Uint32 pname, Float param)>>()
       .asFunction<void Function(int face, int pname, double param)>();
-  return _glFragmentMaterialfEXT(face, pname, param);
+  return glFragmentMaterialfExtAsFunction(face, pname, param);
 }
 
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glFragmentMaterialfvEXT;
+late Pointer<NativeFunction<Void Function()>> _glFragmentMaterialfvExt;
+
 /// ```c
 /// define glFragmentMaterialfvEXT GLEW_GET_FUN(__glewFragmentMaterialfvEXT)
 /// GLEW_FUN_EXPORT PFNGLFRAGMENTMATERIALFVEXTPROC __glewFragmentMaterialfvEXT
 /// typedef void (GLAPIENTRY * PFNGLFRAGMENTMATERIALFVEXTPROC) (GLenum face, GLenum pname, const GLfloat* params)
 /// ```
-void glFragmentMaterialfvEXT(int face, int pname, Pointer<Float>? params) {
-  final _glFragmentMaterialfvEXT = glad__glFragmentMaterialfvEXT!
-      .cast<NativeFunction<Void Function(Uint32 face, Uint32 pname, Pointer<Float>? params)>>()
-      .asFunction<void Function(int face, int pname, Pointer<Float>? params)>();
-  return _glFragmentMaterialfvEXT(face, pname, params);
+void glFragmentMaterialfvExt(int face, int pname, Pointer<Float> params) {
+  final glFragmentMaterialfvExtAsFunction = _glFragmentMaterialfvExt
+      .cast<
+          NativeFunction<
+              Void Function(
+                  Uint32 face, Uint32 pname, Pointer<Float> params)>>()
+      .asFunction<void Function(int face, int pname, Pointer<Float> params)>();
+  return glFragmentMaterialfvExtAsFunction(face, pname, params);
 }
 
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glFragmentMaterialiEXT;
+late Pointer<NativeFunction<Void Function()>> _glFragmentMaterialiExt;
+
 /// ```c
 /// define glFragmentMaterialiEXT GLEW_GET_FUN(__glewFragmentMaterialiEXT)
 /// GLEW_FUN_EXPORT PFNGLFRAGMENTMATERIALIEXTPROC __glewFragmentMaterialiEXT
 /// typedef void (GLAPIENTRY * PFNGLFRAGMENTMATERIALIEXTPROC) (GLenum face, GLenum pname, const GLint param)
 /// ```
-void glFragmentMaterialiEXT(int face, int pname, int param) {
-  final _glFragmentMaterialiEXT = glad__glFragmentMaterialiEXT!
-      .cast<NativeFunction<Void Function(Uint32 face, Uint32 pname, Int32 param)>>()
+void glFragmentMaterialiExt(int face, int pname, int param) {
+  final glFragmentMaterialiExtAsFunction = _glFragmentMaterialiExt
+      .cast<
+          NativeFunction<
+              Void Function(Uint32 face, Uint32 pname, Int32 param)>>()
       .asFunction<void Function(int face, int pname, int param)>();
-  return _glFragmentMaterialiEXT(face, pname, param);
+  return glFragmentMaterialiExtAsFunction(face, pname, param);
 }
 
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glFragmentMaterialivEXT;
+late Pointer<NativeFunction<Void Function()>> _glFragmentMaterialivExt;
+
 /// ```c
 /// define glFragmentMaterialivEXT GLEW_GET_FUN(__glewFragmentMaterialivEXT)
 /// GLEW_FUN_EXPORT PFNGLFRAGMENTMATERIALIVEXTPROC __glewFragmentMaterialivEXT
 /// typedef void (GLAPIENTRY * PFNGLFRAGMENTMATERIALIVEXTPROC) (GLenum face, GLenum pname, const GLint* params)
 /// ```
-void glFragmentMaterialivEXT(int face, int pname, Pointer<Int32>? params) {
-  final _glFragmentMaterialivEXT = glad__glFragmentMaterialivEXT!
-      .cast<NativeFunction<Void Function(Uint32 face, Uint32 pname, Pointer<Int32>? params)>>()
-      .asFunction<void Function(int face, int pname, Pointer<Int32>? params)>();
-  return _glFragmentMaterialivEXT(face, pname, params);
+void glFragmentMaterialivExt(int face, int pname, Pointer<Int32> params) {
+  final glFragmentMaterialivExtAsFunction = _glFragmentMaterialivExt
+      .cast<
+          NativeFunction<
+              Void Function(
+                  Uint32 face, Uint32 pname, Pointer<Int32> params)>>()
+      .asFunction<void Function(int face, int pname, Pointer<Int32> params)>();
+  return glFragmentMaterialivExtAsFunction(face, pname, params);
 }
 
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glGetFragmentLightfvEXT;
+late Pointer<NativeFunction<Void Function()>> _glGetFragmentLightfvExt;
+
 /// ```c
 /// define glGetFragmentLightfvEXT GLEW_GET_FUN(__glewGetFragmentLightfvEXT)
 /// GLEW_FUN_EXPORT PFNGLGETFRAGMENTLIGHTFVEXTPROC __glewGetFragmentLightfvEXT
 /// typedef void (GLAPIENTRY * PFNGLGETFRAGMENTLIGHTFVEXTPROC) (GLenum light, GLenum pname, GLfloat* params)
 /// ```
-void glGetFragmentLightfvEXT(int light, int pname, Pointer<Float>? params) {
-  final _glGetFragmentLightfvEXT = glad__glGetFragmentLightfvEXT!
-      .cast<NativeFunction<Void Function(Uint32 light, Uint32 pname, Pointer<Float>? params)>>()
-      .asFunction<void Function(int light, int pname, Pointer<Float>? params)>();
-  return _glGetFragmentLightfvEXT(light, pname, params);
+void glGetFragmentLightfvExt(int light, int pname, Pointer<Float> params) {
+  final glGetFragmentLightfvExtAsFunction = _glGetFragmentLightfvExt
+      .cast<
+          NativeFunction<
+              Void Function(
+                  Uint32 light, Uint32 pname, Pointer<Float> params)>>()
+      .asFunction<void Function(int light, int pname, Pointer<Float> params)>();
+  return glGetFragmentLightfvExtAsFunction(light, pname, params);
 }
 
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glGetFragmentLightivEXT;
+late Pointer<NativeFunction<Void Function()>> _glGetFragmentLightivExt;
+
 /// ```c
 /// define glGetFragmentLightivEXT GLEW_GET_FUN(__glewGetFragmentLightivEXT)
 /// GLEW_FUN_EXPORT PFNGLGETFRAGMENTLIGHTIVEXTPROC __glewGetFragmentLightivEXT
 /// typedef void (GLAPIENTRY * PFNGLGETFRAGMENTLIGHTIVEXTPROC) (GLenum light, GLenum pname, GLint* params)
 /// ```
-void glGetFragmentLightivEXT(int light, int pname, Pointer<Int32>? params) {
-  final _glGetFragmentLightivEXT = glad__glGetFragmentLightivEXT!
-      .cast<NativeFunction<Void Function(Uint32 light, Uint32 pname, Pointer<Int32>? params)>>()
-      .asFunction<void Function(int light, int pname, Pointer<Int32>? params)>();
-  return _glGetFragmentLightivEXT(light, pname, params);
+void glGetFragmentLightivExt(int light, int pname, Pointer<Int32> params) {
+  final glGetFragmentLightivExtAsFunction = _glGetFragmentLightivExt
+      .cast<
+          NativeFunction<
+              Void Function(
+                  Uint32 light, Uint32 pname, Pointer<Int32> params)>>()
+      .asFunction<void Function(int light, int pname, Pointer<Int32> params)>();
+  return glGetFragmentLightivExtAsFunction(light, pname, params);
 }
 
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glGetFragmentMaterialfvEXT;
+late Pointer<NativeFunction<Void Function()>> _glGetFragmentMaterialfvExt;
+
 /// ```c
 /// define glGetFragmentMaterialfvEXT GLEW_GET_FUN(__glewGetFragmentMaterialfvEXT)
 /// GLEW_FUN_EXPORT PFNGLGETFRAGMENTMATERIALFVEXTPROC __glewGetFragmentMaterialfvEXT
 /// typedef void (GLAPIENTRY * PFNGLGETFRAGMENTMATERIALFVEXTPROC) (GLenum face, GLenum pname, const GLfloat* params)
 /// ```
-void glGetFragmentMaterialfvEXT(int face, int pname, Pointer<Float>? params) {
-  final _glGetFragmentMaterialfvEXT = glad__glGetFragmentMaterialfvEXT!
-      .cast<NativeFunction<Void Function(Uint32 face, Uint32 pname, Pointer<Float>? params)>>()
-      .asFunction<void Function(int face, int pname, Pointer<Float>? params)>();
-  return _glGetFragmentMaterialfvEXT(face, pname, params);
+void glGetFragmentMaterialfvExt(int face, int pname, Pointer<Float> params) {
+  final glGetFragmentMaterialfvExtAsFunction = _glGetFragmentMaterialfvExt
+      .cast<
+          NativeFunction<
+              Void Function(
+                  Uint32 face, Uint32 pname, Pointer<Float> params)>>()
+      .asFunction<void Function(int face, int pname, Pointer<Float> params)>();
+  return glGetFragmentMaterialfvExtAsFunction(face, pname, params);
 }
 
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glGetFragmentMaterialivEXT;
+late Pointer<NativeFunction<Void Function()>> _glGetFragmentMaterialivExt;
+
 /// ```c
 /// define glGetFragmentMaterialivEXT GLEW_GET_FUN(__glewGetFragmentMaterialivEXT)
 /// GLEW_FUN_EXPORT PFNGLGETFRAGMENTMATERIALIVEXTPROC __glewGetFragmentMaterialivEXT
 /// typedef void (GLAPIENTRY * PFNGLGETFRAGMENTMATERIALIVEXTPROC) (GLenum face, GLenum pname, const GLint* params)
 /// ```
-void glGetFragmentMaterialivEXT(int face, int pname, Pointer<Int32>? params) {
-  final _glGetFragmentMaterialivEXT = glad__glGetFragmentMaterialivEXT!
-      .cast<NativeFunction<Void Function(Uint32 face, Uint32 pname, Pointer<Int32>? params)>>()
-      .asFunction<void Function(int face, int pname, Pointer<Int32>? params)>();
-  return _glGetFragmentMaterialivEXT(face, pname, params);
+void glGetFragmentMaterialivExt(int face, int pname, Pointer<Int32> params) {
+  final glGetFragmentMaterialivExtAsFunction = _glGetFragmentMaterialivExt
+      .cast<
+          NativeFunction<
+              Void Function(
+                  Uint32 face, Uint32 pname, Pointer<Int32> params)>>()
+      .asFunction<void Function(int face, int pname, Pointer<Int32> params)>();
+  return glGetFragmentMaterialivExtAsFunction(face, pname, params);
 }
 
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glLightEnviEXT;
+late Pointer<NativeFunction<Void Function()>> _glLightEnviExt;
+
 /// ```c
 /// define glLightEnviEXT GLEW_GET_FUN(__glewLightEnviEXT)
 /// GLEW_FUN_EXPORT PFNGLLIGHTENVIEXTPROC __glewLightEnviEXT
 /// typedef void (GLAPIENTRY * PFNGLLIGHTENVIEXTPROC) (GLenum pname, GLint param)
 /// ```
-void glLightEnviEXT(int pname, int param) {
-  final _glLightEnviEXT = glad__glLightEnviEXT!
+void glLightEnviExt(int pname, int param) {
+  final glLightEnviExtAsFunction = _glLightEnviExt
       .cast<NativeFunction<Void Function(Uint32 pname, Int32 param)>>()
       .asFunction<void Function(int pname, int param)>();
-  return _glLightEnviEXT(pname, param);
+  return glLightEnviExtAsFunction(pname, param);
 }
 
 /// @nodoc
-void gladLoadGLLoader_ext_fragment_lighting(Pointer<NativeFunction<Void Function()>> Function(String) load) {
-  glad__glFragmentColorMaterialEXT = load('glFragmentColorMaterialEXT');
-  glad__glFragmentLightModelfEXT = load('glFragmentLightModelfEXT');
-  glad__glFragmentLightModelfvEXT = load('glFragmentLightModelfvEXT');
-  glad__glFragmentLightModeliEXT = load('glFragmentLightModeliEXT');
-  glad__glFragmentLightModelivEXT = load('glFragmentLightModelivEXT');
-  glad__glFragmentLightfEXT = load('glFragmentLightfEXT');
-  glad__glFragmentLightfvEXT = load('glFragmentLightfvEXT');
-  glad__glFragmentLightiEXT = load('glFragmentLightiEXT');
-  glad__glFragmentLightivEXT = load('glFragmentLightivEXT');
-  glad__glFragmentMaterialfEXT = load('glFragmentMaterialfEXT');
-  glad__glFragmentMaterialfvEXT = load('glFragmentMaterialfvEXT');
-  glad__glFragmentMaterialiEXT = load('glFragmentMaterialiEXT');
-  glad__glFragmentMaterialivEXT = load('glFragmentMaterialivEXT');
-  glad__glGetFragmentLightfvEXT = load('glGetFragmentLightfvEXT');
-  glad__glGetFragmentLightivEXT = load('glGetFragmentLightivEXT');
-  glad__glGetFragmentMaterialfvEXT = load('glGetFragmentMaterialfvEXT');
-  glad__glGetFragmentMaterialivEXT = load('glGetFragmentMaterialivEXT');
-  glad__glLightEnviEXT = load('glLightEnviEXT');
+void gladLoadGlLoaderExtFragmentLighting(
+    Pointer<NativeFunction<Void Function()>> Function(String) load) {
+  _glFragmentColorMaterialExt = load('glFragmentColorMaterialEXT');
+  _glFragmentLightModelfExt = load('glFragmentLightModelfEXT');
+  _glFragmentLightModelfvExt = load('glFragmentLightModelfvEXT');
+  _glFragmentLightModeliExt = load('glFragmentLightModeliEXT');
+  _glFragmentLightModelivExt = load('glFragmentLightModelivEXT');
+  _glFragmentLightfExt = load('glFragmentLightfEXT');
+  _glFragmentLightfvExt = load('glFragmentLightfvEXT');
+  _glFragmentLightiExt = load('glFragmentLightiEXT');
+  _glFragmentLightivExt = load('glFragmentLightivEXT');
+  _glFragmentMaterialfExt = load('glFragmentMaterialfEXT');
+  _glFragmentMaterialfvExt = load('glFragmentMaterialfvEXT');
+  _glFragmentMaterialiExt = load('glFragmentMaterialiEXT');
+  _glFragmentMaterialivExt = load('glFragmentMaterialivEXT');
+  _glGetFragmentLightfvExt = load('glGetFragmentLightfvEXT');
+  _glGetFragmentLightivExt = load('glGetFragmentLightivEXT');
+  _glGetFragmentMaterialfvExt = load('glGetFragmentMaterialfvEXT');
+  _glGetFragmentMaterialivExt = load('glGetFragmentMaterialivEXT');
+  _glLightEnviExt = load('glLightEnviEXT');
 }

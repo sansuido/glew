@@ -3,35 +3,39 @@ import 'dart:ffi';
 
 /// ------------------------ GL_EXT_point_parameters ------------------------
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glPointParameterfEXT;
+late Pointer<NativeFunction<Void Function()>> _glPointParameterfExt;
+
 /// ```c
 /// define glPointParameterfEXT GLEW_GET_FUN(__glewPointParameterfEXT)
 /// GLEW_FUN_EXPORT PFNGLPOINTPARAMETERFEXTPROC __glewPointParameterfEXT
 /// typedef void (GLAPIENTRY * PFNGLPOINTPARAMETERFEXTPROC) (GLenum pname, GLfloat param)
 /// ```
-void glPointParameterfEXT(int pname, double param) {
-  final _glPointParameterfEXT = glad__glPointParameterfEXT!
+void glPointParameterfExt(int pname, double param) {
+  final glPointParameterfExtAsFunction = _glPointParameterfExt
       .cast<NativeFunction<Void Function(Uint32 pname, Float param)>>()
       .asFunction<void Function(int pname, double param)>();
-  return _glPointParameterfEXT(pname, param);
+  return glPointParameterfExtAsFunction(pname, param);
 }
 
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glPointParameterfvEXT;
+late Pointer<NativeFunction<Void Function()>> _glPointParameterfvExt;
+
 /// ```c
 /// define glPointParameterfvEXT GLEW_GET_FUN(__glewPointParameterfvEXT)
 /// GLEW_FUN_EXPORT PFNGLPOINTPARAMETERFVEXTPROC __glewPointParameterfvEXT
 /// typedef void (GLAPIENTRY * PFNGLPOINTPARAMETERFVEXTPROC) (GLenum pname, const GLfloat* params)
 /// ```
-void glPointParameterfvEXT(int pname, Pointer<Float>? params) {
-  final _glPointParameterfvEXT = glad__glPointParameterfvEXT!
-      .cast<NativeFunction<Void Function(Uint32 pname, Pointer<Float>? params)>>()
-      .asFunction<void Function(int pname, Pointer<Float>? params)>();
-  return _glPointParameterfvEXT(pname, params);
+void glPointParameterfvExt(int pname, Pointer<Float> params) {
+  final glPointParameterfvExtAsFunction = _glPointParameterfvExt
+      .cast<
+          NativeFunction<Void Function(Uint32 pname, Pointer<Float> params)>>()
+      .asFunction<void Function(int pname, Pointer<Float> params)>();
+  return glPointParameterfvExtAsFunction(pname, params);
 }
 
 /// @nodoc
-void gladLoadGLLoader_ext_point_parameters(Pointer<NativeFunction<Void Function()>> Function(String) load) {
-  glad__glPointParameterfEXT = load('glPointParameterfEXT');
-  glad__glPointParameterfvEXT = load('glPointParameterfvEXT');
+void gladLoadGlLoaderExtPointParameters(
+    Pointer<NativeFunction<Void Function()>> Function(String) load) {
+  _glPointParameterfExt = load('glPointParameterfEXT');
+  _glPointParameterfvExt = load('glPointParameterfvEXT');
 }

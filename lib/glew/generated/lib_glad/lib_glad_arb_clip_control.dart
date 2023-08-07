@@ -3,20 +3,22 @@ import 'dart:ffi';
 
 /// -------------------------- GL_ARB_clip_control --------------------------
 /// @nodoc
-Pointer<NativeFunction<Void Function()>>? glad__glClipControl;
+late Pointer<NativeFunction<Void Function()>> _glClipControl;
+
 /// ```c
 /// define glClipControl GLEW_GET_FUN(__glewClipControl)
 /// GLEW_FUN_EXPORT PFNGLCLIPCONTROLPROC __glewClipControl
 /// typedef void (GLAPIENTRY * PFNGLCLIPCONTROLPROC) (GLenum origin, GLenum depth)
 /// ```
 void glClipControl(int origin, int depth) {
-  final _glClipControl = glad__glClipControl!
+  final glClipControlAsFunction = _glClipControl
       .cast<NativeFunction<Void Function(Uint32 origin, Uint32 depth)>>()
       .asFunction<void Function(int origin, int depth)>();
-  return _glClipControl(origin, depth);
+  return glClipControlAsFunction(origin, depth);
 }
 
 /// @nodoc
-void gladLoadGLLoader_arb_clip_control(Pointer<NativeFunction<Void Function()>> Function(String) load) {
-  glad__glClipControl = load('glClipControl');
+void gladLoadGlLoaderArbClipControl(
+    Pointer<NativeFunction<Void Function()>> Function(String) load) {
+  _glClipControl = load('glClipControl');
 }

@@ -35,8 +35,11 @@ List<int> gldtGenTextures(int n) {
 }
 
 // lib_gl: 3030
-void gldtTexImage2D(int target, int level, int internalformat, int width, int height, int border, int format, Uint8List pixels, {bool inverted = true}) {
-  Pointer<Uint8> _callocPixelsPointer(Uint8List pixels, int height, bool inverted) {
+void gldtTexImage2D(int target, int level, int internalformat, int width,
+    int height, int border, int format, Uint8List pixels,
+    {bool inverted = true}) {
+  Pointer<Uint8> callocPixelsPointer(
+      Uint8List pixels, int height, bool inverted) {
     var pixelsPointer = calloc<Uint8>(pixels.length);
     var radix = pixels.length ~/ height;
     var index = 0;
@@ -53,8 +56,10 @@ void gldtTexImage2D(int target, int level, int internalformat, int width, int he
     }
     return pixelsPointer;
   }
-  var pixelsPointer = _callocPixelsPointer(pixels, height, inverted);
-  glTexImage2D(target, level, internalformat, width, height, border, format, GL_UNSIGNED_BYTE, pixelsPointer.cast<Void>());
+
+  var pixelsPointer = callocPixelsPointer(pixels, height, inverted);
+  glTexImage2D(target, level, internalformat, width, height, border, format,
+      GL_UNSIGNED_BYTE, pixelsPointer.cast<Void>());
   calloc.free(pixelsPointer);
 }
 
@@ -74,7 +79,8 @@ void gldtBufferUint32(int target, List<int> list, int usage) {
   for (var i = 0; i < list.length; i++) {
     bufferData.elementAt(i).value = list[i];
   }
-  glBufferData(target, sizeOf<Uint32>() * list.length, bufferData.cast<Void>(), usage);
+  glBufferData(
+      target, sizeOf<Uint32>() * list.length, bufferData.cast<Void>(), usage);
   calloc.free(bufferData);
 }
 
@@ -84,7 +90,8 @@ void gldtBufferFloat(int target, List<double> list, int usage) {
   for (var i = 0; i < list.length; i++) {
     bufferData.elementAt(i).value = list[i];
   }
-  glBufferData(target, sizeOf<Float>() * list.length, bufferData.cast<Void>(), usage);
+  glBufferData(
+      target, sizeOf<Float>() * list.length, bufferData.cast<Void>(), usage);
   calloc.free(bufferData);
 }
 
@@ -102,7 +109,7 @@ List<int> gldtGenBuffers(int n) {
 
 // lib_glad_version_2_0:
 String gldtGetProgramInfoLog(int program, int bufSize) {
-  var result;
+  String result;
   var infoLog = calloc<Int8>(bufSize);
   var length = calloc<Uint32>();
   glGetProgramInfoLog(program, bufSize, length, infoLog);
@@ -115,7 +122,7 @@ String gldtGetProgramInfoLog(int program, int bufSize) {
 // lib_glad_version_2_0:
 int gldtGetProgramiv(int program, int pname) {
   var paramPtr = calloc<Int32>();
-  var param;
+  int param;
   glGetProgramiv(program, pname, paramPtr);
   param = paramPtr.value;
   calloc.free(paramPtr);
@@ -124,7 +131,7 @@ int gldtGetProgramiv(int program, int pname) {
 
 // lib_glad_version_2_0:
 String gldtGetShaderInfoLog(int shader, int bufSize) {
-  var result;
+  String result;
   var infoLog = calloc<Int8>(bufSize);
   var length = calloc<Uint32>();
   glGetShaderInfoLog(shader, bufSize, length, infoLog);
@@ -137,7 +144,7 @@ String gldtGetShaderInfoLog(int shader, int bufSize) {
 // lib_glad_version_2_0:
 int gldtGetShaderiv(int shader, int pname) {
   var paramPtr = calloc<Int32>();
-  var param;
+  int param;
   glGetShaderiv(shader, pname, paramPtr);
   param = paramPtr.value;
   calloc.free(paramPtr);
@@ -185,7 +192,8 @@ void gldtUniform4fv(int location, int count, Float32List value) {
 }
 
 // lib_glad_version_2_0:
-void gldtUniformMatrix2fv(int location, int count, int transpose, Float32List value) {
+void gldtUniformMatrix2fv(
+    int location, int count, int transpose, Float32List value) {
   var valuePointer = calloc<Float>(value.length);
   for (var i = 0; i < value.length; i++) {
     valuePointer.elementAt(i).value = value[i];
@@ -195,7 +203,8 @@ void gldtUniformMatrix2fv(int location, int count, int transpose, Float32List va
 }
 
 // lib_glad_version_2_0:
-void gldtUniformMatrix3fv(int location, int count, int transpose, Float32List value) {
+void gldtUniformMatrix3fv(
+    int location, int count, int transpose, Float32List value) {
   var valuePointer = calloc<Float>(value.length);
   for (var i = 0; i < value.length; i++) {
     valuePointer.elementAt(i).value = value[i];
@@ -205,7 +214,8 @@ void gldtUniformMatrix3fv(int location, int count, int transpose, Float32List va
 }
 
 // lib_glad_version_2_0:
-void gldtUniformMatrix4fv(int location, int count, int transpose, Float32List value) {
+void gldtUniformMatrix4fv(
+    int location, int count, int transpose, Float32List value) {
   var valuePointer = calloc<Float>(value.length);
   for (var i = 0; i < value.length; i++) {
     valuePointer.elementAt(i).value = value[i];
@@ -215,11 +225,13 @@ void gldtUniformMatrix4fv(int location, int count, int transpose, Float32List va
 }
 
 // lib_glad_version_2_0:
-void gldtVertexAttribPointer(int index, int size, int type, int normalized, int stride, int pos) {
-  glVertexAttribPointer(index, size, type, normalized, stride, Pointer<Void>.fromAddress(pos));
+void gldtVertexAttribPointer(
+    int index, int size, int type, int normalized, int stride, int pos) {
+  glVertexAttribPointer(
+      index, size, type, normalized, stride, Pointer<Void>.fromAddress(pos));
 }
 
-// lib_glad_arb_vertex_array_object: 
+// lib_glad_arb_vertex_array_object:
 void gldtDeleteVertexArrays(List<int> arrays) {
   var pointer = calloc<Uint32>();
   for (var id in arrays) {
@@ -229,7 +241,7 @@ void gldtDeleteVertexArrays(List<int> arrays) {
   calloc.free(pointer);
 }
 
-// lib_glad_arb_vertex_array_object: 
+// lib_glad_arb_vertex_array_object:
 List<int> gldtGenVertexArrays(int n) {
   var list = <int>[];
   var arrays = calloc<Uint32>(n);
