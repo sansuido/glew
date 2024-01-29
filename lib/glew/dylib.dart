@@ -2,25 +2,41 @@ import 'dart:ffi';
 import 'dart:io';
 
 /// @nodoc
-DynamicLibrary dylibOpen(String mark) {
-  var header = '';
-  var extension = '';
+DynamicLibrary dylibOpenGL() {
+  var lib = '';
   switch (Platform.operatingSystem) {
     case 'android':
     case 'linux':
     case 'fuchsia':
-      header = 'lib';
-      extension = '.so';
+      lib = 'libGL.so';
       break;
     case 'ios':
     case 'macos':
-      header = 'lib';
-      extension = '.dylib';
+      lib = 'libGL.dylib';
       break;
     case 'windows':
-      header = '';
-      extension = '.dll';
+      lib = 'opengl32.dll';
       break;
   }
-  return DynamicLibrary.open(header + mark + extension);
+  return DynamicLibrary.open(lib);
+}
+
+/// @nodoc
+DynamicLibrary dylibOpenGLEW() {
+  var lib = '';
+  switch (Platform.operatingSystem) {
+    case 'android':
+    case 'linux':
+    case 'fuchsia':
+      lib = 'libGLEW.so';
+      break;
+    case 'ios':
+    case 'macos':
+      lib = 'libGLEW.dylib';
+      break;
+    case 'windows':
+      lib = 'glew32.dll';
+      break;
+  }
+  return DynamicLibrary.open(lib);
 }
