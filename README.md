@@ -3,7 +3,7 @@ glew for Dart
 
 # Requirement
 
-* ffi ^2.0.2
+* ffi ^2.1.2
 
 # Note
 

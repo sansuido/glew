@@ -1,5 +1,9 @@
+## 1.2.1
+- [update] Removed deprecated `elementAt`. (Require Dart 3.3.0)
+- [update] Support ffi ^2.1.2.
+
 ## 1.2.0
-- [update] Support ffi 2.1.0.
+- [update] Support ffi 2.1.2.
 - [update] Revised static library references for each platform.
 
 ## 1.1.0

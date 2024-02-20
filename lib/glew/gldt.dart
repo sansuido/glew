@@ -28,7 +28,7 @@ List<int> gldtGenTextures(int n) {
   var textures = calloc<Uint32>(n);
   glGenTextures(n, textures);
   for (var i = 0; i < n; i++) {
-    list.add(textures.elementAt(i).value);
+    list.add((textures + i).value);
   }
   calloc.free(textures);
   return list;
@@ -50,7 +50,7 @@ void gldtTexImage2D(int target, int level, int internalformat, int width,
       }
       var values = pixels.getRange(pos * radix, (pos + 1) * radix);
       for (var value in values) {
-        pixelsPointer.elementAt(index).value = value;
+        (pixelsPointer + index).value = value;
         index++;
       }
     }
@@ -77,7 +77,7 @@ void gldtDeleteBuffers(List<int> buffers) {
 void gldtBufferUint32(int target, List<int> list, int usage) {
   var bufferData = calloc<Uint32>(list.length);
   for (var i = 0; i < list.length; i++) {
-    bufferData.elementAt(i).value = list[i];
+    (bufferData + i).value = list[i];
   }
   glBufferData(
       target, sizeOf<Uint32>() * list.length, bufferData.cast<Void>(), usage);
@@ -88,7 +88,7 @@ void gldtBufferUint32(int target, List<int> list, int usage) {
 void gldtBufferFloat(int target, List<double> list, int usage) {
   var bufferData = calloc<Float>(list.length);
   for (var i = 0; i < list.length; i++) {
-    bufferData.elementAt(i).value = list[i];
+    (bufferData + i).value = list[i];
   }
   glBufferData(
       target, sizeOf<Float>() * list.length, bufferData.cast<Void>(), usage);
@@ -101,7 +101,7 @@ List<int> gldtGenBuffers(int n) {
   var buffers = calloc<Uint32>(n);
   glGenBuffers(n, buffers);
   for (var i = 0; i < n; i++) {
-    list.add(buffers.elementAt(i).value);
+    list.add((buffers + i).value);
   }
   calloc.free(buffers);
   return list;
@@ -165,7 +165,7 @@ void gldtShaderSource(int shader, String source) {
 void gldtUniform2fv(int location, int count, Float32List value) {
   var valuePointer = calloc<Float>(value.length);
   for (var i = 0; i < value.length; i++) {
-    valuePointer.elementAt(i).value = value[i];
+    (valuePointer + i).value = value[i];
   }
   glUniform2fv(location, count, valuePointer);
   calloc.free(valuePointer);
@@ -175,7 +175,7 @@ void gldtUniform2fv(int location, int count, Float32List value) {
 void gldtUniform3fv(int location, int count, Float32List value) {
   var valuePointer = calloc<Float>(value.length);
   for (var i = 0; i < value.length; i++) {
-    valuePointer.elementAt(i).value = value[i];
+    (valuePointer + i).value = value[i];
   }
   glUniform3fv(location, count, valuePointer);
   calloc.free(valuePointer);
@@ -185,7 +185,7 @@ void gldtUniform3fv(int location, int count, Float32List value) {
 void gldtUniform4fv(int location, int count, Float32List value) {
   var valuePointer = calloc<Float>(value.length);
   for (var i = 0; i < value.length; i++) {
-    valuePointer.elementAt(i).value = value[i];
+    (valuePointer + i).value = value[i];
   }
   glUniform4fv(location, count, valuePointer);
   calloc.free(valuePointer);
@@ -196,7 +196,7 @@ void gldtUniformMatrix2fv(
     int location, int count, int transpose, Float32List value) {
   var valuePointer = calloc<Float>(value.length);
   for (var i = 0; i < value.length; i++) {
-    valuePointer.elementAt(i).value = value[i];
+    (valuePointer + i).value = value[i];
   }
   glUniformMatrix2fv(location, count, transpose, valuePointer);
   calloc.free(valuePointer);
@@ -207,7 +207,7 @@ void gldtUniformMatrix3fv(
     int location, int count, int transpose, Float32List value) {
   var valuePointer = calloc<Float>(value.length);
   for (var i = 0; i < value.length; i++) {
-    valuePointer.elementAt(i).value = value[i];
+    (valuePointer + i).value = value[i];
   }
   glUniformMatrix3fv(location, count, transpose, valuePointer);
   calloc.free(valuePointer);
@@ -218,7 +218,7 @@ void gldtUniformMatrix4fv(
     int location, int count, int transpose, Float32List value) {
   var valuePointer = calloc<Float>(value.length);
   for (var i = 0; i < value.length; i++) {
-    valuePointer.elementAt(i).value = value[i];
+    (valuePointer + i).value = value[i];
   }
   glUniformMatrix4fv(location, count, transpose, valuePointer);
   calloc.free(valuePointer);
@@ -247,7 +247,7 @@ List<int> gldtGenVertexArrays(int n) {
   var arrays = calloc<Uint32>(n);
   glGenVertexArrays(n, arrays);
   for (var i = 0; i < n; i++) {
-    list.add(arrays.elementAt(i).value);
+    list.add((arrays + i).value);
   }
   calloc.free(arrays);
   return list;
